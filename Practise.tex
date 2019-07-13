@@ -492,6 +492,25 @@ $\sigma(X) = \sqrt{D(X)} = \frac{b - a}{2\sqrt{3}}$\\
 $\mu_4 = \frac{1}{b - a} \int\limits_{a}^{b}(x - \frac{a + b}{2})^4dx = \frac{(b - a)^4}{80}$, значит $E_x = \frac{\mu_4}{\sigma^4} - 3 = -1.2$\\
 Вероятность попадания на интервал $(\alpha, \beta) \subset (a, b)$:\\
 $P(\alpha<X<\beta) = \int\limits_{\alpha}^{\beta} \frac{1}{(b - a)}dx = \frac{\beta - \alpha}{b - a}$ - соответствует тому, что используется для вычисления вероятности в методе геометрической вероятности.\\
+%страница 22
+\subsection{Биномиальные рапределения}
+Произведение $n$ однотипных опытов, в каждом вероятность события равна $p$. Случайная величина - число реализация события.\\
+Случайная величина $X$ принимает целые значения от $0$ до $n$.\\
+$P(X=m)=C^m_np^mq^n$, $q  = (1 - p)$\\
+1)$\sum\limits_{m=0}^{n}C_n^mp^mq^{n-m} = 1$ -- условие нормирования.\\
+$M(X) = \sum\limits_{m=0}^{n} \frac{mn!}{(n-m)!m!}p^mq^{n-m}$ = $np\sum\limits_{m=0}^{n}\frac{(n-1)!}{(n-m)!(m-1)!}p^{m-1}q^{n-m} = np\sum\limits_{s=0}^{n - 1} \frac{(n-1)!}{(n-s-1)!s!}p^sq^{n-s-1} = np\sum\limits_{m=0}^{n}\frac{k!}{(k-s)!s!}p^sq^{k-s} = np$\\
+$\alpha_2(X)=\sum\limits_{m=0}^{n}m^2P(X=m) = \sum\limits_{m=2}^{n} m(m-1)P(X=m) + \sum\limits_{m=1}^{n}mP(X=m)= n(n-1)p^2\sum\limits_{m=2}^{n}\frac{(n-1)!}{(n-m)!(m-2)!}p^{m-2}q^{n-m} + np$ = $n(n-1)p^2\sum\limits_{s=0}^{n-2}\frac{(n-2)!}{(n-s-2)!s!}p^sq^{n-s-22}+np = n(n-1)p^2\sum\limits_{s = 0}^{k}\frac{k!}{(k-s)!s!}p^{m-2}q^{k-s} + np = n(n-1)p^2 + np$ = $n(n-1)p^2 + np$\\
+$D(X)$ = $\alpha_2(x) - m_x^2$ =  $n(n - 1)p^2 + np - n^2p^2$ = $np(1-p)$ = $npq$\\
+$\sigma(X) = \sqrt{npq}$\\
+$\mu_3(X) = npq(q-p)$, следовательно асиметрия $S_k$ = $\frac{npq(q-p)}{(npq)^{\frac{3}{2}}} = \frac{q-p}{\sqrt{npq}} = \frac{1-2p}{\sqrt{np(1-p)}}$\\
+$S_k$ $<$ $0$ если $p>\frac{1}{2}$\\
+$S_k$ $=$ $0$ если $p=\frac{1}{2}$\\
+$S_k$ $>$ $0$ если $p<\frac{1}{2}$\\
+Если $p$ фиксированно, то $\displaystyle{ \lim_{n \to{ \infty}}}S_k = 0$ для любого $p$\\
+Мода $M$ - целое число, определяемое из двойного неравенства$np-q \leq M \leq np + p$\\
+Если целое, то две моды: $np+p$ и $np-q$\\
+%страница 23
+
 
 \end{document}
 
