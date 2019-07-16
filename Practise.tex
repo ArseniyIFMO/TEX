@@ -677,6 +677,7 @@ $f_1(x) = F_1'(x) = \displaystyle{\int \limits_{-\infty}^{\infty}} f(x, y) dy$\\
 Соотношение $f(x, y) = f_1(x) f_2(y|x)$ соответствует теореме умножения вероятностей. Смысл: $f_2(y|x)$ -- это плотность распределения случайной величины $Y$ при условии, что $X=x$.\\
 Для дискретной случайной величины: $p_i = \sum\limits_{j} p_{ij}$\\
 $P(X=x_i) =  \sum\limits_{j} P(X=x_i, Y=y_j)$\\
+%страница 32
 \textit{\textbf{Определение}}\\
 Случайные величины $X, Y$ называются независимыми, если $f(x, y) = f_1(x)f_2(y)$ (для непрерыных случайных величин)\\
 $ P(X = x_i, Y = y_j) = P(X=x_i) P(Y=y_j)$ (для дискретных случайных  величин)\\
@@ -692,7 +693,87 @@ $f(x_1, x_2, \ .\ .\ .x_n) = \frac{\delta^nF(x_1, x_2, .\ .\ . x_n)}{\delta x_1 
 $F_1(x_1) = F(x_1, \infty, \ .\ .\ ., \infty)$\\
 $f_1(x_1) =  \displaystyle{\int \limits_{-\infty}^{\infty}}.\ .\ .\  \displaystyle{\int \limits_{-\infty}^{\infty}} f(x_1, .\  .\ , x_n) dx_2\ .\ .\ dx_n$\\
 Случайные величины независимы, если $f(x_1, x_2, .\ .\ .\ x_n)  = f_1(x_1)  f_2(x_2)\ .\ .\ . f_n(x_n)$\\
+%страница 33
+\subsection{Числовые характеристики системы из 2х случайных величин}
+Основные характеристики системы $(X, Y)$:\\
+$M(X), M(Y), D(X), D(Y), K_{XY}$ -- они уже определены, но их можно находить, не вычисляя $f_1(x), f_2(y)$.\\
+\begin{tabular}[b]{ | l | l |  }
+\hline
+ Дискретная & Непрерывная   \\
+  сл. вел-на   & сл.  вел-на   \\
+\hline
+$M(X) = \displaystyle{ \sum \limits_{i, j}^{}} x_i p_{i, j} $ & $\displaystyle{\iint\limits_{-\infty}^{\infty}} xf(x, y)dxdy$ \\
+\hline
+$M(Y) = \displaystyle{ \sum \limits_{i, j}^{}} y_j p_{i, j} $ & $\displaystyle{\iint\limits_{-\infty}^{\infty}} yf(x, y)dxdy$ \\
+\hline
+$D(X) = \displaystyle{ \sum \limits_{i, j}^{}} (x_i - M(X))^2 p_{i,j} $ & $\displaystyle{\iint\limits_{-\infty}^{\infty}} (x - M(X))^2 f(x, y) dxdy$ \\
+&=  $\displaystyle{\iint\limits_{-\infty}^{\infty}} x^2 f(x, y) dxdy$\\
+\hline
+$K_{X, Y} = \displaystyle{ \sum \limits_{i, j}^{}} (x_i - M(X))(y_j - M(Y)) p_{ij}$ & $\displaystyle{\iint\limits_{-\infty}^{\infty}} (x - M(X))(y - M(Y)) f(x, y) dxdy$\\
+$=cov(X, Y)$ & \\
+\hline
+\end{tabular}\\
+$\textbf{Теорема}$\\
+Корреляционный момент независимых случайных величин равен нулю\\
+\underline{Доказательство:}\\
+Для  непрерывных случайных величин:\\
+Они независимы, значит, $f(x, y) = f_1(x)f_2(y)$\\
+$K_{XY} = \displaystyle{\int\limits_{-\infty}^{\infty}} (x-M(X))f_1(x)dx \displaystyle{\int\limits_{-\infty}^{\infty}} (y-M(Y)) f_2(y)dy = 0$\\
+$r_{XY} = \frac{K_{XY}}{\sigma_x \sigma_y}$, $\sigma_x = \sqrt{D(X)}$, $\sigma_y = \sqrt{D(Y)}$.\\
+\textbf{Пример}\\
+\begin{equation*} 
+f(x, y)=
+ \begin{cases}
+   \frac{1}{\pi},   x^2 + y^2 < 1\\
+   0 , x^2 + y^2 > 1\\
+ \end{cases}
+\end{equation*}\\
+Величины являются зависимыми (если $X  = 0$, то $Y$ может с равными веротяностями принимать значения на $[-1, 1]$, если $x=1$, то $Y$ может принять одно единственное значение $Y=0$.)\\
+$M(X)=M(Y) = 0$ по соображениям симметрии.\\
+$K_{XY}$ = $\displaystyle{\iint\limits_{C}^{}} xf(x, y)dxdy$ =  $\frac{1}{\pi} \displaystyle{\iint\limits_{C}^{}} xy dxdy$ = $\frac{1}{\pi} \displaystyle{\iint\limits_{C_1}^{}} xy dxdy$+ $\frac{1}{\pi} \displaystyle{\iint\limits_{C_2}^{}} xy dxdy$ + $\frac{1}{\pi} \displaystyle{\iint\limits_{C_2}^{}} xy dxdy$ + $\frac{1}{\pi} \displaystyle{\iint\limits_{C_3}^{}} xy dxdy$ + $\frac{1}{\pi} \displaystyle{\iint\limits_{C_4}^{}} xy dxdy$ = $0$.
+То есть независимые следовательно некоррелирующие, обратное неверно.\\
+$-1\leq r_{xy} \leq 1$\\
+Если $Y=aX+b$, то $r_{XY} \pm \ 1$\\
+Если $a>0$   , то +1, если $a<0$ то $-1$\\
+Докажем это позже.\\
+\textbf{Пример}\\
+а)Вест и рост человек связаны положительной корреляцией\\
+б)Возраст взрослого человека и количество волос у него на голове связаны отрицательной корреляцией\\
+$\alpha_{k,s} (X,Y) = \sum\limits_{i, j} x_i^k y_j^s p_{ij} =  \displaystyle{\iint\limits_{-\infty}^{\infty}} x^k y^s f(x, y) dx dy  $ -- начальный момент корреляции.\\ 
+$\mu_{k,s}(X, T)  \sum\limits_{i, j} (x_i - M(X))^k (y_j - M(Y))^s p_{i, j} = \displaystyle{\iint\limits_{-\infty}^{\infty}}(x-M(X))^k(y-M(y))^s f(x, y) dxdy$
+%страница 34
+\begin{center}
+$\textbf{Числовые характеристики случайных величин}$
+\end{center}
+$X_1, X_2, .\ .\ .\ .\ X_n$ -- их характеристики: $n$ математических ожиданий $(m_1, m_2, \ .\ . \  m_n)$, $n$ дисперсий $(D_1, \ .\ .\ . D_n)$,  $n(n-1)$ корреляционных моментов:
+$K_{i,j} = M((X_i - m_i)(X_j - m_j))$($D_i$ = $K_{ii}$)\\
+Корреляционные матрицы K
+$
+\begin{pmatrix}
+  D_1 & K_{12} & K_{13} &\ .\ .\ .&  K_{1n} \\
+  K_{21} & D_2 & K_{23} &\ .\ .\ .&  K_{2n} \\
+  .& . & . & . &. \\
+  K_{n1} & K_{n2} & \ .&\ .\ & D_{n}
+\end{pmatrix}
+$\\
+Если $X_1, X_2, \ .\ .\ . X_n$- не коррелированны , то корреляционная матрицы 
+$
+\begin{pmatrix}
+  D_1 & 0 & 0 &\ .\ .\ .& 0 \\
+  0  & D_2 & 0 &\ .\ .\ .& 0 \\
+  .& . & . & . &. \\
+  0 & 0 & \ .&\ .\ & D_{n}
+\end{pmatrix}
+$
 
+Коэффициент корреляции $r_{ij} = \frac{k_{ij}}{\sigma_i \sigma_j}$\\
+Нормированная корреляционная матрица $
+\begin{pmatrix}
+  1 & r_{12} & r_{13} &\ .\ .\ .&  r_{1n} \\
+   r_{21} & 1  & r_{23} &\ .\ .\ .& r_{2n} \\
+  .& . & . & . &. \\
+   r_{n1} & r_{n2} & \ .&\ .\ & 1
+\end{pmatrix}
+$ -- характеризует именно коррелированность, безотносительно  к их рассеиванию.
 
 \end{document}
-
