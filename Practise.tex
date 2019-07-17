@@ -408,10 +408,11 @@ $M(X) = \int\limits_{0}^{1}x\cdot 2x d x  = \frac{2}{3}$\\
 $D(x) = \int\limits_{0}^{1}x^2\cdot 2x d x - \frac{4}{9} = \frac{1}{2} - \frac{4}{9} = \frac{1}{18}$\\
 $\sigma(x) = \frac{1}{3\sqrt{2}}$
 Чему равно $x_p$?\\
-$F(x) = \int\limits_{0}^{\inf}2tdt = x^2$, $x^2 = p$, следовательно, $x_p = \sqrt{p}; M_e = x_\frac{1}{2} = \frac{1}{\sqrt{2}}$\\
+$F(x) = \int\limits_{0}^{\inf}2tdt = x^2$, $x^2 = p$, следовательно, $x_p = \sqrt{p};\\
+ M_e = x_\frac{1}{2} = \frac{1}{\sqrt{2}}$\\
 %страница 19
 Начальный момент порядка S: $\alpha_S$ = $\sum\limits_{k} x^s_kp_k$  = $\int\limits_{-\infty}^{\infty}x^sf(x)dx$\\
-Центральный момент порядка S:  $\sum\limits_{k}^{}(x_k-M(x))^sp_k$  = $\int\limits_{-\infty}^{\infty}(x- M(x))^sf(x)dx$\\
+Центральный момент порядка S:  $\mu_2 = \sum\limits_{k}^{}(x_k-M(x))^sp_k$  = $\int\limits_{-\infty}^{\infty}(x- M(x))^sf(x)dx$\\
 Центральный и начальный моменты связаны: $\mu_2 = \alpha_2 - m_x^2$\\
 $\mu_3 = \sum\limits_{i}^{n}(x_i-m_x)^3p_i =\sum\limits_{i}^{}x_i^3p_i - 3m_x\sum\limits_{i}^{ }x_i^2p_i + 3m_x^2\sum\limits_{i}^{ }x_ip_i - m_x^3\sum\limits_{i}^{ }p_i = \alpha_3 - 3 m_x \alpha_2 + 2m_x^3$\\
 Можно определить моменты не относительно $m_x$, а относительно точки $a$: $M((x-a)^s)$.\\
@@ -590,7 +591,7 @@ $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-
  \frac{\sigma^2}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t\cdot2te^{-t^2}dt = \frac{\sigma^2}{\sqrt{\pi}} (-te^{-t^2}|_{-\infty}^{\infty} + \int\limits_{-\infty}^{\infty}e^{-t^2}dt)$ = $\sigma^2$\\
 $M=Me=m $ -- мода и медиана совпадают с $M(X)$.\\
 $\mu_s(x) = \int\limits_{-\infty}^{\infty} (x-m)^s f(x)dx = \frac{1}{\sigma\sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^s e^{-\frac{(x-m)^2}{2\sigma^2}}dx. $ . Пусть $t = \frac{x - m}{\sigma\sqrt{2}}$.
-Тогда $\mu_s(x) = \frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}}  \int\limits_{-\infty}^{\infty} t^s e^{-t^2} dt$  = $\frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}} (-\frac{1}{2}e^{-t^2}t^{s-1}|_{-\infty}^{\infty}+ \frac{s-1}{2}\int\limits_{-\infty}^{\infty}t^{s-2}e^{-t^2} = \frac{(s-1)(\sigma\sqrt{2})^s}{2\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t^{s-2}e^{-t^2}dt = (s-1)\sigma^2\mu_{s-2}$, так как $\mu_{s-2}  \frac{(\sigma\sqrt{2})^{s-2}}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty}t ^{s-2} e^{-t^2}dt$\\
+Тогда $\mu_s(x) = \frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}}  \int\limits_{-\infty}^{\infty} t^s e^{-t^2} dt$  = $\frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}} (-\frac{1}{2}e^{-t^2}t^{s-1}|_{-\infty}^{\infty}+ \frac{s-1}{2}\int\limits_{-\infty}^{\infty}t^{s-2}e^{-t^2} = \frac{(s-1)(\sigma\sqrt{2})^s}{2\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t^{s-2}e^{-t^2}dt = (s-1)\sigma^2\mu_{s-2}$, так как $\mu_{s-2}  = \frac{(\sigma\sqrt{2})^{s-2}}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty}t ^{s-2} e^{-t^2}dt$\\
 То есть имеет место рекурентное соотношение: $\mu_s = (s-1)\sigma^2\mu_{s-2}$\\
 $\mu_0 = 1$ (по условию нормировки). $\mu_1 = 0$. Пользуясь рекурентным соотношением, получаем что $\mu_{2k+1} = 0$.\\
 Четные: $\mu_2 = \sigma^2, \mu_4 = 3\sigma^4, \mu_6 = 15\sigma^6$ . . .\\
@@ -796,6 +797,7 @@ $M(Y|X)$ -- это случайная величина (она является 
 Для нормального закона распределения: $f_2(y|x) = \frac{1}{\sigma_y \sqrt{1 - r^2} \sqrt{2\pi}}  e^{{-\frac{1}{2(1-r^2)}\cdot (\frac{(x-m_x)^2}{\sigma_x^2}  -r \frac{(y-m_y)^2}{\sigma_y^2})}}  = \frac{  e^{{-\frac{1}{2(1-r^2)}\cdot (\frac{(x-m_x)^2}{\sigma_x^2}  -r \frac{(y-m_y)^2}{\sigma_y^2})}} }{\sigma_y \sqrt{1 - r^2} \sqrt{2\pi}}$\\
 То есть это плотность нормального закона с $m_{y|x} = m_y + r \frac{\sigma_y}{\sigma_x} (x - m_x)$  и среднеквадратичное отклонения $\sigma_{y|x} = \sigma_{y} \sqrt{1-r^2}$ \\
 То есть от $x$ в условном законе зависит лишь $m_{y|x}$, но не $\sigma_{y|x}$. Откладывая  $m_{y|x}$ на оси ординат при различных $x$ получим линию регрессии $y=m_y + r\frac{\sigma_y}{\sigma_x}(x-m_x)$\\
+%конец страницы  не читаем	
 \textbf{Пример}\\
 %страница 36
 Гальтона -- характеризует эмпирическое значение формул линейной регрессии. Пусть $X_1$ и $X_2$ -- характеризуют рост (измеренный по отклонению от среднего в сантиметрах) соответственно отцов и сыновей в некоторой популяции. Рост случайно выбранного сына -- нормальная случайная величина с $M(X_2) = 0$ и $D(X_2) = \sigma_2^2$,
@@ -821,4 +823,89 @@ $M(r) = \displaystyle{\iint\limits_{K}} \sqrt{x^2+y^2}\frac{dxdy}{\pi R^2} = \fr
 \begin{center}
 $\textbf{Теоремы о числовых характеристиках}$
 \end{center}
+1)$M(C) = C$\\
+2)$D(C) = 0$\\
+3)$M(cX) = cM(X)$\\
+\underline{Доказательство:}\\
+$M(cX) = \displaystyle{\int\limits_{-\infty} ^{\infty}} c x f(x) dx = c \displaystyle{\int \limits_{-\infty} ^{\infty}} x f(x) dx = xM(X)$\\
+4)$D(cX) = c^2 D(X)$\\
+\underline{Доказательство:}\\
+$D(cX)=M((cX - M(cX))) = M((cX - c M(X))^2) = M(c^2(X-M(X))^2) = c^2M((X-M(X))^2) = c^2 D(X)$\\
+5)$M(X+Y) = M(X) + M(Y)$,  $M(\sum x_i) = \sum M(x_i)$\\
+\underline{Доказательство:}\\
+$M(X + Y) =  \displaystyle{\iint \limits_{-\infty} ^{\infty}} (x+y)f(x,y) dxdy$ = $\displaystyle{\iint \limits_{-\infty} ^{\infty}} xf(x,y) dxdy + \displaystyle{\iint \limits_{-\infty} ^{\infty}} yf(x,y) dxdy$ = $\displaystyle{\int\limits_{-\infty}^{\infty} } dx x \displaystyle{\int\limits_{-\infty}^{\infty} } f(x, y) dy $ +  $\displaystyle{\int\limits_{-\infty}^{\infty} } dy y \displaystyle{\int\limits_{-\infty}^{\infty} } f(x, y) dx $ = $\displaystyle{\int\limits_{-\infty}^{\infty} } dx x f_1(x) + \displaystyle{\int\limits_{-\infty}^{\infty} } dyy f_1(y)$ = $M(X) + M(Y)$\\
+6)$M(\sum \limits a_i X_i + b) = \sum \limits a_i M(x_i) + b$\\
+7)$D(X + Y) = D(X) + D(Y) + 2 K_{XY}$\\
+\underline{Доказательство:}\\
+$Z=X+Y$. Перейдем к центрированным величинам.\\
+%доделать с кружочками.
+8)$D(\displaystyle{\sum_{i = 1}^{n}}a_iX_i + b) =  \displaystyle{\sum_{i = 1}^{n}} ( a_i^2 D(X_i) + 2 \displaystyle{\sum_{i <j}^{n}}a_ia_jK_{i,j})$\\
+\underline{Доказательство:}\\
+$Y_i = a_i X_i$,\\
+ $ \displaystyle{\sum_{i = 1}^{n}}a_iX_i + b =  \displaystyle{\sum_{i = 1}^{n}}Y_i + b$, следовательно  $D(  \displaystyle{\sum_{i = 1}^{n}} a_iX_i  +  b  ) = \displaystyle{\sum_{i = 1}^{n}} D(Y_i) + \displaystyle{\sum_{i < j}^{}} K_{i,j} ^y = \displaystyle{\sum_{i = 1}^{n}}a_i^2D(X_i) + 2 \displaystyle{\sum_{i  < j}} K_{i,j}^{y}$\\
+%страница 39
+%страница 40
+%страница 41
+\subsection{Законы распределения функций случайной величины}
+$Y=\phi(x)$. Пусть $\phi$ непрерывна и дифференцируема. $X$ -- непрерывная случайная величина. Пусть значения случайной величины $X$ лежат на $(a, b)$, и $\phi$ на $(a, b)$ монотонна.\\
+a) $\phi$ монотонно возрастает на $(a, b)$. $f(x)$ -- плотность вероятности $X$, $g(y)$ -- плотность вероятности $Y$, $G(y)$ -- функция распределения $Y$. $G(y) = P(Y < y) = P(a < X < x) $( так как $\phi$ -- возрастающая функция.)\\
+$P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
+Пусть $\psi(y)$ -- обратная функция к $\phi(x)$.
+Тогда $G(Y) =   \displaystyle{\int \limits_{a}^{\psi(y)}} f(x) dx$. $g(y) = G'(y) = f(\psi(y))\psi'(y)$\\
+б)$\phi$ -- монотонно убывает на $(a, b)$\\
+$G(y) = P(Y < y) = P(x< X < b) =  \displaystyle{\int \limits_{\psi(y)}^{b}} f(x) dx$\\
+$g(y) = G'(y) = -f(\psi(y)$ .\\
+Общая формула: $g(y) = f(\psi(y)) \abs{\psi(y)}$\\
+\textbf{Пример} \\
+Пушка,раположенныя на  расстоянии $l$ от бесконечной прямолинейной стены, равномерно вращается. В произвольный момент времени при каждом обороте производится выстрел. Найти плотности распределения точек попаданий  на стене.\\
+$x = l \cdot tg \phi$. Функция распределения равномерна на $(-\frac{\pi}{2},\frac{\pi}{2})$ : \\
+\begin{equation*} 
+f(\phi)=
+ \begin{cases}
+   \frac{1}{\pi},  \phi \in [-\frac{1}{\pi};\frac{1}{\pi}]\\
+   0 , \phi \notin [-\frac{1}{\pi};\frac{1}{\pi}]\\
+ \end{cases}
+\end{equation*}
+$g(x) = \frac{1}{\pi} \abs{(arctg \frac{x}{l})'} = \frac{l}{\pi(l^2 + x^2)}$ -- распределение Коши.\\
+Пусть $\phi$ немонотонно дифференцируемая функция на $(a, b)$.\\
+$G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displaystyle{\sum_{i}}  \displaystyle{\int\limits_{\Delta_i(y)} } f(x) dx$\\
+\textbf{Пример} \\
+%страница 42
+Для получения формулы для $g(y)$ оказывается удобнее действовать по--другому. Разобьем $(a, b)$ на интервалы монотонности $\phi$.\\
+$G(y) = P(Y<y) = P((Y < y) \cap (x \in (a, a_1)))) + P((Y < y) \cap (x \in (a_1, a_2)))  +  ....  + P((Y < y) \cap (x \in (a_{n-1}, b)))$\\
+$g(y) = G'(y)$. Для каждого слагаемого производная находится по формуле для монотонной функции. Пусть на $i_m$ интервале монотонности обратная функция к $\phi(x)$ -- это $\psi_i(y)$. Тогда $g(y) = \displaystyle{\sum\limits_{i = 1}^{n}} f(t_i(y))\abs{\psi(y)}$\\
+\textbf{Пример} \\
+$f(x) = \frac{1}{\pi (1+x^2)}$, $Y=X^2$ , $X = \pm \sqrt{Y}$ (два интервала монотонности)\\
+\begin{equation*} 
+ \begin{cases}
+   g(y) = \frac{1}{\pi(1+y)} \abs{\frac{1}{2\sqrt{y}}} + \frac{1}{\pi(1+y)} \abs{-\frac{1}{2\sqrt{y}}} = \frac{1}{\pi(1+y)} \abs{\frac{1}{\sqrt{y}}}, y > 0 \\
+   g(y) = 0, y \leq 0
+ \end{cases}
+\end{equation*}
+Для дискретной случайной величины $Y=\phi(x)$ надо найти все $y_i = \phi(x_i)$ и если среди $y_i$ есть совпадающие, то надо сложить соответствующие вероятности.\\
+%доделать 
+
+%страница 43
+\section{Предельные теоремы теории вероятностей}
+Предельные теоремы связаны с большим числом однородных опытов или с большим числом складывающихся случайных воздействий. Суть "закона больших чисел"  \ в том, что при большом числе случайных явлений средний их результат стабилизируется и практически перестает быть случайным.\\
+\underline{Неравенство Чебышева}\\
+Пусть $X$ -- случайная величин с математическим ожиданием $m_x$, дисперсией $D_x$.\\
+Тогда $P(\abs{X - m_x} \geq \alpha) \leq \frac{D_x}{\alpha^2}$\\
+\underline{Доказательство:}\\
+Для непрерывных случайных величин. \\
+$D_x =  \displaystyle{\int\limits_{-\infty}^{\infty} }(x-m_x)^2 f(x) dx \geq  \displaystyle{\int\limits_{\abs{x - m_x} > \alpha} } \abs{x-m_x}^2 f(x) dx$
+$\geq \alpha^2  \displaystyle{\int\limits_{\abs{x - m_x} > \alpha} }f(x) dx = \alpha^2 P(\abs{X - m_x} \geq \alpha)$ 
+Для дискретных случайных величин -- аналогично.\\
+\textbf{Пример} \\
+$P(\abs{X - m_x} \geq  3 \sigma_) \leq  \frac{D_x}{9\sigma_x^2} = \frac{1}{9}$\\
+Видно,что оценка по  приближению Чебышева  завышена.  Например для нормального распределения это $0.003 << \frac{1}{9}$\\
+Пусть $X$ -- случайная величина с $m_x$  и $D_x$\\
+$X_1$ -- значение $X$ в первом опыте. $X_2$ -- во втором и так далее. $Y = \frac{\displaystyle{\sum\limits_{i = 1}  ^ {n} x_i}}{n}$ $M(Y) = \frac{1}{n} \displaystyle{\sum\limits_{i = 1}^{n}} M(X_i) = \frac{1}{n} n m_x = m_x$\\
+$D(Y)  = \frac{1}{n^2}\displaystyle{\sum\limits_{i = 1}^{n}} D(X_i) = \frac{D_x}{n}$\\
+$\textbf{Теорема(Чебышева)}$\\
+При неограниченном увеличении числа независимых опытов средее арифметическое наблюденных значений случайной величины, имеющих ограниченную дисперсию $D_x$, сходится по вероятности к её математическому ожиданию, то есть $\displaystyle{  \lim_{n\to{\infty}}  } P(\abs{\frac{1}{n}  \displaystyle{\sum\limits_{i = 1}^{n}} x_i - m_x} < \varepsilon) = 1$, где $ \varepsilon$ --  сколь угодно маленькое положительное число.\\
+\underline{Доказательство:}\\
+$Y$ имеет $m_y=m_x$, $D_y = \frac{1}{n}D_x$ Неравенство Чебышева для $Y$: $P(\abs{Y-m_y} \geq \varepsilon) \leq \frac{D_y}{\varepsilon^2} = \frac{D_x}{n\varepsilon^2}.$
+Пусть $\varepsilon$ и $\Delta$ сколь угодно малые. Выберем $n$ так, что $\frac{D_x}{n\varepsilon^2} < \Delta$. Тогда $P(\abs{\frac{1}{n}  \displaystyle{\sum\limits_{i = 1}^{n}} x_i - m_x} \geq \varepsilon) < \Delta$, переходим к противоположному событию,  $P(\abs{\frac{1}{n}  \displaystyle{\sum\limits_{i = 1}^{n}} x_i - m_x} < \varepsilon) > 1 - \Delta$.\\
+%страница 44
 \end{document}
