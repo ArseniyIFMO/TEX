@@ -1,4 +1,4 @@
-\documentclass[russian, 12pt]{article}
+\documentclass[russian, 12pt, fleqn]{article}
 
 \usepackage[utf8x]{inputenc}
 \usepackage[T2A]{fontenc}
@@ -413,13 +413,13 @@ $D(X)= \sum\limits_{i=1}^{n} (x_i - m_x)^2p_i$ = $\sum\limits_{i=1}^{n}x_i^2 - 2
 Для непрерывных величин: $D(X) = \int\limits_{-\infty}^{\infty}x^2f(x)dx - m_x^2$\\
 Разброс характеризуется средним квадратичным отклонением: $\sigma(x) = \sqrt{D(x)}$\\
 \textbf{Пример\ }\\
-\begin{equation*} 
+\begin{equation} 
 f(x)=
  \begin{cases}
    2x,  x \in [0, 1]\\
    0 , x \notin [0, 1]\\
  \end{cases}
-\end{equation*}\\
+\end{equation}
 $M(X) = \int\limits_{0}^{1}x\cdot 2x d x  = \frac{2}{3}$\\
 $D(x) = \int\limits_{0}^{1}x^2\cdot 2x d x - \frac{4}{9} = \frac{1}{2} - \frac{4}{9} = \frac{1}{18}$\\
 $\sigma(x) = \frac{1}{3\sqrt{2}}$
