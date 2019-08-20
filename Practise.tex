@@ -6,7 +6,10 @@
 \usepackage{amsfonts}
 \usepackage{amssymb,amsmath,color}
 \usepackage{wrapfig}
+\usepackage{pgfplots}
 \usepackage{slashbox}
+\usepackage{pgfplots}
+\usepackage{tikz}
 
 \usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
 \usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
@@ -37,6 +40,10 @@
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 \graphicspath{}
 \setcounter{page}{1}
+\pgfplotsset{%
+   every tick label/.append style = {font=\tiny},
+   every axis label/.append style = {font=\scriptsize}
+}
 \begin{document}
 
 \tableofcontents % сгенерировать оглавление
@@ -925,6 +932,28 @@ $Y_i = a_i X_i$,\\
 $Y=\varphi(x)$. Пусть $\varphi$ непрерывна и дифференцируема. $X$ -- непрерывная случайная величина. Пусть значения случайной величины $X$ лежат на $(a, b)$, и $\varphi$ на $(a, b)$ монотонна.\\
 a) $\varphi$ монотонно возрастает на $(a, b)$. $f(x)$ -- плотность вероятности $X$, $g(y)$ -- плотность вероятности $Y$, $G(y)$ -- функция распределения $Y$. \\$G(y) = P(Y < y) = P(a < X < x) $(так как $\varphi$ -- возрастающая функция.)\\
 $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
+\\
+\\
+\\
+\begin{picture}(100,100)
+\put(10, 10){\vector(0, 4){100}}
+\put(10, 10){\vector(4, 0){200}}
+\put(0, 120){\makebox(0, 0) {$y$}}
+\put(200, 0){\makebox(0, 0) {$x$}}
+\put(30, 30){\line(3, 4){30}}
+\end{picture}
+
+
+\begin{tikzpicture}
+   \begin{axis}[grid=major, xmin=0, xmax=10, ymin=0, ymax=10,
+     xlabel=$x$, ylabel=$y$,
+     xtick = {0,5,...,10}, ytick = {0,5,...,10},
+     scale=1, restrict y to domain=0:10]
+     \addplot[blue, samples=100, smooth, unbounded coords=discard] plot (\x, {2*\x + 3});
+   \end{axis}
+\end{tikzpicture}
+\\
+\\
 Пусть $\psi(y)$ -- обратная функция к $\varphi(x)$.
 Тогда $G(Y) =   \displaystyle{\int \limits_{a}^{\psi(y)}} f(x) dx$. $g(y) = G'(y) =\\= f(\psi(y))\psi'(y)$\\
 б)$\varphi$ -- монотонно убывает на $(a, b)$\\
@@ -1401,6 +1430,10 @@ $\hat{S}_X(\omega)  = \frac{2}{\pi} \displaystyle{\int \limits_{0}^{\infty}}k_X(
 в)Спектральная плотность в канонической форме:\\
 $K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omega \tau} d\omega$ , где $S_X(\omega) = \frac{1}{2\pi} \displaystyle{\int \limits_{-\infty}^{\infty}} k_X(\tau) e^{-i\omega \tau} d\tau$, $D_X = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega) d \omega$.\\
 %\includegraphics[scale=0.6]{page69.png}\\
+\\
+\\
+\\
+\\
 \begin{picture}(100,100)
 \put(10, 10){\vector(0, 4){100}}
 \put(10, 10){\vector(4, 0){200}}
@@ -1428,7 +1461,6 @@ $K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omeg
 \put(110, 0){\makebox(0, 0) {$w_5$}}
 \put(130, 0){\makebox(0, 0) {$w_6$}}
 
-
 \end{picture}
 \\
 \\
@@ -1443,8 +1475,24 @@ $K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omeg
 \put(30, 0){\makebox(0, 0) {$\frac{2\pi}{\tau_0}$}}
 \put(60, 0){\makebox(0, 0) {$\frac{4\pi}{\tau_0}$}}
 \put(90, 0){\makebox(0, 0) {$\frac{6\pi}{\tau_0}$}}
+%\qbezier (10,30) (20,20) (50,30)
 \end{picture}
 \\
+\\
+\begin{tikzpicture}[axis/.style={very thick, ->, >=stealth'}]
+\node [left] at (0,5) {$\hat{S_x}(\omega)$};
+\node [below right] at (5,0) {$\omega$};
+\draw[thick, <->] (0, 5) -- (0, 0) -- (5, 0);
+ \draw[black, thick, domain=0.1:5]  plot (\x, {2/(pow(\x, 2))*(1 - cos(\x))*500});
+\end{tikzpicture}
+\\
+\\
+%\begin{axis}[xmin=0, xmax=10, ymin=0, ymax=1,
+%   xlabel=$x$, ylabel=$y$,
+%  xtick = {0,1,...,10}, ytick = {0,0.2,...,1},
+% scale=1, restrict y to domain=0:10]
+%  \addplot[blue, samples=100, smooth, unbounded coords=discard] plot (\x, {2/(pow(\x*10, 2))*(1 - cos(\x*10))}* 1000);
+% \end{axis}
 \\
 \\
 \\
@@ -1453,23 +1501,38 @@ $K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omeg
 \put(10, 10){\vector(0, 4){100}}
 \put(10, 10){\vector(4, 0){100}}
 
-\put(0, 45){\makebox(0, 0) {$1$}}
-\put(0, 120){\makebox(0, 0) {$K_x(\tau)$}}
-\put(120, 0){\makebox(0, 0) {$\tau$}}
-\put(45, 0){\makebox(0, 0) {$\tau_0$}}
+\put(0, 45){\makebox(0, 0) {$1$} }
+\put(0, 120){\makebox(0, 0) {$K_x(\tau)$} }
+\put(120, 0){\makebox(0, 0) {$\tau$} }
+\put(45, 0){\makebox(0, 0) {$\tau_0$} }
 \thicklines
-\put(10, 40){\line(1,-1) {30}}
-\put(40, 10){\line(1,0) {50}}
+\put(10, 40){\line(1,-1) {30} }
+\put(40, 10){\line(1,0) {50} }
 \end{picture}
 %страница 70
 \subsection{Преобразование случайной функции линейной системой}
 \noindent
 Пусть есть прибор (динамическая система), на вход которой поступает непрерывно сигнал $x(t)$ (воздействие), а на выходе получаем непрерывно сигнал $y(t)$ (реакция). Система $A$ осуществляется преобразование: $y(t)=A(x(t))$. (например, умножает на константу -- усилитель, интегрирует или дифференцирует сигнал -- интегратор или дифферинциатор цепочки, и тому подобное). Реально сигнал $x(t)$ присутствует всегда вместе со случайной ошибкой, то есть надо рассматривать преобразование вместе со случайной ошибкой, то есть надо рассмотреть преобразование случайной функции $X(t)$ в случайную функцию $Y(t)$. $Y(t) = A(X(t))$, $A$ -- оператор динамической системы. Мы рассматриваем линейные системы (в которых оператор $A$ линеен): $A(x_1(t) + x_2(t)) =  A(x_1(t)) + A(x_2(t))$, $A(cx_1(t)) = c \cdot A(x_1(t))$\\
+\begin{picture}(100,100)
+\put(100,0){\line(1, 0){50}}
+\put(100,0){\line(0, 1){30}}
+\put(100,30){\line(1, 0){50}}
+\put(150,0){\line(0, 1){30}}
+\qbezier(0,15)(50,30)(100,15)
+\qbezier(150,15)(200,0)(250,15)
+\put(125, 15){\makebox(0, 0){$A$}}
+\put(50, 15){\makebox(0, 0){$X(t)$}}
+\put(200, 15){\makebox(0, 0){$Y(t)$}}
+\put(0, 10){\vector(1, 0){15}}
+\end{picture}
+\\
+\\
+\\
 \textbf{Пример} \\
 1)$y(t)=Ax(t) = \frac{dx(t)}{dt}$\\
 2)$y(t) = \displaystyle{\int \limits_{0}^{t} } x(t)dt$\\
 Чаще всего в технических задачах оказывается связь $y(t)$ с $x(t)$ через решение линейного дифференциального уравнения.\\
-$a_n\frac{d^ny(t)}{dt^n} + a_{n - 1} \frac{d^{n - 1}y(t)}{dt^{n - 1}} + . . . +  a_1\frac{dy(t)}{dt} + a_0y(t) = \\ = b_m\frac{d^mx(t)}{dt^m} + a_{m - 1} \frac{d^{m - 1}y(t)}{dt^{m - 1}} + . . . +  b_1\frac{dy(t)}{dt} + b_0y(t)  $\\
+$a_n\frac{d^ny(t)}{dt^n} + a_{n - 1} \frac{d^{n - 1}y(t)}{dt^{n - 1}} + . . . +  a_1\frac{dy(t)}{dt} + a_0y(t) = \\ = b_m\frac{d^mx(t)}{dt^m} + b_{m - 1} \frac{d^{m - 1}y(t)}{dt^{m - 1}} + . . . +  b_1\frac{dy(t)}{dt} + b_0y(t)  $\\
 Если параметры линейной системы не зависят от $t$, то она называется стационарной. Рассмотрим преобразование стационарной линейной системы, описываемой линейным дифференциальным уравнением с постоянными коэффициентами.\\
 Решение $y(t)$  это  общее решение однородного (свободные колебания) + частичное решение неоднородного (вынужденные колебания). На практике чаще всего встречаются устойчивые системы, в которых свободные колебания затухают при $t$ стремящимся к $\infty$. Поэтому ограничимся рассмотрением только вынужденных колебаний.\\
 Пусть на входе $x(t) = Ue^{i \omega t}$. Ищем $y(t)$ в виде $y(t) = U \Phi(i\omega) e^{i\omega t}$. Подставляем в уравнение, получаем : 
