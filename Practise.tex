@@ -1101,8 +1101,27 @@ f(\varphi)=
  \end{cases}
 \end{equation*}
 $g(x) = \frac{1}{\pi} \abs{(arctg \frac{x}{l})'} = \frac{l}{\pi(l^2 + x^2)}$ -- распределение Коши.\\
+
 Пусть $\varphi$ немонотонно дифференцируемая функция на $(a, b)$.\\
 $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displaystyle{\sum_{i}}  \displaystyle{\int\limits_{\Delta_i(y)} } f(x) dx$\\
+\begin{tikzpicture}
+   \begin{axis}[grid=major, xmin=0, xmax=10, ymin=0, ymax=5,
+     xlabel=$x$, ylabel=$y$,
+     xtick = {0,5,...,10}, ytick = {0,5},
+     scale=1, restrict y to domain=0:10]
+     \addplot[blue, samples=100, smooth, unbounded coords=discard,domain=0:10] plot (\x, {sin(\x r) + 2});
+     \draw[dashed] (0, 270) -- (100, 270);
+     \draw[dashed] (8, 0) -- (8, 270);
+     \draw[dashed] (24, 0) -- (24, 270);
+     \draw[dashed] (70, 0) -- (70, 270);
+     \draw[dashed] (86, 0) -- (86, 270);
+     \node [black, right] at (0,20) {\tiny $\Delta_1$ \normalsize};
+     \node [black, right] at (30,20) {\tiny $\Delta_2$ \normalsize};
+     \node [black, right] at (90,20) {\tiny $\Delta_3$ \normalsize};
+   \end{axis}
+\end{tikzpicture}
+
+\noindent
 \textbf{Пример} \\
 %страница 42
 Для получения формулы для $g(y)$ оказывается удобнее действовать по--другому. Разобьем $(a, b)$ на интервалы монотонности $\varphi$.\\
