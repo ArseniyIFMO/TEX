@@ -630,6 +630,15 @@ $D(X) = \int\limits_{0}^{\infty}t^2\lambda e^{-\lambda t}dt - \frac{1}{\lambda^2
 %страница 27
 \subsection{Нормальное распределение}
 \noindent
+\begin{tikzpicture}
+   \begin{axis}[grid=major, xmin=-10, xmax=10, ymin=0, ymax=1,
+     xlabel=$x$, ylabel=$f(x)$,
+     xtick = {-10,0,...,10}, ytick = {0,...,1},
+     scale=1, restrict y to domain=0:10]
+     \addplot[black, samples=100, smooth, unbounded coords=discard] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-\x*\x/2)  )  });
+   \end{axis}
+\end{tikzpicture}
+\\
 По нормальному закону распределения случайная ошибка.\\
 $f(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$\\
 Выясним смысл параметров $\sigma$ и $\mu$.\\
@@ -637,6 +646,37 @@ $M(X) = \int\limits_{-\infty}^{\infty}   xf(x)dx = \frac{1}{\sigma \sqrt{2\pi} }
 Тогда $M(X)  = \frac{1}{\sqrt{\pi}}\int\limits_{-\infty}^{\infty}(\sigma \sqrt{2}t+m)e^{-t^2}dt =\\ = \frac{\sqrt{2}\sigma}{\sqrt{\pi}}\int\limits_{-\infty}^{\infty} te^{-t^2}dt + \frac{m}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} e^{-t^2}dt =  \frac{\sqrt{2}\sigma}{\sqrt{\pi}} \cdot 0 + \frac{m}{\sqrt{\pi}} \cdot \sqrt{\pi} = m$\\
 $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-\frac{(x-m)^2}{2\sigma^2}} dx$ = $\frac{2\sigma^2}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t^2 e^{-t^2} dt = 
  \frac{\sigma^2}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t\cdot2te^{-t^2}dt =\\= \frac{\sigma^2}{\sqrt{\pi}} (-te^{-t^2}|_{-\infty}^{\infty} + \int\limits_{-\infty}^{\infty}e^{-t^2}dt)$ = $\sigma^2$\\
+\begin{tikzpicture}
+   \begin{axis}[grid=major, xmin=-10, xmax=10, ymin=0, ymax=1,
+     xlabel=$x$, ylabel=$f(x)$,
+	     xtick = {-10,0,...,10}, ytick = {0,...,1},
+     scale=1, restrict y to domain=0:10]
+    \addplot[blue, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 2) * pow(2.17, (-\x*\x/(2*4))  )  }) ;
+    \addplot[green, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 4) * pow(2.17, (-\x*\x/16)  )  });
+     \addplot[red, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-\x*\x/2)  )  });	  
+     \node [green, right] at (150,10) {$\sigma_3$};
+     \node [red, right] at (130,30) {$\sigma_1$};
+     \node [blue, right] at (140,20) {$\sigma_2$};
+ \end{axis}
+\end{tikzpicture}\\
+$\sigma_1<\sigma_2<\sigma_3$\\
+\begin{tikzpicture}
+   \begin{axis}[grid=major, xmin=-10, xmax=10, ymin=0, ymax=1,
+     xlabel=$x$, ylabel=$f(x)$,
+     xtick = {-10,0,...,10}, ytick = {0,...,1},
+     scale=1, restrict y to domain=0:10]
+    \addplot[blue, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) ) * pow(2.17, (-(\x -4)*(\x-4)/(2))  )  }) ;
+    \addplot[green, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-2)*(\x-2)/2)  )  });
+     \addplot[red, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-\x*\x/2)  )  });	  
+     \node [green, right] at (110,50) {$m_2$};
+     \node [red, right] at (90,50) {$m_1$};
+     \node [blue, right] at (130,50) {$m_3$};   
+  \end{axis}
+\end{tikzpicture}\\
+$m_1<m_2<m_3$
+
+
+
 $M=Me=m $ -- мода и медиана совпадают с $M(X)$.\\
 $\mu_s(x) = \int\limits_{-\infty}^{\infty} (x-m)^s f(x)dx = \frac{1}{\sigma\sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^s e^{-\frac{(x-m)^2}{2\sigma^2}}dx$ . Пусть $t = \frac{x - m}{\sigma\sqrt{2}}$.
 Тогда $\mu_s(x) = \frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}}  \int\limits_{-\infty}^{\infty} t^s e^{-t^2} dt$  = $\frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}} (-\frac{1}{2}e^{-t^2}t^{s-1}|_{-\infty}^{\infty}+ \frac{s-1}{2}\int\limits_{-\infty}^{\infty}t^{s-2}e^{-t^2}) =\\ = \frac{(s-1)(\sigma\sqrt{2})^s}{2\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t^{s-2}e^{-t^2}dt = (s-1)\sigma^2\mu_{s-2}$, так как $\mu_{s-2}  = \frac{(\sigma\sqrt{2})^{s-2}}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty}t ^{s-2} e^{-t^2}dt$\\
