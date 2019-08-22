@@ -632,7 +632,9 @@ $D(X) = \int\limits_{0}^{\infty}t^2\lambda e^{-\lambda t}dt - \frac{1}{\lambda^2
 \noindent
 \begin{tikzpicture}
    \begin{axis}[grid=major, xmin=-10, xmax=10, ymin=0, ymax=1,
+    axis lines = left,
      xlabel=$x$, ylabel=$f(x)$,
+     y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
      xtick = {-10,0,...,10}, ytick = {0,...,1},
      scale=1, restrict y to domain=0:10]
      \addplot[black, samples=100, smooth, unbounded coords=discard] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-\x*\x/2)  )  });
@@ -648,8 +650,10 @@ $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-
  \frac{\sigma^2}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t\cdot2te^{-t^2}dt =\\= \frac{\sigma^2}{\sqrt{\pi}} (-te^{-t^2}|_{-\infty}^{\infty} + \int\limits_{-\infty}^{\infty}e^{-t^2}dt)$ = $\sigma^2$\\
 \begin{tikzpicture}
    \begin{axis}[grid=major, xmin=-10, xmax=10, ymin=0, ymax=1,
+     axis lines = left,
      xlabel=$x$, ylabel=$f(x)$,
 	     xtick = {-10,0,...,10}, ytick = {0,...,1},
+    y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
      scale=1, restrict y to domain=0:10]
     \addplot[blue, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 2) * pow(2.17, (-\x*\x/(2*4))  )  }) ;
     \addplot[green, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 4) * pow(2.17, (-\x*\x/16)  )  });
@@ -662,8 +666,10 @@ $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-
 $\sigma_1<\sigma_2<\sigma_3$\\
 \begin{tikzpicture}
    \begin{axis}[grid=major, xmin=-10, xmax=10, ymin=0, ymax=1,
+     axis lines = left,
      xlabel=$x$, ylabel=$f(x)$,
      xtick = {-10,0,...,10}, ytick = {0,...,1},
+    y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
      scale=1, restrict y to domain=0:10]
     \addplot[blue, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) ) * pow(2.17, (-(\x -4)*(\x-4)/(2))  )  }) ;
     \addplot[green, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-2)*(\x-2)/2)  )  });
@@ -738,15 +744,52 @@ $F(x, y) = P(X<x, Y<y)$ -- это вероятность попадания в �
  $F_2(y) = \displaystyle{  \lim_{x\to{\infty}} F(x, y) }$ \\
 \newpage
 $F_1(x):$\\
-\includegraphics[scale=0.3]{pg30.png}\\	
+%\includegraphics[scale=0.3]{pg30.png}\\	
+\begin{tikzpicture}
+   \begin{axis}[ xmin=-3, xmax=3, ymin=-3, ymax=3,
+     axis y line=middle,
+     axis x line=middle,
+     y label style={at={(axis description cs:0,.5)},anchor=south},
+     axis line style={->},
+     xlabel=$x$, ylabel=$y$,
+     scale=1]
+
+\draw[thick] (400,600) --(400,0);
+\draw (400,500) --(200,400);
+\draw (400,400) --(200,300);
+\draw (400,300) --(200,200);
+\draw (400,200) --(200,100);
+\draw (400,100) --(200,0);
+\end{axis}
+\end{tikzpicture}
+\\
+\noindent
 $F_2(x):$\\
-\includegraphics[scale=0.3]{pg30num3.png}\\	
+%\includegraphics[scale=0.3]{pg30num3.png}\\	
+
+\begin{tikzpicture}
+   \begin{axis}[ xmin=-3, xmax=3, ymin=-3, ymax=3,
+     axis y line=middle,
+     axis x line=middle,
+     y label style={at={(axis description cs:0,.5)},anchor=south},
+     axis line style={->},
+     xlabel=$x$, ylabel=$y$,
+     scale=1]
+\draw[thick] (600,400) --(0,400);
+\draw (500,400) --(400,100);
+\draw (400,400) --(300,100);
+\draw (300,400) --(200,100);
+\draw (200,400) --(100,100);
+\draw (100,400) --(0,100);
+\end{axis}
+\end{tikzpicture}
+\\
 2)$F(x, y)$ неубывающая функция по каждому аргументу.\\
 3)$F(x, -\infty) = F(-\infty, y) = F(-\infty, -\infty) = 0$\\
 4)$F(\infty, \infty) = 1$\\
 \textbf{Пример}\\
 По мишени производится один выстрел, вероятность попадания = $\frac{3}{4}$, $X$ --  число попаданий , $Y$ -- число промахов, $F(x, y)=$ ?.\\
-Дискретная система случайных величин $X,Y$ характеризуется таблицей распределения : $p_{ij} = P(X=x_i, Y = y_i)$
+Дискретная система случайных величин $X,Y$ характеризуется таблицей распределения : $p_{ij} = P(X=x_i, Y = y_i)$\\
 %страница 31
 \begin{center}
 $\textbf{Совместная плотность вероятности системы случайных величин}$
@@ -822,7 +865,21 @@ $K_{XY} = \displaystyle{\int\limits_{-\infty}^{\infty}} (x-M(X))f_1(x)dx \displa
 $r_{XY} = \frac{K_{XY}}{\sigma_x \sigma_y}$, $\sigma_x = \sqrt{D(X)}$, $\sigma_y = \sqrt{D(Y)}$.\\
 \begin{flushright}\(\blacksquare\)\end{flushright}
 \textbf{Пример}\\
-\includegraphics[scale=0.2]{UntitledDiagram3.png}\\
+%\includegraphics[scale=0.2]{UntitledDiagram3.png}\\
+\begin{tikzpicture}
+   \begin{axis}[ xmin=-3, xmax=3, ymin=-3, ymax=3,
+     axis y line=middle,
+     axis x line=middle,
+     y label style={at={(axis description cs:0,.5)},anchor=south},
+     axis line style={->},
+     xlabel=$x$, ylabel=$y$,
+     xtick = {-3,0,...,3}, ytick = {-3,3},
+     scale=1]
+\end{axis}
+ \node [black, right] at ((2.6,2.60) {\tiny $1$ \normalsize};
+ \node [black, right] at ((2.9,3.5) {\tiny $1$ \normalsize};
+ \draw [black, ultra thick] (3.45,2.85) circle [radius=0.5];
+\end{tikzpicture}
 %%
 \begin{equation*} 
 f(x, y)=
@@ -1075,7 +1132,7 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \end{picture}
 
 \begin{tikzpicture}
-   \begin{axis}[grid=major, xmin=0, xmax=10, ymin=0, ymax=10,
+   \begin{axis}[ xmin=0, xmax=10, ymin=0, ymax=10,
      xlabel=$x$, ylabel=$y$,
      xtick = {0,5,...,10}, ytick = {0,5,...,10},
      scale=1, restrict y to domain=0:10]
@@ -1105,7 +1162,10 @@ $g(x) = \frac{1}{\pi} \abs{(arctg \frac{x}{l})'} = \frac{l}{\pi(l^2 + x^2)}$ -- 
 Пусть $\varphi$ немонотонно дифференцируемая функция на $(a, b)$.\\
 $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displaystyle{\sum_{i}}  \displaystyle{\int\limits_{\Delta_i(y)} } f(x) dx$\\
 \begin{tikzpicture}
-   \begin{axis}[grid=major, xmin=0, xmax=10, ymin=0, ymax=5,
+   \begin{axis}[ xmin=0, xmax=10, ymin=0, ymax=5,
+     axis lines = left,
+     y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
+     axis line style={->},
      xlabel=$x$, ylabel=$y$,
      xtick = {0,5,...,10}, ytick = {0,5},
      scale=1, restrict y to domain=0:10]
@@ -1115,9 +1175,11 @@ $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displays
      \draw[dashed] (24, 0) -- (24, 270);
      \draw[dashed] (70, 0) -- (70, 270);
      \draw[dashed] (86, 0) -- (86, 270);
+     \node [black,left] at (0,20) {$y$};
      \node [black, right] at (0,20) {\tiny $\Delta_1$ \normalsize};
      \node [black, right] at (30,20) {\tiny $\Delta_2$ \normalsize};
      \node [black, right] at (90,20) {\tiny $\Delta_3$ \normalsize};
+    % \draw [<->,  thick] (0,500) -- (0,0) -- (100,0);
    \end{axis}
 \end{tikzpicture}
 
