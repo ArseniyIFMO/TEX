@@ -495,7 +495,26 @@ $M(X) = 0\cdot \frac{3}{8} + 1\cdot \frac{1}{8} + \int\limits_{0}^{1}x\cdot \fra
 Колесо рулетки. Зафиксируем некоторое направление. Тогда угол под которым она останавливается -- случайная величина, равномерно распределённая в интервале $(0, 2\pi)$.\\
 \textbf{Пример\ }\\
 Производится взвешивание на весах с ценой деления 1 грамм. Если оказывается что вес заключен от $k$ до $k + 1$ грамм, тогда его можно принять за $(k + \frac{1}{2})$ и считать, что при этом допущена ошибка $X$ -- случайная величина, равномерно распределённая на интервале $(-\frac{1}{2}, \frac{1}{2})$ грамм.\\
-\includegraphics[scale=0.2]{Gr.png}\\
+%\includegraphics[scale=0.2]{Gr.png}\\
+
+\begin{tikzpicture}
+   \begin{axis}[ xmin=0, xmax=2, ymin=0, ymax=1,
+     y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
+     axis x line=middle,
+     axis y line=middle,
+     xlabel=$x$, ylabel=$F(x)$,
+     yticklabels=\empty,
+     xticklabels=\empty
+     scale=1]
+     \draw[ultra thick] (50,50) --(100,50);
+     \draw[dashed] (0, 50) -- (50, 50);
+     \draw[dashed] (50, 0) -- (50, 50);
+     \draw[dashed] (100, 0) -- (100, 50);
+     \node [black, right] at (30,10) {$a$};
+     \node [black, right] at (10, 60) {$c$};
+     \node [black, right] at (80,10) {$b$};
+\end{axis}
+\end{tikzpicture}\\
 Пусть распределение $X$ равномерно на $(a, b)$.\\
 \begin{equation*} 
 f(x)=
@@ -529,7 +548,29 @@ F(x)=
    1, x \geq b\\
 \end{cases}
 \end{equation*}\\
-\includegraphics[scale=0.2]{Gr2.png}\\	
+%\includegraphics[scale=0.2]{Gr2.png}\\	
+\begin{tikzpicture}
+   \begin{axis}[ xmin=0, xmax=2, ymin=0, ymax=1,
+     y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
+     axis x line=middle,
+     axis y line=middle,
+     xlabel=$x$, ylabel=$F(x)$,
+     yticklabels=\empty,
+     xticklabels=\empty
+     scale=1]
+\draw[ultra thick] (0,0) --(50,0);
+\draw[ultra thick] (50,0) --(100,50);
+\draw[ultra thick] (100,50) --(150,50);
+\node(3,3)  [below] {1};	
+\node [black, right] at (32,10) {$a$};
+\node [black, right] at (100,10) {$b$};
+\node [black, right] at (0,40) {$c$};
+ \draw[dashed] (0, 50) -- (100, 50);
+ \draw[dashed] (50, 0) -- (50, 50);
+ \draw[dashed] (100, 0) -- (100, 50);
+  %   \draw[dashed] (86, 0) -- (86, 270);
+\end{axis}
+\end{tikzpicture}\\
 $M(X) = \int\limits_{a}^{b}\frac{x}{b-a}dx = \frac{a + b}{2}$\\
 В силу симметричности $M_e= \frac{a+b}{2} = M(x)$\\
 Моды это распределение не имеет.\\
@@ -749,7 +790,7 @@ $F_1(x):$\\
    \begin{axis}[ xmin=-3, xmax=3, ymin=-3, ymax=3,
      axis y line=middle,
      axis x line=middle,
-     y label style={at={(axis description cs:0,.5)},anchor=south},
+        y label style={at={(axis description cs:.45,1)},anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$y$,
      scale=1]
@@ -771,7 +812,7 @@ $F_2(x):$\\
    \begin{axis}[ xmin=-3, xmax=3, ymin=-3, ymax=3,
      axis y line=middle,
      axis x line=middle,
-     y label style={at={(axis description cs:0,.5)},anchor=south},
+     y label style={at={(axis description cs:.45,1)},anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$y$,
      scale=1]
