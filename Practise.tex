@@ -1292,7 +1292,41 @@ $f(x) = \frac{1}{\pi (1+x^2)}$, $Y=X^2$ , $X = \pm \sqrt{Y}$ (два интер�
 \end{equation*}
 Для дискретной случайной величины $Y=\varphi(x)$ надо найти все $y_i = \varphi(x_i)$ и если среди $y_i$ есть совпадающие, то надо сложить соответствующие вероятности.\\
 %доделать 
-
+\begin{tabular}[b]{ | l | l |  l | l |   }
+\hline
+$x_1$ & $x_2$ & $x_3$ & ... \\
+\hline
+$p_1$ & $p_2$ & $p_3$ & ... \\
+\hline
+$\varphi(x_1)$ & $\varphi(x_2)$ & $\varphi(x_3)$ & ... \\
+\hline
+\end{tabular}\\
+переходит в\\
+\begin{tabular}[b]{ | l | l |  l | l |   }
+\hline
+$y_1$ & $y_2$ & $y_3$ & ... \\
+\hline
+$p_1$ & $p_2$ & $p_3$ & ... \\
+\hline
+\end{tabular}\\
+\textbf{Пример}\\
+\begin{tabular}[b]{ | l | l |  l | l |  l | l | l |  }
+\hline
+$x_i$&$-\frac{\pi}{4}$&$0$&$\frac{\pi}{4}$&$\frac{\pi}{2}$&$\frac{3\pi}{4}$&$\frac{5\pi}{4}$\\
+\hline
+$p_i$&$\frac{1}{6}$&$\frac{1}{6}$&$\frac{1}{6}$&$\frac{1}{6}$&$\frac{1}{6}$&$\frac{1}{6}$\\
+\hline
+$\abs{cos x_i}$&$\frac{\sqrt{2}}{2}$&1&$\frac{\sqrt{2}}{2}$&0&$\frac{\sqrt{2}}{2}$&$\frac{\sqrt{2}}{2}$\\
+\hline
+\end{tabular}\\
+$Y=cos(x)$\\
+\begin{tabular}[b]{ | l | l |  l | l |}
+\hline
+$y_i$ &$0$ & $\frac{\sqrt{2}}{2}$&$1$\\
+\hline
+$p_i$ & $\frac{1}{6}$ & $\frac{2}{3}$ & $\frac{1}{6}$\\
+\hline
+\end{tabular}\\
 %страница 43
 \section{Предельные теоремы теории вероятностей}
 \noindent
