@@ -1114,26 +1114,26 @@ $\textbf{Теоремы о числовых характеристиках}$
 2)$D(C) = 0$\\
 3)$M(cX) = cM(X)$\\
 \underline{Доказательство:}\\
-$M(cX) = \displaystyle{\int\limits_{-\infty} ^{\infty}} c x f(x) dx = c \displaystyle{\int \limits_{-\infty} ^{\infty}} x f(x) dx = xM(X)$\\
+$M(cX) = \displaystyle{\int\limits_{-\infty} ^{\infty}} c x f(x) dx = c \displaystyle{\int \limits_{-\infty} ^{\infty}} x f(x) dx = xM(X)$
 \begin{flushright}\(\blacksquare\)\end{flushright}
 4)$D(cX) = c^2 D(X)$\\
 \underline{Доказательство:}\\
-$D(cX)=M((cX - M(cX))) = M((cX - c M(X))^2) = M(c^2(X-M(X))^2) =\\= c^2M((X-M(X))^2) = c^2 D(X)$\\
+$D(cX)=M((cX - M(cX))) = M((cX - c M(X))^2) = M(c^2(X-M(X))^2) =\\= c^2M((X-M(X))^2) = c^2 D(X)$
 \begin{flushright}\(\blacksquare\)\end{flushright}
 5)$M(X+Y) = M(X) + M(Y)$,  $M(\sum x_i) = \sum M(x_i)$\\
 \underline{Доказательство:}\\
-$M(X + Y) =  \displaystyle{\iint \limits_{-\infty} ^{\infty}} (x+y)f(x,y) dxdy$ = $\displaystyle{\iint \limits_{-\infty} ^{\infty}} xf(x,y) dxdy + \displaystyle{\iint \limits_{-\infty} ^{\infty}} yf(x,y) dxdy$ =\\= $\displaystyle{\int\limits_{-\infty}^{\infty} } dx x \displaystyle{\int\limits_{-\infty}^{\infty} } f(x, y) dy $ +  $\displaystyle{\int\limits_{-\infty}^{\infty} } dy y \displaystyle{\int\limits_{-\infty}^{\infty} } f(x, y) dx $ = $\displaystyle{\int\limits_{-\infty}^{\infty} } dx x f_1(x) + \displaystyle{\int\limits_{-\infty}^{\infty} } dyy f_1(y)$ =\\= $M(X) + M(Y)$\\
+$M(X + Y) =  \displaystyle{\iint \limits_{-\infty} ^{\infty}} (x+y)f(x,y) dxdy$ = $\displaystyle{\iint \limits_{-\infty} ^{\infty}} xf(x,y) dxdy + \displaystyle{\iint \limits_{-\infty} ^{\infty}} yf(x,y) dxdy$ =\\= $\displaystyle{\int\limits_{-\infty}^{\infty} } dx x \displaystyle{\int\limits_{-\infty}^{\infty} } f(x, y) dy $ +  $\displaystyle{\int\limits_{-\infty}^{\infty} } dy y \displaystyle{\int\limits_{-\infty}^{\infty} } f(x, y) dx $ = $\displaystyle{\int\limits_{-\infty}^{\infty} } dx x f_1(x) + \displaystyle{\int\limits_{-\infty}^{\infty} } dyy f_1(y)$ =\\= $M(X) + M(Y)$
 \begin{flushright}\(\blacksquare\)\end{flushright}
 6)$M(\sum \limits a_i X_i + b) = \sum \limits a_i M(x_i) + b$\\
 7)$D(X + Y) = D(X) + D(Y) + 2 K_{XY}$\\
 \underline{Доказательство:}\\
-$Z=X+Y$. Перейдем к центрированным величинам.\\
+$Z=X+Y$. Перейдем к центрированным величинам.
 %доделать с кружочками.
 \begin{flushright}\(\blacksquare\)\end{flushright}
 8)$D(\displaystyle{\sum_{i = 1}^{n}}a_iX_i + b) =  \displaystyle{\sum_{i = 1}^{n}} ( a_i^2 D(X_i) + 2 \displaystyle{\sum_{i <j}^{n}}a_ia_jK_{i,j})$\\
 \underline{Доказательство:}\\
 $Y_i = a_i X_i$,\\
- $ \displaystyle{\sum_{i = 1}^{n}}a_iX_i + b =  \displaystyle{\sum_{i = 1}^{n}}Y_i + b$, следовательно  $D(  \displaystyle{\sum_{i = 1}^{n}} a_iX_i  +  b  ) = \displaystyle{\sum_{i = 1}^{n}} D(Y_i) + \displaystyle{\sum_{i < j}^{}} K_{i,j} ^y =\\= \displaystyle{\sum_{i = 1}^{n}}a_i^2D(X_i) + 2 \displaystyle{\sum_{i  < j}} K_{i,j}^{y}$\\
+ $ \displaystyle{\sum_{i = 1}^{n}}a_iX_i + b =  \displaystyle{\sum_{i = 1}^{n}}Y_i + b$, следовательно  $D(  \displaystyle{\sum_{i = 1}^{n}} a_iX_i  +  b  ) = \displaystyle{\sum_{i = 1}^{n}} D(Y_i) + \displaystyle{\sum_{i < j}^{}} K_{i,j} ^y =\\= \displaystyle{\sum_{i = 1}^{n}}a_i^2D(X_i) + 2 \displaystyle{\sum_{i  < j}} K_{i,j}^{y}$
 \begin{flushright}\(\blacksquare\)\end{flushright}
 %страница 39
 %страница 40
@@ -1148,11 +1148,11 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \\
 \begin{picture}(100,100)
 \put(10, 10){\vector(0, 4){100}}
-\put(10, 10){\vector(4, 0){200}}
+\put(10, 10){\vector(4, 0){100}}
 \put(0, 120){\makebox(0, 0) {$y$}}
-\put(200, 0){\makebox(0, 0) {$x$}}
+\put(100, 0){\makebox(0, 0) {$x$}}
 \put(30, 30){\line(3, 4){60}}
-\put(120, 100){$y=\phi(x)$}
+\put(120, 100){$y=\varphi(x)$}
 \put(0, 45){\makebox(0, 0) {$y$}}
 \put(30, 0){\makebox(0, 0) {$a$}}
 \put(60, 0){\makebox(0, 0) {$b$}}
@@ -1190,10 +1190,10 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 
 \begin{picture}(100,100)
 \put(10, 10){\vector(0, 4){100}}
-\put(10, 10){\vector(4, 0){200}}
+\put(10, 10){\vector(4, 0){100}}
 \put(0, 120){\makebox(0, 0) {$y$}}
-\put(200, 0){\makebox(0, 0) {$x$}}
-\put(100, 40){\makebox(0, 0) {$y=\phi(x)$}}
+\put(100, 0){\makebox(0, 0) {$x$}}
+\put(100, 40){\makebox(0, 0) {$y=\varphi(x)$}}
 \qbezier(20,70)(30,40)(70,30)
 \put(30, 10){\line(0, 1) {3}}
 \put(30, 16){\line(0, 1) {3}}
