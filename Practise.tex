@@ -122,11 +122,12 @@ $P$ = $\frac{8!}{ 8^2 \cdot (8^2 - 1) \cdot (8^2 - 2)  \ .\ .\ . \   (8^2 - 7)} 
 $\textbf{Пример}$\\Двое договорились встретится в определенном месте между 17 и 18 часами. Пришедший первым ждет второго 15 минут, после чего уходит. Определить вероятность встречи, если время прихода каждого независимо и равновероятно в течении этого часа.\\
 %\includegraphics[scale=0.3]{Graphic.png}\\
 \begin{tikzpicture}
-   \begin{axis}[ xmin=0, xmax=1.5, ymin=0, ymax=1.5,
-     y label style={at={(axis description cs:0.2,0.7)},rotate=270,anchor=south},
+   \begin{axis}[ xmin=0, xmax=1.5, ymin=0, ymax=1.5,ticks=none,
+     y label style={ticks=none,at={(axis description cs:0.2,0.7)},rotate=270,anchor=south},
      axis x line=middle,
      axis y line=middle,
-     xlabel=$x$, ylabel=$y$,
+     label style={font=\normalsize},
+     xlabel=$x $, ylabel=$y$,
      yticklabels=\empty,
      xticklabels=\empty
      scale=1]
@@ -592,10 +593,11 @@ $M(X) = 0\cdot \frac{3}{8} + 1\cdot \frac{1}{8} + \int\limits_{0}^{1}x\cdot \fra
 %\includegraphics[scale=0.2]{Gr.png}\\
 
 \begin{tikzpicture}
-   \begin{axis}[ xmin=0, xmax=2, ymin=0, ymax=1,
+   \begin{axis}[ ,ticks=none,xmin=0, xmax=2, ymin=0, ymax=1,
      y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
      axis x line=middle,
      axis y line=middle,
+     label style={font=\normalsize},
      xlabel=$x$, ylabel=$f(x)$,
      yticklabels=\empty,
      xticklabels=\empty
@@ -644,10 +646,11 @@ F(x)=
 \end{equation*}\\
 %\includegraphics[scale=0.2]{Gr2.png}\\	
 \begin{tikzpicture}
-   \begin{axis}[ xmin=0, xmax=2, ymin=0, ymax=1,
+   \begin{axis}[ ticks=none,xmin=0, xmax=2, ymin=0, ymax=1,
      y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
      axis x line=middle,
      axis y line=middle,
+     label style={font=\normalsize},
      xlabel=$x$, ylabel=$F(x)$,
      yticklabels=\empty,
      xticklabels=\empty
@@ -770,6 +773,7 @@ $D(X) = \int\limits_{0}^{\infty}t^2\lambda e^{-\lambda t}dt - \frac{1}{\lambda^2
    \begin{axis}[grid=major, xmin=-10, xmax=10, ymin=0, ymax=1,
     axis lines = left,
      xlabel=$x$, ylabel=$f(x)$,
+     label style={font=\normalsize},
      y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
      xtick = {-10,0,...,10}, ytick = {0,...,1},
      scale=1, restrict y to domain=0:10]
@@ -787,6 +791,7 @@ $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-
 \begin{tikzpicture}
    \begin{axis}[grid=major, xmin=-10, xmax=10, ymin=0, ymax=1,
      axis lines = left,
+     label style={font=\normalsize},
      xlabel=$x$, ylabel=$f(x)$,
 	     xtick = {-10,0,...,10}, ytick = {0,...,1},
     y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
@@ -878,7 +883,7 @@ $F(x, y) = P(X<x, Y<y)$ -- это вероятность попадания в �
 $F_1(x):$\\
 %\includegraphics[scale=0.3]{pg30.png}\\	
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-3, xmax=3, ymin=-3, ymax=3,
+   \begin{axis}[ ticks=none,xmin=-3, xmax=3, ymin=-3, ymax=3,
      axis y line=middle,
      axis x line=middle,
         y label style={at={(axis description cs:.45,1)},anchor=south},
@@ -900,7 +905,8 @@ $F_2(x):$\\
 %\includegraphics[scale=0.3]{pg30num3.png}\\	
 
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-3, xmax=3, ymin=-3, ymax=3,
+   \begin{axis}[  ticks=none,
+	xmin=-3, xmax=3, ymin=-3, ymax=3,
      axis y line=middle,
      axis x line=middle,
      y label style={at={(axis description cs:.45,1)},anchor=south},
@@ -1022,7 +1028,8 @@ f(x, y)=
 \end{equation*}\\
 Величины являются зависимыми (если $X  = 0$, то $Y$ может с равными вероятностями принимать значения на $[-1, 1]$, если $x=1$, то $Y$ может принять одно единственное значение $Y=0$).\\
 $M(X)=M(Y) = 0$ по соображениям симметрии.\\
-$K_{XY}$ = $\displaystyle{\iint\limits_{C}^{}} xf(x, y)dxdy$ =  $\frac{1}{\pi} \displaystyle{\iint\limits_{C}^{}} xy dxdy$ = $\frac{1}{\pi} \displaystyle{\iint\limits_{C_1}^{}} xy dxdy$+ $\frac{1}{\pi} \displaystyle{\iint\limits_{C_2}^{}} xy dxdy$ +\\+ $\frac{1}{\pi} \displaystyle{\iint\limits_{C_2}^{}} xy dxdy$ + $\frac{1}{\pi} \displaystyle{\iint\limits_{C_3}^{}} xy dxdy$ + $\frac{1}{\pi} \displaystyle{\iint\limits_{C_4}^{}} xy dxdy$ = $0$.
+$K_{XY}$ = $\displaystyle{\iint\limits_{C}^{}} xf(x, y)dxdy$ =  $\frac{1}{\pi} \displaystyle{\iint\limits_{C}^{}} xy dxdy$ = $\frac{1}{\pi} \displaystyle{\iint\limits_{C_1}^{}} xy dxdy$+ $\frac{1}{\pi} \displaystyle{\iint\limits_{C_2}^{}} xy dxdy$ +\\+ $\frac{1}{\pi} \displaystyle{\iint\limits_{C_2}^{}} xy dxdy$ + $\frac{1}{\pi} \displaystyle{\iint\limits_{C_3}^{}} xy dxdy$ + $\frac{1}{\pi} \displaystyle{\iint\limits_{C_4}^{}} xy dxdy$ = $0$.\\
+(Так как интегралы одинаковы по величине и отличаются знаком.)\\	
 То есть независимые следовательно некоррелирующие, обратное неверно.\\
 $-1\leq r_{xy} \leq 1$\\
 Если $Y=aX+b$, то $r_{XY} = \pm \ 1$\\
@@ -1171,6 +1178,10 @@ $Z=X+Y$. Перейдем к центрированным величинам.
 $Y_i = a_i X_i$,\\
  $ \displaystyle{\sum_{i = 1}^{n}}a_iX_i + b =  \displaystyle{\sum_{i = 1}^{n}}Y_i + b$, следовательно  $\displaystyle{D\left (\sum_{i = 1}^{n}a_iX_i + b\right )}  = \displaystyle{\sum_{i = 1}^{n}} D(Y_i) + \displaystyle{\sum_{i < j}^{}} K_{i,j} ^y =\\= \displaystyle{\sum_{i = 1}^{n}}a_i^2D(X_i) + 2 \displaystyle{\sum_{i  < j}} K_{i,j}^{y}$
 \begin{flushright}\(\blacksquare\)\end{flushright}
+9)$M(XY)=M(X)M(Y)+K_{XY}$\\
+\underline{Доказательство:}\\
+$K_{XY} = M(XY) = M((X-m_x)(Y-m_y)) = M(XY)  - m_xM(Y) - m_y M(X) +\\+ m_xm_y  = M(XY) - M(X)M(Y)$
+\begin{flushright}\(\blacksquare\)\end{flushright}
 %страница 39
 %страница 40
 %страница 41
@@ -1223,7 +1234,10 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \put(36, 50){\line(1, 0) {3}}
 
 \end{picture}
-
+\\
+\\
+\\
+\noindent
 \begin{picture}(100,100)
 \put(10, 10){\vector(0, 4){100}}
 \put(10, 10){\vector(4, 0){100}}
@@ -1311,7 +1325,7 @@ $g(x) = \frac{1}{\pi} \abs{(arctg \frac{x}{l})'} = \frac{l}{\pi(l^2 + x^2)}$ -- 
 Пусть $\varphi$ немонотонно дифференцируемая функция на $(a, b)$.\\
 $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displaystyle{\sum_{i}}  \displaystyle{\int\limits_{\Delta_i(y)} } f(x) dx$\\
 \begin{tikzpicture}
-   \begin{axis}[ xmin=0, xmax=10, ymin=0, ymax=5,
+  \begin{axis}[ ticks=none,xmin=0, xmax=10, ymin=0, ymax=5,
      axis lines = left,
      y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
      axis line style={->},
@@ -1403,11 +1417,11 @@ $P(\abs{X - m_x} \geq  3 \sigma_x) \leq  \frac{D_x}{9\sigma_x^2} = \frac{1}{9}$\
 $X_1$ -- значение $X$ в первом опыте. $X_2$ -- во втором и так далее. $Y = \frac{\displaystyle{\sum\limits_{i = 1}  ^ {n} x_i}}{n}$ $M(Y) = \frac{1}{n} \displaystyle{\sum\limits_{i = 1}^{n}} M(X_i) = \frac{1}{n} n m_x = m_x$\\
 $D(Y)  = \frac{1}{n^2}\displaystyle{\sum\limits_{i = 1}^{n}} D(X_i) = \frac{D_x}{n}$\\
 $\textbf{Теорема(Чебышева)}$\\
-При неограниченном увеличении числа независимых опытов среднее арифметическое наблюденных значений случайной величины, имеющих ограниченную дисперсию $D_x$, сходится по вероятности к её математическому ожиданию, то есть
-$\displaystyle{  \lim_{n\to{\infty}}  }  \displaystyle{ P(\left |\frac{1}{n} \sum\limits_{i = 1}^{n} x_i - m_x \right | < \varepsilon) = 1}$, где $ \varepsilon$ --  сколь угодно маленькое положительное число.\\
+При неограниченном увеличении числа независимых опытов  среднее \\ арифметическое наблюденных значений случайной величины, имеющих ограниченную дисперсию $D_x$, сходится по вероятности к её математическому ожиданию, то есть
+$\displaystyle{  \lim_{n\to{\infty}}  }  \displaystyle{ P(\left\lvert\frac{1}{n} \sum\limits_{i = 1}^{n} x_i - m_x \right\rvert < \varepsilon) = 1}$, где $ \varepsilon$ --  сколь угодно маленькое положительное число.\\
 \underline{Доказательство:}\\
 $Y$ имеет $m_y=m_x$, $D_y = \frac{1}{n}D_x$ Неравенство Чебышева для $Y$:\\ $P(\abs{Y-m_y} \geq \varepsilon) \leq \frac{D_y}{\varepsilon^2} = \frac{D_x}{n\varepsilon^2}.$
-Пусть $\varepsilon$ и $\Delta$ сколь угодно малые. Выберем $n$ так, что $\frac{D_x}{n\varepsilon^2} < \Delta$. Тогда $P(\abs{\frac{1}{n}  \displaystyle{\sum\limits_{i = 1}^{n}} x_i - m_x} \geq \varepsilon) < \Delta$, переходим к противоположному событию,  $P(\abs{\frac{1}{n}  \displaystyle{\sum\limits_{i = 1}^{n}} x_i - m_x} < \varepsilon) > 1 - \Delta$.\\
+Пусть $\varepsilon$ и $\Delta$ сколь угодно малые. Выберем $n$ так, что $\frac{D_x}{n\varepsilon^2} < \Delta$. Тогда $\displaystyle{P(\left\lvert\frac{1}{n}  \sum\limits_{i = 1}^{n} x_i - m_x\right\rvert \geq \varepsilon) < \Delta}$, переходим к противоположному событию,  $\displaystyle{P(\left\lvert\frac{1}{n}  \sum\limits_{i = 1}^{n} x_i - m_x\right\rvert < \varepsilon) > 1 - \Delta}$.\\
 \begin{flushright}\(\blacksquare\)\end{flushright}
 %страница 44
 $\textbf{Теорема (Бернулли)}$\\
@@ -1425,8 +1439,8 @@ $M(X_i) = P$, $D(X_i) = pq$.\\
 $P^* = \frac{1}{n} \displaystyle{\sum_{i}^{n}} x_i$,  следовательно, по теореме Чебышева $P(\abs{P^* - p} < \varepsilon) > 1 - \delta$\\
 \begin{flushright}\(\blacksquare\)\end{flushright}
 \textbf{Замечание\ } \\
-Математическое ожидание и дисперсия биномиального распределения находятся проще с помощью системы случайных величин $X = \displaystyle{\sum\limits_{i = 1}^{n}} X_i$, 
-$M(X_i) = p$, $D(X_i) = pq$.
+Математическое ожидание и дисперсия биномиального распределения \\ находятся проще с помощью системы случайных величин $X = \displaystyle{\sum\limits_{i = 1}^{n}} X_i$, 
+$M(X_i) = $ $=p$, $D(X_i) = pq$.
 $M(\displaystyle{\sum\limits_{i = 1}^{n}} X_i) = np$, $D(\displaystyle{\sum\limits_{i = 1}^{n}} X_i) = npq$ -- для независимых случайных величин\\
 $\textbf{Центральная предельная теорема}$\\
 Если $X_1,$$ X_2,\ .\ .\ \ . X_n$ -- независимые случайные  величины, имеющие один и тот же закон распределения с математическим ожиданием $m$ и дисперией $\sigma^2$,
