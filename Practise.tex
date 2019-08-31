@@ -326,6 +326,51 @@ $\textbf{Теорема}$\\
 $P=p^n<0.1=q$, $n > \frac{\ln(q)}{\ln(p)}$\\
 Суммы и произведение вероятностей часто работают вместе.\\
 \textbf{Пример\ 3}\\ Пусть все элементы отказывают независимо от комбинаций других. Чему равна вероятность отказа цепи?\\
+
+\begin{tikzpicture}
+\draw[gray, thick] (0,7) -- (2,7);
+\draw (3,7) circle (1);
+\node [below] at (3, 6) {$0.1$};
+\node [above] at (3, 8) {$A$};
+\draw[gray, thick] (4,7) -- (5,7);
+\draw[gray, thick] (5,7) -- (5,9);
+\draw[gray, thick] (5,7) -- (5,5);
+\draw[gray, thick] (5,9) -- (6,9);
+\draw[gray, thick] (5,5) -- (6,5);
+\draw (7,5) circle (1);
+\draw (7,9) circle (1);
+\node [below] at (7, 4) {$0.3$};
+\node [above] at (7, 6) {$B_1$};
+\node [below] at (7, 8) {$0.3$};
+\node [above] at (7, 10) {$B_2$};
+
+\draw[gray, thick] (8,9) -- (9,9);
+\draw[gray, thick] (8,5) -- (9,5);
+\draw[gray, thick] (9,5) -- (9,9);
+\draw[gray, thick] (9,7) -- (10,7);
+\draw[gray, thick] (10,4) -- (10,10);
+\draw[gray, thick] (10,4) -- (11,4);
+\draw[gray, thick] (10,10) -- (11,10);
+\draw[gray, thick] (10,7) -- (11,7);
+\draw (12,4) circle (1);
+\draw (12,10) circle (1);
+\draw (12,7) circle (1);
+\node [above] at (12, 5) {$C_1$};
+\node [below] at (12, 3) {$0.5$};
+\node [above] at (12, 8) {$C_2$};
+\node [below] at (12, 6) {$0.5$};
+\node [above] at (12, 11) {$C_3$};
+\node [below] at (12, 9) {$0.5$};
+
+\draw[gray, thick] (13,4) -- (14,4);
+\draw[gray, thick] (13,10) -- (14,10);
+\draw[gray, thick] (13,7) -- (14,7);
+\draw[gray, thick] (14,4) -- (14,10);
+\draw[gray, thick] (14,7) -- (15,7);
+
+
+\end{tikzpicture}
+
 $P(A+B_1B_2+C_1C_2C_3)=P(A)+P(B_1)\cdot P(B_2)+P(C_1C_2C_3)-P(AB_1B_2)-P(AC_1C_2C_3)-P(B_1B_2C_1C_2C_3)+P(AB_1B_2C_1C_2C_3)$\\
 \begin{center}
 $\textbf{Формула полной вероятности }$
