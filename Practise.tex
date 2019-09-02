@@ -1118,7 +1118,46 @@ $F_2(x):$\\
 4)$F(\infty, \infty) = 1$\\
 \textbf{Пример}\\
 По мишени производится один выстрел, вероятность попадания = $\frac{3}{4}$, $X$ --  число попаданий , $Y$ -- число промахов, $F(x, y)=$ ?.\\
+\begin{tabular}[b]{ | l | l |  l |  }
+\hline
+\backslashbox{$y$}{$x$}&$0$&1\\
+\hline
+$0$&$0$&$\frac{3}{4}$\\
+\hline
+$1$&$\frac{1}{4}$&$0$\\
+\hline
+\end{tabular}\\
+\\
+\\
+\begin{picture}(100,100)
+\put(70, 10){\vector(0, 3){80}}
+\put(50, 30){\vector(4, 0){130}}
+
+\put(60, 80){\makebox(10, 0){$y$}}
+\put(170, 20){\makebox(10, 0){$x$}}
+\put(70, 60){\line(1, 0){70}}	
+\put(90, 30){\line(0, 1){70}}	
+\put(0, 40){\makebox(10, 0){$F(x, y)=$}}
+\put(55, 20){\makebox(10, 0){$0$}}
+\put(120, 20){\makebox(10, 0){$0$}}
+\put(55, 40){\makebox(10, 0){$0$}}
+\put(75, 40){\makebox(10, 0){$0$}}
+\put(75, 70){\makebox(10, 0){$\frac{1}{4}$}}
+\put(100, 40){\makebox(10, 0){$\frac{3}{4}$}}
+\put(100, 70){\makebox(10, 0){$1$}}
+\put(85, 20){\makebox(10, 0){$1$}}
+\put(60, 60){\makebox(10, 0){$1$}}
+\put(90, 30){\circle*{3}}
+\put(70, 60){\circle*{3}}
+\end{picture}\\
 Дискретная система случайных величин $X,Y$ характеризуется таблицей распределения : $p_{ij} = P(X=x_i, Y = y_i)$\\
+\begin{tabular}[b]{ | l | l |}
+\hline
+\backslashbox{$y$}{$x$}&$x_i$\\
+\hline
+$y_i$&$p_{ij}$\\
+\hline
+\end{tabular}
 %страница 31
 \begin{center}
 $\textbf{Совместная плотность вероятности системы случайных величин}$
