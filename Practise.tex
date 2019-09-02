@@ -1018,31 +1018,72 @@ $P(\abs{x - 10} < \varepsilon) \geq 0.9$ следовательно $P(\ \abs{(x
 \noindent
 Для двух случайных величин $X$, $Y$.\\
 $F(x, y) = P(X<x, Y<y)$ -- это вероятность попадания в угол.\\
+\begin{tikzpicture}
+   \begin{axis}[ ticks=none,xmin=-3, xmax=3, ymin=-3, ymax=3,
+     axis y line=middle,
+     axis x line=middle,
+     y label style={at={(axis description cs:.45,1)},anchor=south, font = \normalsize},
+     axis line style={->},
+     x label style = {font = \normalsize},
+     xlabel=$\large x$, ylabel=$\large y$,
+     scale=0.5]
+\draw[thick] (400,400) --(400,0);
+\draw[thick] (400,400) --(0,400);
+\draw(400,360) --(40,0);
+\draw (400,320) --(80,0);
+\draw (400,280) --(120,0);
+\draw (400,240) --(160,0);
+\draw (400,200) --(200,0);
+\draw (400,160) --(240,0);
+\draw (400,120) --(280,0);
+\draw (400,80) --(320,0);
+\draw (400,40) --(360,0);
+\draw (400,400) --(0,0);
+\draw (360,400) --(0,40);
+\draw (320,400) --(0,80);
+\draw (280,400) --(0,120);
+\draw (240,400) --(0,160);
+\draw (200,400) --(0,200);
+\draw (160,400) --(0,240);
+\draw (120,400) --(0,280);
+\draw (80,400) --(0,320);
+\draw (40,400) --(0,360);
+\draw[fill=black!10!black] (400,400) circle (0.2ex);
+
+\node [right] at (400,420) {$(x, y)$};
+\end{axis}
+\end{tikzpicture}\\
 Свойства:\\
 1)Формула распределений компонент:\\
  $F_1(x) = \displaystyle{  \lim_{y\to{\infty}} F(x, y) }$ \\
  $F_2(y) = \displaystyle{  \lim_{x\to{\infty}} F(x, y) }$ \\
 \newpage
-$F_1(x):$\\
+\noindent$F_1(x):$\\
 %\includegraphics[scale=0.3]{pg30.png}\\	
 \begin{tikzpicture}
    \begin{axis}[ ticks=none,xmin=-3, xmax=3, ymin=-3, ymax=3,
      axis y line=middle,
      axis x line=middle,
-        y label style={at={(axis description cs:.45,1)},anchor=south},
+     y label style={at={(axis description cs:.45,1)},anchor=south, font = \normalsize},
      axis line style={->},
-     xlabel=$x$, ylabel=$y$,
-     scale=1]
-
+     x label style = {font = \normalsize},
+     xlabel=$\large x$, ylabel=$\large y$,
+     scale=0.5]
 \draw[thick] (400,600) --(400,0);
+\draw (400,550) --(200,450);
 \draw (400,500) --(200,400);
+\draw (400,450) --(200,350);
 \draw (400,400) --(200,300);
+\draw (400,350) --(200,250);
 \draw (400,300) --(200,200);
+\draw (400,250) --(200,150);
 \draw (400,200) --(200,100);
+\draw (400,150) --(200,50);
 \draw (400,100) --(200,0);
+\draw[fill=black!10!black] (400,300) circle (0.2ex);
+\node [right] at (400,330) {$x$};
 \end{axis}
-\end{tikzpicture}
-\\
+\end{tikzpicture}\\
 \noindent
 $F_2(x):$\\
 %\includegraphics[scale=0.3]{pg30num3.png}\\	
@@ -1052,16 +1093,23 @@ $F_2(x):$\\
 	xmin=-3, xmax=3, ymin=-3, ymax=3,
      axis y line=middle,
      axis x line=middle,
-     y label style={at={(axis description cs:.45,1)},anchor=south},
+     y label style={at={(axis description cs:.45,1)},anchor=south,  font = \normalsize},
+     x label style={font = \normalsize},
      axis line style={->},
-     xlabel=$x$, ylabel=$y$,
-     scale=1]
+     xlabel=$\large x$, ylabel=$\large y$,
+     scale=0.5]
 \draw[thick] (600,400) --(0,400);
 \draw (500,400) --(400,100);
+\draw (450,400) --(350,100);
 \draw (400,400) --(300,100);
+\draw (350,400) --(250,100);
 \draw (300,400) --(200,100);
+\draw (250,400) --(150,100);
 \draw (200,400) --(100,100);
+\draw (150,400) --(50,100);
 \draw (100,400) --(0,100);
+\draw[fill=black!10!black] (300,400) circle (0.2ex);
+\node [right] at (300,435) {$y$};
 \end{axis}
 \end{tikzpicture}
 \\
