@@ -1738,26 +1738,26 @@ $ I_i$      & $(x_1, x_2) $ &  $(x_2, x_3) $ & . . . & $(x_k, x_{k + 1})$    \\
 $\textbf{Оценки математического ожидания и дисперсии}$
 \end{center}
 Пусть случайная величина $X$ имеет $M(X) = m$ и $D(X) = D$ ($M$ и $D$ неизвестны). $X_1, X_2, $ . . . $,X_n$ -- наблюдаемые величины $X$.\\
- $\hat{m} =  \frac{\displaystyle{\sum \limits_{i = 1}^{ n }}x_i}{n} $ \normalsize\\
-Это состоятельная оценка так как по закону больших чисел, при $n \rightarrow \infty$  $\hat{m}$ сходится по вероятности к $m$. Оценка $\hat{m}$ несмещённая, так как \\$M(\hat{m}) =\frac{  \displaystyle{\sum \limits_{i = 1}^{n}} M(X_i)  }{n} = m$.\\ Дисперсия оценки: $D(\hat{m}) = \frac{1}{n^2} \displaystyle{\sum \limits_{i = 1}^{n}}  = \frac{D}{n}$\\
+ $\hat{m} =  \cfrac{\displaystyle{\sum \limits_{i = 1}^{ n }}x_i}{n} $ \normalsize\\
+Это состоятельная оценка так как по закону больших чисел, при $n \rightarrow \infty$  $\hat{m}$ сходится по вероятности к $m$. Оценка $\hat{m}$ несмещённая, так как \\$M(\hat{m}) =\cfrac{  \displaystyle{\sum \limits_{i = 1}^{n}} M(X_i)  }{n} = m$.\\ Дисперсия оценки: $D(\hat{m}) = \frac{1}{n^2} \displaystyle{\sum \limits_{i = 1}^{n}}D(X_i)	  = \frac{D}{n}$\\
 Отсюда видно, зачем надо производить несколько измерений, а потом усреднять -- уменьшать дисперсию (точность увеличивается  в $\sqrt{n}$ раз).\\
 %страница 49
 Эффект оценки зависит от вида распределения. Если $X$ распределена нормально, то оценка $\hat{m}$ эфективна.  Для других законов это может не выполнятся. Если $n$
 велико(практически $n>30$) и $x_i$ некоррелируют, то по центральной предельной теореме $\hat{m}$ подчиняется нормальному распределению со средним значением $m$ и среднеквадратичным отклонением $\sqrt{\frac{D}{n}}$\\
 Оценка дисперсии.\\
-Можно предположить: $ S^2 = \frac{ \displaystyle{\sum \limits_{i = 1}^{n}} (X_i - \hat{m})^2 }{n}$, $\hat{m} = \frac{ \displaystyle{\sum \limits_{i = 1}^{n}} x_i}{n}$\\
+Можно предположить: $ S^2 = \cfrac{ \displaystyle{\sum \limits_{i = 1}^{n}} (X_i - \hat{m})^2 }{\normalsize  n}$, $\hat{m} = \cfrac{ \displaystyle{\sum \limits_{i = 1}^{n}} x_i}{n}$\\
 1)Оценка состоятельна\\
-$S^2=\frac{ \displaystyle{\sum \limits_{i = 1}^{n}} (X_i)^2 }{n}- \hat{m}^2$\\
+$S^2=\cfrac{ \displaystyle{\sum \limits_{i = 1}^{n}} (X_i)^2 }{n}- \hat{m}^2$\\
 Это среднее  арифметическое $n$ наблюдений значений величины $X^2$. Он сходится по вероятности (по закону больших чисел) к $M(X^2) = \alpha_2(X)$. Второй член сходится по вероятности к $m^2$. То есть $S^2$ $\displaystyle{\underset{n \rightarrow \infty}{\rightarrow}} \alpha_2(x) - m^2 = D$ (по вероятности)\\
 2)Оценка $S^2$ -- смещена.\\
-$S^2$= $\frac{ \displaystyle{\sum \limits_{i = 1}^{n}}x_i^2 }{n} -  \displaystyle{ \left ( \frac{\sum \limits_{i = 1}^{n}x_i }{n} \right )^2 } = \frac{ \displaystyle{\sum \limits_{i = 1}^{n}}x_i^2 }{n}  - \frac{ \displaystyle{\sum \limits_{i = 1}^{n}}x_i^2 }{n^2} - 2 \frac{ \displaystyle{\sum \limits_{i < j}^{n}}x_ix_j }{n^2}  = \frac{n - 1}{n} \displaystyle{\sum \limits_{i = 1}^{n}}x_i^2  - 2 \frac{ \displaystyle{\sum \limits_{i < j}^{n}}x_ix_j }{n^2}  $  \\
-$M(S^2) = \frac{n - 1}{n^2}  \displaystyle{\sum \limits_{i = 1}^{n}}M(X_i^2) - \frac{2}{n^2}  \displaystyle{\sum \limits_{i < j}^{}} M(X_iX_j)$\\
+$S^2$= $\cfrac{ \displaystyle{\sum \limits_{i = 1}^{n}}x_i^2 }{n} -  \displaystyle{ \left ( \frac{\sum \limits_{i = 1}^{n}x_i }{n} \right )^2 } = \frac{ \displaystyle{\sum \limits_{i = 1}^{n}}x_i^2 }{n}  - \frac{ \displaystyle{\sum \limits_{i = 1}^{n}}x_i^2 }{n^2} - 2 \frac{ \displaystyle{\sum \limits_{i < j}^{n}}x_ix_j }{n^2}  = \frac{n - 1}{n} \displaystyle{\sum \limits_{i = 1}^{n}}x_i^2  - 2 \frac{ \displaystyle{\sum \limits_{i < j}^{n}}x_ix_j }{n^2}  $  \\
+$M(S^2) = \cfrac{n - 1}{n^2}  \displaystyle{\sum \limits_{i = 1}^{n}}M(X_i^2) - \frac{2}{n^2}  \displaystyle{\sum \limits_{i < j}^{}} M(X_iX_j)$\\
 $S^2$ не зависит от выбора начала координат. Пусть начало координат в точкe $m$. Тогда $M(X_i^2) = M(\hat{X}_i^2) =D$, $ \displaystyle{\sum \limits _{i=1} ^ {n}} M(X_i^2) = nD$, $M(X_iX_j) = M(\hat{X_i}\hat{X_j}) = K_{ij} = 0$. (так как опыты независимы, следовательно некоррелируют).\\
 Значит, $M(S^2) = \frac{n - 1}{n} D \neq D$\\
 \\
 Что бы оценка стала несмещённой, ее надо умножить на $\frac{n}{n - 1}$.\\
-$\hat{D} = \frac{\displaystyle{\sum \limits _{i = 1}^{n}( (x_i - \hat{m})^2 }}{n - 1}$ -- несмещённая оценка. $ \displaystyle{\left ( или \hat{D} = \frac{\sum \limits _{i = 1}^{n} x_i^2}{n - 1} - \hat{m^2} \frac{n}{n - 1}\right )}$\\
-При больших значениях $n$ -- $S^2$ и $\hat{D}$ различаются мало.\\ При известном математическом ожидании ($m$) несмещённая оценка дисперсии:$\hat{D} = \frac{1}{n} \displaystyle{\sum \limits_{i=1}^{n}(x_i - m)^2}$.\\ (То есть $\frac{1}{n - 1}$ происходит из-за того, что была оценкой $\hat{m}$, а не $m$).\\
+$\hat{D} = \cfrac{\displaystyle{\sum \limits _{i = 1}^{n}( (x_i - \hat{m})^2 }}{n - 1}$ -- несмещённая оценка. $ \displaystyle{\left ( или \hat{D} = \frac{\sum \limits _{i = 1}^{n} x_i^2}{n - 1} - \hat{m^2} \frac{n}{n - 1}\right )}$\\
+При больших значениях $n$ -- $S^2$ и $\hat{D}$ различаются мало.\\ При известном математическом ожидании ($m$) несмещённая оценка дисперсии:$\hat{D} = \cfrac{1}{n} \displaystyle{\sum \limits_{i=1}^{n}(x_i - m)^2}$.\\ (То есть $\cfrac{1}{n - 1}$ происходит из-за того, что была оценкой $\hat{m}$, а не $m$).\\
 $ \displaystyle{M \left( \frac{1}{n} \sum \limits_{i = 1}^{n} (X_i - m)^2 \right) = \frac{1}{n} \displaystyle{\sum \limits_{i = 1}^{n}} M((X_i - m)^2) = \frac{1}{n} \displaystyle{\sum \limits_{i = 1}^{n}}  D = D}$,
 {то есть она несмещённая.}\\
 %страница 50
