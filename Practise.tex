@@ -959,15 +959,15 @@ $\sigma_1<\sigma_2<\sigma_3$\\
      xtick = {-10,0,...,10}, ytick = {0,...,1},
     y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
      scale=1, restrict y to domain=0:10]
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) ) * pow(2.17, (-(\x -4)*(\x-4)/(2))  )  }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-2)*(\x-2)/2)  )  });
-     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-\x*\x/2)  )  });	  
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) ) * pow(2.17, (-(\x -4)*(\x-4)/(8))  )  }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-2)*(\x-2)/8)  )  });
+     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-\x*\x/8)  )  });	  
      \node [black, right] at (110,50) {$m_2$};
      \node [black, right] at (90,50) {$m_1$};
      \node [black, right] at (130,50) {$m_3$};   
   \end{axis}
 \end{tikzpicture}\\
-$m_1<m_2<m_3$
+$m_1<m_2<m_3$\\
 $M=Me=m $ -- мода и медиана совпадают с $M(X)$.\\
 $\mu_s(x) = \int\limits_{-\infty}^{\infty} (x-m)^s f(x)dx = \frac{1}{\sigma\sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^s e^{-\frac{(x-m)^2}{2\sigma^2}}dx$ . Пусть $t = \frac{x - m}{\sigma\sqrt{2}}$.
 Тогда $\displaystyle{ \mu_s(x) = \frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}}  \int\limits_{-\infty}^{\infty} t^s e^{-t^2} dt = \frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}}\left (-\frac{1}{2}e^{-t^2}t^{s-1}|_{-\infty}^{\infty}+ \frac{s-1}{2}\int\limits_{-\infty}^{\infty}t^{s-2}e^{-t^2}\right )  } =\\ \displaystyle{ =\frac{(s-1)(\sigma\sqrt{2})^s}{2\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t^{s-2}e^{-t^2}dt =(s-1)\sigma^2\mu_{s-2}}$,\\ так как $\mu_{s-2}  = \frac{(\sigma\sqrt{2})^{s-2}}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty}t ^{s-2} e^{-t^2}dt,$ и $-\frac{1}{2}e^{-t^2}t^{s-1}|_{-\infty}^{\infty} = 0$\\
@@ -992,6 +992,17 @@ $P(\alpha < X < \beta) = F(\beta) - F(\alpha) = \Phi^*(\frac{\beta - m}{\sigma})
 4)$\Phi^*(-x) = 1 - \Phi^*(x)$; $\Phi(0) = \frac{1}{2}$\\
 $\Phi^*(x) = \Phi_1(x) + \frac{1}{2}$\\
 $\Phi(x) = 2 \Phi_1(\sqrt{2}{x})$\\
+\begin{tikzpicture}
+   \begin{axis}[grid=major, xmin=-6, xmax=6, ymin=0, ymax=1,
+     axis lines = left,
+     label style={font=\normalsize},
+     xlabel=$x$, ylabel=$f(x)$,
+	     xtick = {-10,0,...,10}, ytick = {0,...,1},
+    y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
+     scale=1, restrict y to domain=0:10]
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot ({\x}, { sqrt{\x} /8 });
+ \end{axis}
+\end{tikzpicture}\\
 $\textbf{Теорема}$\\
 При $\displaystyle{  \lim_{x\to{-\infty}}  } 1 - \Phi^*(x) \sim  \frac{1}{x} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}  $,\\ точнее для всех $x  > 0$ справедливо:
 $(x^{-1} - x^{-3})\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} < 1 - \Phi^*(x) < x^{-1}\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$\\
@@ -1166,6 +1177,35 @@ $y_i$&$p_{ij}$\\
 \begin{center}
 $\textbf{Совместная плотность вероятности системы случайных величин}$
 \end{center}
+\begin{tikzpicture}
+   \begin{axis}[ ticks=none,xmin=-5, xmax=7, ymin=-3, ymax=5,
+     axis y line=middle,
+     axis x line=middle,
+     y label style={at={(axis description cs:.45,1)},anchor=south, font = \normalsize},
+     axis line style={->},
+     x label style = {font = \normalsize},
+     xlabel=$\large x$, ylabel=$\large y$,
+     scale=0.5]
+\draw[thick] (600,500) --(600,0);
+\draw[thick] (700,500) --(0,500);
+\draw[thick](700,500) --(700,0);
+\draw[thick] (700,400) --(0,400);
+\draw[thick] (600,500) --(600,0);
+\draw[thick] (600,400) --(700,500);
+\draw[thick] (600,430) --(670,500);
+\draw[thick] (600,460) --(640,500);
+\draw[thick] (630,400) --(700,470);
+\draw[thick] (660,400) --(700,440);
+\draw[fill=black!10!black] (500,400) circle (0.2ex);
+\draw[fill=black!10!black] (500,500) circle (0.2ex);
+\draw[fill=black!10!black] (600,300) circle (0.2ex);
+\draw[fill=black!10!black] (700,300) circle (0.2ex);
+\node [below left] at (540,420) {$y$};
+\node [below left] at (500,700) {$y + \Delta y$};
+\node [below left] at (630,270) {$x$};
+\node [below right] at (700,300) {$x + \Delta x$};
+\end{axis}
+\end{tikzpicture}\\
 Для непрерывной случайной величины : $f(x, y) =  \displaystyle{  \lim_{\substack{{\Delta y\to{\infty}}\\
 												        {\Delta x\to{\infty}}}}}$
 $\frac{P((X;Y)\in D)}{\Delta x \Delta y}$ -- совместная плотность вероятности (вероятностное распределение).\\
@@ -1782,6 +1822,21 @@ $\hat{D}(X) = \frac{1}{n} \displaystyle{\sum \limits_{j = 1}^{n}}(x_j - \hat{m})
 Доверительным интервалом называется интервал, который с заданой доверительной вероятностью $\beta$ накрывает оцениваемый параметр $a$.\\
 Оценка $\hat{a}$ случайна, и поэтому замена $a$ на $\hat{a}$ может привести к ошибкам. Интервалы оценки вводятся для того, что бы можно было судить о надёжности оценки. Для симметричного доверительного интервала его ширина $2\varepsilon$ определяется условием: $P(\abs{\hat{a} - a} \leq \varepsilon) = \beta$\\
 Доверительный интервал: $(\hat{a} - \varepsilon, \hat{a} + \varepsilon) = I_\beta$\\
+\begin{picture}(100,60)
+\qbezier(20,30)(10,20)(20,10)
+\qbezier(80,30)(90,20)(80,10)
+\put(10, 20){\line(1,0 ){90}}
+\put(50, 20){\line(0,-1 ){3}}
+\put(30, 18){\line(1,1 ){4}}
+\put(30, 22){\line(1,-1 ){4}}
+\put(45, 0){\makebox(10, 0){$\hat{a}$}}
+\put(28, 26){\makebox(10, 0){$a$}}
+\put(15, 0){\makebox(10, 0){$\hat{a} - \varepsilon$}}
+\put(80, 0){\makebox(10, 0){$\hat{a} + \varepsilon$}}
+\end{picture}
+
+%сюда картинку
+
 \textbf{Замечание\ } \\
 Здесь $a$ не является случайным, случаен интервал, положение которого задаётся случайным положением $\hat{a}$.
 $ \hat{a} - \varepsilon$ и $\hat{a} + \varepsilon$ -- доверительные границы.\\
