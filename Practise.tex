@@ -12,7 +12,7 @@
 \usepackage{tikz}
 \usepackage{pict2e}
 \usetikzlibrary{positioning}
-
+\usetikzlibrary{patterns}
 \usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
 \usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
 
@@ -1279,20 +1279,25 @@ $r_{XY} = \frac{K_{XY}}{\sigma_x \sigma_y}$, $\sigma_x = \sqrt{D(X)}$, $\sigma_y
 \textbf{Пример}\\
 %\includegraphics[scale=0.2]{UntitledDiagram3.png}\\
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-3, xmax=3, ymin=-3, ymax=3,
+   \begin{axis}[ xmin=-2, xmax=2, ymin=-2, ymax=2,
+     ticks=none,
      axis y line=middle,
      axis x line=middle,
-     y label style={at={(axis description cs:0,.5)},anchor=south},
+     y label style={at={(axis description cs:.55,0.9)},anchor=south },
+%y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$y$,
-     xtick = {-3,0,...,3}, ytick = {-3,3},
      scale=1]
 \end{axis}
- \node [black, right] at ((2.6,2.60) {\tiny $1$ \normalsize};
- \node [black, right] at ((2.9,3.5) {\tiny $1$ \normalsize};
- \draw [black, ultra thick] (3.45,2.85) circle [radius=0.5];
+ \node [black, right] at ((3.5,4.5) {\tiny $1$ \normalsize};
+ \draw (5,4) circle (0.01);
+\draw[fill=black!10!black] (3.45,4.35) circle (0.3ex);
+\node [black, right] at ((5,3) {\tiny $1$ \normalsize};
+ \draw [black, thick] (3.45,2.85) circle [radius=1.5];
+\pattern[pattern=north east lines, pattern color=black]  (3.45,2.85) circle [radius = 1.5];
+ \draw [fill=black!10!black] (4.95,2.85)  circle (0.3ex);
 \end{tikzpicture}
-%%
+
 \begin{equation*} 
 f(x, y)=
  \begin{cases}
