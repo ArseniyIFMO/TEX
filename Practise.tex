@@ -735,24 +735,27 @@ $M(X) = 0\cdot \frac{3}{8} + 1\cdot \frac{1}{8} + \int\limits_{0}^{1}x\cdot \fra
 \textbf{Пример\ }\\
 Производится взвешивание на весах с ценой деления 1 грамм. Если оказывается что вес заключен от $k$ до $k + 1$ грамм, тогда его можно принять за $(k + \frac{1}{2})$ и считать, что при этом допущена ошибка $X$ -- случайная величина, равномерно распределённая на интервале $(-\frac{1}{2}, \frac{1}{2})$ грамм.\\
 %\includegraphics[scale=0.2]{Gr.png}\\
-
 \begin{tikzpicture}
-   \begin{axis}[ ,ticks=none,xmin=0, xmax=2, ymin=0, ymax=1,
+  \begin{axis}[ ticks=none,xmin=0, xmax=2, ymin=0, ymax=1,
      y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
      axis x line=middle,
      axis y line=middle,
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$f(x)$,
      yticklabels=\empty,
-     xticklabels=\empty
+     xticklabels=\empty,
      scale=1]
      \draw[ultra thick] (50,50) --(100,50);
      \draw[dashed] (0, 50) -- (50, 50);
      \draw[dashed] (50, 0) -- (50, 50);
      \draw[dashed] (100, 0) -- (100, 50);
-     \node [black, right] at (30,10) {$a$};
-     \node [black, right] at (10, 60) {$c$};
-     \node [black, right] at (80,10) {$b$};
+     \node [black, right] at (35,5) {$a$};
+     \node [black, right] at (5, 55) {$c$};
+     \node [black, right] at (85,5) {$b$};
+     \draw[fill=black!10!black] (0,50) circle (0.4ex);
+     \draw[fill=black!10!black] (50,0) circle (0.4ex);
+     \draw[fill=black!10!black] (100,0) circle (0.4ex);
+     
 \end{axis}
 \end{tikzpicture}\\
 Пусть распределение $X$ равномерно на $(a, b)$.\\
@@ -926,9 +929,9 @@ $D(X) = \int\limits_{0}^{\infty}t^2\lambda e^{-\lambda t}dt - \frac{1}{\lambda^2
 \end{tikzpicture}
 \\
 По нормальному закону распределения случайная ошибка.\\
-$f(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$\\
-Выясним смысл параметров $\sigma$ и $\mu$.\\
-$M(X) = \int\limits_{-\infty}^{\infty}   xf(x)dx = \frac{1}{\sigma \sqrt{2\pi} } \int\limits_{-\infty}^{\infty}e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx$. Пусть $t = \frac{x - m}{\sigma\sqrt{2}}$.\\
+$f(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-m)^2}{2\sigma^2}}$\\
+Выясним смысл параметров $\sigma$ и $m$.\\
+$M(X) = \int\limits_{-\infty}^{\infty}   xf(x)dx = \frac{1}{\sigma \sqrt{2\pi} } \int\limits_{-\infty}^{\infty}e^{-\frac{(x-m)^2}{2\sigma^2}}dx$. Пусть $t = \frac{x - m}{\sigma\sqrt{2}}$.\\
 Тогда $M(X)  = \frac{1}{\sqrt{\pi}}\int\limits_{-\infty}^{\infty}(\sigma \sqrt{2}t+m)e^{-t^2}dt =\\ = \frac{\sqrt{2}\sigma}{\sqrt{\pi}}\int\limits_{-\infty}^{\infty} te^{-t^2}dt + \frac{m}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} e^{-t^2}dt =  \frac{\sqrt{2}\sigma}{\sqrt{\pi}} \cdot 0 + \frac{m}{\sqrt{\pi}} \cdot \sqrt{\pi} = m$\\
 (Так как $\int\limits_{-\infty}^{\infty} e^{-t^2}dt = 0$ и $\int\limits_{-\infty}^{\infty} e^{-t^2}dt = \sqrt{\pi}$)\\
 $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-\frac{(x-m)^2}{2\sigma^2}} dx$ = $\frac{2\sigma^2}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t^2 e^{-t^2} dt = 
@@ -992,17 +995,10 @@ $P(\alpha < X < \beta) = F(\beta) - F(\alpha) = \Phi^*(\frac{\beta - m}{\sigma})
 4)$\Phi^*(-x) = 1 - \Phi^*(x)$; $\Phi(0) = \frac{1}{2}$\\
 $\Phi^*(x) = \Phi_1(x) + \frac{1}{2}$\\
 $\Phi(x) = 2 \Phi_1(\sqrt{2}{x})$\\
-\begin{tikzpicture}
-   \begin{axis}[grid=major, xmin=-6, xmax=6, ymin=0, ymax=1,
-     axis lines = left,
-     label style={font=\normalsize},
-     xlabel=$x$, ylabel=$f(x)$,
-	     xtick = {-10,0,...,10}, ytick = {0,...,1},
-    y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
-     scale=1, restrict y to domain=0:10]
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot ({\x}, { sqrt{\x} /8 });
- \end{axis}
-\end{tikzpicture}\\
+\begin{picture}(100,100)
+\put(110, 10){\vector(0, 3){80}}
+\put(10, 10){\vector(4, 0){100}}
+\end{picture}\\
 $\textbf{Теорема}$\\
 При $\displaystyle{  \lim_{x\to{-\infty}}  } 1 - \Phi^*(x) \sim  \frac{1}{x} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}  $,\\ точнее для всех $x  > 0$ справедливо:
 $(x^{-1} - x^{-3})\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} < 1 - \Phi^*(x) < x^{-1}\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$\\
@@ -1768,11 +1764,87 @@ $ I_i$      & $(x_1, x_2) $ &  $(x_2, x_3) $ & . . . & $(x_k, x_{k + 1})$    \\
 Эта таблица называется статистическим рядом. Длины разрядов можно брать и одинаковыми, и  различными. 
 %страница 47
 Графически, статистический ряд оформляется в виде гистограммы. На каждом интервале откладывается вверх прямоугольник высоты $\frac{p_i^*}{l_i}$, где $l_i$ -- длина интервала. ( на длинну интервала можно не делить , если они все одинаковые). Площадь гистограммы равна единице. Если число опытов и число разрядов увеличивать, то гистограмма буде стремится к плавной кривой -- графику плотности  вероятности случайной величины $X$.\\
-\includegraphics[scale=0.6]{pg47.png}\\
+%\includegraphics[scale=0.6]{pg47.png}\\
+\begin{picture}(100,100)
+\put(50, 0){\vector(0, 3){100}}
+\put(0, 40){\vector(4, 0){100}}
+\put(55, 40){\line(0, 1){40}}
+\put(55, 80){\line(-1, 0){10}}
+\put(45, 40){\line(0, 1){40}}
+\put(35, 40){\line(0, 1){30}}
+\put(35, 70){\line(1, 0){10}}
+\put(55, 70){\line(1, 0){10}}
+\put(65, 40){\line(0, 1){30}}
+\put(25, 65){\line(1, 0){10}}
+\put(25, 40){\line(0, 1){25}}
+\put(75, 40){\line(0, 1){20}}
+\put(15, 40){\line(0, 1){15}}
+\put(15, 55){\line(1, 0){10}}
+\put(85, 40){\line(0, 1){10}}
+\put(75, 50){\line(1, 0){10}}
+\put(65, 60){\line(1, 0){10}}
+\put(13, 30){\makebox(0, 0)   {$x_1$}}
+\put(25, 30){\makebox(0, 0)   {$x_2$}}
+\put(38, 30){\makebox(0, 0)   {$x_3$}}
+\put(15, 40){\circle*{3}}
+\put(25, 40){\circle*{3}}
+\put(35, 40){\circle*{3}}
+\end{picture}\\
 Для построения статистической функции распределения обычно приписывают $p_i^*$ середине $i$-го интервала $\frac{x_i + x_{i + 1}}{2} = x_i^*$. И дальше строят ступенчатую функцию для данного статистического ряда. Иногда строят не ступенчатую, а например функцию соединяя значения, соответствующие концам интервала\\
 Можно ввести по аналогии с вероятностными -- статистические числовые характеристики. Однако, в большей степени они интересны не сами по себе, а той информацией, которую они содержат об измеряемой величине.
-\includegraphics[scale=0.6]{pg47_2.png}\\
-\includegraphics[scale=0.6]{pg47_3.png}\\
+%\includegraphics[scale=0.6]{pg47_2.png}\\
+\begin{picture}(100,100)
+\multiput(50,75)(4,0){10}{\line(1, 0){2}}
+\put(33, 95){\makebox(0, 0)   {$F^*(x)$}}
+\put(50, 0){\vector(0, 3){100}}
+\put(10, 40){\circle*{3}}
+\put(25, 40){\circle*{3}}
+\put(40, 40){\circle*{3}}
+\put(60, 40){\circle*{3}}
+\put(70, 40){\circle*{3}}
+\put(10, 50){\circle*{3}}
+\put(25, 60){\line(15, 5){16}}
+\put(10, 50){\line(15, 10){16}}
+\put(40, 65){\line(20, 5){18}}
+\put(60, 70){\line(10, 3){8}}
+\put(25, 60){\circle*{3}}
+\put(40, 65){\circle*{3}}
+\put(60, 70){\circle*{3}}
+\put(70, 73){\circle*{3}}
+\put(10, 30){\makebox(0, 0)   {$x_1$}}
+\put(25, 30){\makebox(0, 0)   {$x_2$}}
+\put(40, 30){\makebox(0, 0)   {$x_3$}}
+\put(60, 30){\makebox(0, 0)   {$x_4$}}
+\put(72, 30){\makebox(0, 0)   {$x_5$}}
+\put(0, 40){\vector(4, 0){100}}
+\end{picture}\\
+\\
+\begin{picture}(100,100)
+\multiput(50,75)(4,0){10}{\line(1, 0){2}}
+\put(33, 95){\makebox(0, 0)   {$F^*(x)$}}
+\put(50, 0){\vector(0, 3){100}}
+\put(10, 40){\circle*{3}}
+\put(25, 40){\circle*{3}}
+\put(40, 40){\circle*{3}}
+\put(60, 40){\circle*{3}}
+\put(70, 40){\circle*{3}}
+\put(10, 50){\circle*{3}}
+\put(25, 60){\line(1, 0){16}}
+\put(10, 50){\line(1, 0){16}}
+\put(40, 65){\line(1, 0){18}}
+\put(60, 70){\line(1, 0){8}}
+\put(25, 60){\circle*{3}}
+\put(40, 65){\circle*{3}}
+\put(60, 70){\circle*{3}}
+\put(70, 73){\circle*{3}}
+\put(10, 30){\makebox(0, 0)   {$x_1$}}
+\put(25, 30){\makebox(0, 0)   {$x_2$}}
+\put(40, 30){\makebox(0, 0)   {$x_3$}}
+\put(60, 30){\makebox(0, 0)   {$x_4$}}
+\put(72, 30){\makebox(0, 0)   {$x_5$}}
+\put(0, 40){\vector(4, 0){100}}
+\end{picture}
+%\includegraphics[scale=0.6]{pg47_3.png}\\
 %страница 48
 \subsection{Точечные оценки параметров распределения}
 \noindent
@@ -2014,7 +2086,7 @@ $\displaystyle{\prod_{i = 1} ^ n} f(x_i|\theta) = l(\theta|x1,x_2,\ .\ .\ ,x_n)$
 Если параметров несколько, то $\theta = (\theta_1, \theta_2, \ .\ .\ . ,\theta_k)$. Параметры выбираются из условия максимума функции $l$ (или $L$)\\
 \textbf{Пример}\\ 
 $f(x|m, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x_i - m)^2}{2\sigma^2}}$\\
-$l(\mu, \sigma^2|x_1, \ .\ .\ ., x_n) = (\sigma^2)^{-\frac{n}{2}}e^{\frac{\displaystyle{\sum \limits_{i = 1}^{n}(x_i - m)^2}}{2\sigma^2}}$\\
+$l(\mu, \sigma^2|x_1, \ .\ .\ ., x_n) = (\sigma^2)^{-\frac{n}{2}}e^{\displaystyle{\cfrac{\sum \limits_{i = 1}^{n}(x_i - m)^2}{2\sigma^2}} }$\\
 $L(\mu, \sigma^2|x_1, \ .\ .\ ., x_n) = - \frac{n}{2} ln \sigma^2 - \displaystyle{\sum \limits_{i = 1}^{n}}(x_i - m)^2\frac{(x_i - m)^2}{2\sigma^2}$\\
 $\frac{\partial L}{\partial m} = 0, \frac{\partial L}{\partial \sigma^2} = 0$\\
 Отсюда находим $\hat{m}, \hat{\sigma}^2$\\
