@@ -501,7 +501,6 @@ $F(x)$ полностью характеризует случайную вели
 Для дискретной случайной величины :$F(x) = \sum\limits_{x_j < x}P(X=x_j)$\\
 
 \begin{picture}(100,100)
-
 \put(10, 10){\vector(0, 3){80}}
 \put(10, 10){\vector(4, 0){130}}
 \put(0, 60){\makebox(10, 0){$1$}}
@@ -564,6 +563,69 @@ $F(x)$ полностью характеризует случайную вели
 \\
 \noindent
 \textbf{Пример\ }\\
+Cо стр 11 про баскетболиста\\
+\begin{picture}(100,100)
+
+\put(10, 10){\vector(0, 3){80}}
+\put(10, 10){\vector(4, 0){130}}
+\put(0, 60){\makebox(10, 0){$1$}}
+\put(0, 80){\makebox(10, 0){$y$}}
+\put(130, 0){\makebox(10, 0){$x$}}
+\put(40, 10){\circle*{3}}
+\put(60, 10){\circle*{3}}
+\put(80, 10){\circle*{3}}
+\put(20, 10){\circle*{3}}
+\put(60, 10){\circle*{3}}
+\put(10, 60){\circle*{3}}
+\put(40, 20){\vector(-1, 0){20}}
+\put(60, 30){\vector(-1, 0){20}}
+\put(80, 40){\vector(-1, 0){20}}
+\put(100, 60){\vector(-1, 0){20}}
+\put(20, 10){\vector(-1, 0){10}}
+\thicklines
+\put(10, 10){\line(1, 0){10}}
+\put(20, 0){\makebox(10, 0)   {$1$}}
+\put(40, 0){\makebox(10, 0)   {$2$}}
+\put(60, 0){\makebox(10, 0)   {$3$}}
+\put(80, 0){\makebox(10, 0)   {$4$}}
+\put(20, 10){\line(0, 1){3}}
+\put(20, 16){\line(0, 1){3}}
+
+\put(40, 10){\line(0, 1){3}}
+\put(40, 16){\line(0, 1){3}}
+\put(40, 22){\line(0, 1){3}}
+\put(40, 28){\line(0, 1){2}}
+
+\put(60, 10){\line(0, 1){3}}
+\put(60, 16){\line(0, 1){3}}
+\put(60, 22){\line(0, 1){3}}
+\put(60, 28){\line(0, 1){3}}
+\put(60, 34){\line(0, 1){3}}
+
+\put(80, 10){\line(0, 1){3}}
+\put(80, 16){\line(0, 1){3}}
+\put(80, 22){\line(0, 1){3}}
+\put(80, 28){\line(0, 1){3}}
+\put(80, 34){\line(0, 1){3}}
+\put(80, 40){\line(0, 1){3}}
+\put(80, 46){\line(0, 1){3}}
+\put(80, 52){\line(0, 1){3}}
+\put(80, 58){\line(0, 1){2}}
+
+\put(10, 60){\line(1, 0){3}}
+\put(16, 60){\line(1, 0){3}}
+\put(22, 60){\line(1, 0){3}}
+\put(28, 60){\line(1, 0){3}}
+\put(34, 60){\line(1, 0){3}}
+\put(40, 60){\line(1, 0){3}}
+\put(46, 60){\line(1, 0){3}}
+\put(52, 60){\line(1, 0){3}}
+\put(58, 60){\line(1, 0){3}}
+\put(64, 60){\line(1, 0){3}}
+\put(70, 60){\line(1, 0){3}}
+\put(76, 60){\line(1, 0){3}}
+\end{picture}\\
+\textbf{Пример\ }\\
 Случайная величина -- площадь разрушений, наносимых цели  бомбой. Значение этой случайной величины непрерывно заполняет промежуток от $0$ $\pi R^2$ ($R$ -- радиус разрушительного действия). Но в точках $0$ и $\pi R^2$ у функции распределения скачки, так как этим значениям соотвествуют конечные вероятности (вероятности положений 1 и 3 соответственно) круга разрыва.\\
 %начало страницы 15
 Вероятность попадания точки на отрезок.\\
@@ -594,6 +656,18 @@ f(x)=
    0 , x < -\frac{\pi}{2} $ или $ x > \frac{\pi}{2}
  \end{cases}
 \end{equation*}
+\begin{tikzpicture}
+   \begin{axis}[ xmin=-1.5, xmax=1.5, ymin=0, ymax=1.5,ticks=none,
+     y label style={ticks=none,at={(axis description cs:0.2,0.7)},rotate=270,anchor=south},
+     axis x line=middle,
+     axis y line=middle,
+     label style={font=\normalsize},
+     xlabel=$x $, ylabel=$y$,
+     yticklabels=\empty,
+     xticklabels=\empty
+     scale=1]
+\end{axis}
+\end{tikzpicture}
 $  \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}a\cdot \cos x dx = 2a = 1$, следовательно, $a = \frac{1}{2}$\\
 \begin{equation*} 
 F(x)=
@@ -736,6 +810,7 @@ $M(X) = 0\cdot \frac{3}{8} + 1\cdot \frac{1}{8} + \int\limits_{0}^{1}x\cdot \fra
 Производится взвешивание на весах с ценой деления 1 грамм. Если оказывается что вес заключен от $k$ до $k + 1$ грамм, тогда его можно принять за $(k + \frac{1}{2})$ и считать, что при этом допущена ошибка $X$ -- случайная величина, равномерно распределённая на интервале $(-\frac{1}{2}, \frac{1}{2})$ грамм.\\
 %\includegraphics[scale=0.2]{Gr.png}\\
 \begin{tikzpicture}
+\begin{scope}
   \begin{axis}[ ticks=none,xmin=0, xmax=2, ymin=0, ymax=1,
      y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
      axis x line=middle,
@@ -744,6 +819,7 @@ $M(X) = 0\cdot \frac{3}{8} + 1\cdot \frac{1}{8} + \int\limits_{0}^{1}x\cdot \fra
      xlabel=$x$, ylabel=$f(x)$,
      yticklabels=\empty,
      xticklabels=\empty,
+     at={(0.001\linewidth,0.001\linewidth)},
      scale=1]
      \draw[ultra thick] (50,50) --(100,50);
      \draw[dashed] (0, 50) -- (50, 50);
@@ -752,11 +828,11 @@ $M(X) = 0\cdot \frac{3}{8} + 1\cdot \frac{1}{8} + \int\limits_{0}^{1}x\cdot \fra
      \node [black, right] at (35,5) {$a$};
      \node [black, right] at (5, 55) {$c$};
      \node [black, right] at (85,5) {$b$};
-     \draw[fill=black!10!black] (0,50) circle (0.4ex);
-     \draw[fill=black!10!black] (50,0) circle (0.4ex);
-     \draw[fill=black!10!black] (100,0) circle (0.4ex);
-     
 \end{axis}
+     \draw[fill=black!10!black] (0,2.829) circle (0.4ex);
+     \draw[fill=black!10!black] (1.75,0) circle (0.4ex);
+     \draw[fill=black!10!black] (3.396,0) circle (0.4ex);    
+ \end{scope}
 \end{tikzpicture}\\
 Пусть распределение $X$ равномерно на $(a, b)$.\\
 \begin{equation*} 
@@ -800,7 +876,8 @@ F(x)=
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$F(x)$,
      yticklabels=\empty,
-     xticklabels=\empty
+     xticklabels=\empty,
+     at={(0.001\linewidth,0.001\linewidth)},
      scale=1]
 \draw[ultra thick] (0,0) --(50,0);
 \draw[ultra thick] (50,0) --(100,50);
@@ -814,6 +891,9 @@ F(x)=
  \draw[dashed] (100, 0) -- (100, 50);
   %   \draw[dashed] (86, 0) -- (86, 270);
 \end{axis}
+     \draw[fill=black!10!black] (0,2.829) circle (0.4ex);
+     \draw[fill=black!10!black] (1.75,0) circle (0.4ex);
+     \draw[fill=black!10!black] (3.396,0) circle (0.4ex);    
 \end{tikzpicture}\\
 $M(X) = \int\limits_{a}^{b}\frac{x}{b-a}dx = \frac{a + b}{2}$\\
 В силу симметричности $M_e= \frac{a+b}{2} = M(x)$\\
@@ -996,7 +1076,7 @@ $P(\alpha < X < \beta) = F(\beta) - F(\alpha) = \Phi^*(\frac{\beta - m}{\sigma})
 $\Phi^*(x) = \Phi_1(x) + \frac{1}{2}$\\
 $\Phi(x) = 2 \Phi_1(\sqrt{2}{x})$\\
 \begin{picture}(100,100)
-\put(110, 10){\vector(0, 3){80}}
+\put(10, 10){\vector(0, 3){80}}
 \put(10, 10){\vector(4, 0){100}}
 \end{picture}\\
 $\textbf{Теорема}$\\
