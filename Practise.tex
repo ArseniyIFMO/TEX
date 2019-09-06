@@ -1692,8 +1692,10 @@ $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displays
 \begin{tikzpicture}
   \begin{axis}[ ticks=none,xmin=0, xmax=10, ymin=0, ymax=5,
      axis lines = left,
-     y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
+     y label style={at={(axis description cs:0.15,1)},rotate=270,anchor=south},
+     x label style={at={(axis description cs:1,0)}},
      axis line style={->},
+     at={(0.005\linewidth,0.03\linewidth)},
      xlabel=$x$, ylabel=$y$,
      xtick = {0,5,...,10}, ytick = {0,5},
      scale=1, restrict y to domain=0:10]
@@ -1709,6 +1711,8 @@ $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displays
      \node [black, right] at (90,20) {\tiny $\Delta_3$ \normalsize};
     % \draw [<->,  thick] (0,500) -- (0,0) -- (100,0);
    \end{axis}
+    \node [black,left] at (1,0) {$a$};
+     \node [black,left] at (6.3,0) {$b$};
 \end{tikzpicture}
 
 \noindent
