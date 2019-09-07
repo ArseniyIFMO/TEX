@@ -1397,7 +1397,7 @@ $\alpha_{k,s} (X,Y) = \sum\limits_{i, j} x_i^k y_j^s p_{ij} =  \displaystyle{\ii
 $\mu_{k,s}(X, T)  \sum\limits_{i, j} (x_i - M(X))^k (y_j - M(Y))^s p_{i j} = \displaystyle{\iint\limits_{-\infty}^{\infty}}(x-M(X))^k(y-M(y))^s f(x, y) dxdy$
 %страница 34
 \begin{center}
-$\textbf{Числовые характеристики случайных величин}$
+$\textbf{Числовые характеристики систем n случайных величин}$
 \end{center}
 $X_1, X_2, .\ .\ .\ .\ X_n$ -- их характеристики: $n$ математических ожиданий $(m_1, m_2, \ .\ . \  m_n)$, $n$ дисперсий $(D_1, \ .\ .\ . D_n)$,  $n(n-1)$ корреляционных моментов:\\
 $K_{ij} = M((X_i - m_i)(X_j - m_j))$($D_i$ = $K_{ii}$)\\
@@ -2018,7 +2018,7 @@ $\Phi^*(t_\beta) = \frac{\beta + 1}{2}$\\
 Но при этой замене возникает дополнительная ошибка. Для точного определения доверительного интервала необходимо знать вид знать вид закона распределения $X$.
 Пусть,например, $X$ 
 распределено по нормальному закону. Произведено $n$ измерений. $\hat{m} = \frac{1}{n} \displaystyle{\sum \limits_{i=1} ^ {n} } X_i$, $\hat{D} = \frac{1}{n - 1} \displaystyle{\sum \limits_{i=1} ^ {n} } (x_i - \hat{m})^2$.\\
-Оказывается, что величина $T = \sqrt{n} \frac{\hat{m} - m}{\sqrt{\hat{D}}}$ подчиняется закону распределения Стьюдента с $(n-1)$ степенями свободы, не зависящих от неизвестных параметров $m$ и $D$, плотность которого $S_{n-1} = \frac{\Gamma(\frac{n}{2})}{\sqrt{(n-1)\pi}}(1 + \frac{t^2}{n - 1})^{-\frac{n}{2}}$, \\где $\Gamma (x)$ -- гамма - функция Эйлера.( $\Gamma (x) = \displaystyle{\int \limits_{0} ^ {\infty} } u^{x - 1} e ^{-u}du$.)\\
+Оказывается, что величина $T = \sqrt{n} \frac{\hat{m} - m}{\sqrt{\hat{D}}}$ подчиняется закону распределения Стьюдента с $(n-1)$ степенями свободы, не зависящих от неизвестных параметров $m$ и $D$, плотность которого $S_{n-1} = \frac{\Gamma(\frac{n}{2})}{\sqrt{(n-1)\pi}}(1 + \frac{t^2}{n - 1})^{-\frac{n}{2}}$, \\где $\Gamma (x)$ -- гамма-функция Эйлера.( $\Gamma (x) = \displaystyle{\int \limits_{0} ^ {\infty} } u^{x - 1} e ^{-u}du$.)\\
 Найдем доверительный интервал соответствующий вероятности $\beta$: \\
 $ P(\abs{\hat{m} - m} < \varepsilon) = \beta$ $\Leftrightarrow$ $\displaystyle { P\left (\frac{\sqrt{n} \abs{\hat{m} - m}}{\sqrt{\hat{D}}} < \frac{\varepsilon_\beta}{\sqrt{\frac{\hat{D}}{n}}}\right ) = \beta}$ $\Leftrightarrow$  $\displaystyle { P\left (\abs{T} < \frac{\varepsilon_\beta}{\sqrt{\frac{\hat{D}}{n}}} \right )}= \beta $.\\
 Найдем  $t_\beta$ из : $P(\abs{T} < t_\beta) = \beta$\\
@@ -2051,7 +2051,7 @@ K_{m - 1}(V)=
  \begin{cases}
    0 ,\ \ \  V < 0\\
 	\\
-   \frac{1}{  2 ^{ { \frac{n - 1}{2}  }}  \Gamma(\frac{n - 1}{2})} U^{\frac{n - 1}{2} - 1}e^{-\frac{V}{2}}    , \ \ \ V > 0\\
+   \frac{1}{  2 ^{ { \frac{n - 1}{2}  }}  \Gamma(\frac{n - 1}{2})} V^{\frac{n - 1}{2} - 1}e^{-\frac{V}{2}}    , \ \ \ V > 0\\
  \end{cases}
 \end{equation*}\\
 
@@ -2174,8 +2174,8 @@ $l(\mu, \sigma^2|x_1, \ .\ .\ ., x_n) = (\sigma^2)^{-\frac{n}{2}}e^{\displaystyl
 $L(\mu, \sigma^2|x_1, \ .\ .\ ., x_n) = - \frac{n}{2} ln \sigma^2 - \displaystyle{\sum \limits_{i = 1}^{n}}(x_i - m)^2\frac{(x_i - m)^2}{2\sigma^2}$\\
 $\frac{\partial L}{\partial m} = 0, \frac{\partial L}{\partial \sigma^2} = 0$\\
 Отсюда находим $\hat{m}, \hat{\sigma}^2$\\
-$\frac{\Delta L}{\Delta m} = \frac{1}{\sigma^2} \displaystyle{\sum \limits _{i = 1} ^ {n} } (x_i - \hat{m}) = 0$, следовательно $\hat{m} = \overline{x}$\\
-$\frac{\Delta L}{\Delta \sigma^2} = -\frac{n}{2} \frac{1}{\hat{\sigma}}^2 + \frac{1}{2\hat{\sigma}^2}  \displaystyle{\sum \limits _{i = 1} ^ {n} } (x_i - m)^2 = 0$, следовательно 
+$\frac{\partial L}{\partial m} = \frac{1}{\sigma^2} \displaystyle{\sum \limits _{i = 1} ^ {n} } (x_i - \hat{m}) = 0$, следовательно $\hat{m} = \overline{x}$\\
+$\frac{\partial L}{\partial \sigma^2} = -\frac{n}{2} \frac{1}{\hat{\sigma}}^2 + \frac{1}{2\hat{\sigma}^2}  \displaystyle{\sum \limits _{i = 1} ^ {n} } (x_i - m)^2 = 0$, следовательно 
 $\hat{\sigma}^2 = \frac{1}{n}  \displaystyle{\sum \limits _{i = 1} ^ {n} } (x_i - \overline{x})^2$\\
 То есть тут оказывается смещённая оценка дисперсии.
 %страница 63
