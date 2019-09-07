@@ -11,6 +11,7 @@
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usepackage{pict2e}
+\usepackage{caption}
 \usetikzlibrary{positioning}
 \usetikzlibrary{patterns}
 \usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
@@ -1870,63 +1871,86 @@ $ I_i$      & $(x_1, x_2) $ &  $(x_2, x_3) $ & . . . & $(x_k, x_{k + 1})$    \\
 \put(13, 30){\makebox(0, 0)   {$x_1$}}
 \put(25, 30){\makebox(0, 0)   {$x_2$}}
 \put(38, 30){\makebox(0, 0)   {$x_3$}}
-\put(15, 40){\circle*{3}}
-\put(25, 40){\circle*{3}}
-\put(35, 40){\circle*{3}}
+\put(15, 40){\circle*{2}}
+\put(25, 40){\circle*{2}}
+\put(35, 40){\circle*{2}}
 \end{picture}\\
 Для построения статистической функции распределения обычно приписывают $p_i^*$ середине $i$-го интервала $\frac{x_i + x_{i + 1}}{2} = x_i^*$. И дальше строят ступенчатую функцию для данного статистического ряда. Иногда строят не ступенчатую, а например функцию соединяя значения, соответствующие концам интервала\\
 Можно ввести по аналогии с вероятностными -- статистические числовые характеристики. Однако, в большей степени они интересны не сами по себе, а той информацией, которую они содержат об измеряемой величине.
 %\includegraphics[scale=0.6]{pg47_2.png}\\
 \begin{picture}(100,100)
-\multiput(50,75)(4,0){10}{\line(1, 0){2}}
+\multiput(50,82)(4,0){13}{\line(1, 0){2}}
 \put(33, 95){\makebox(0, 0)   {$F^*(x)$}}
 \put(50, 0){\vector(0, 3){100}}
-\put(10, 40){\circle*{3}}
-\put(25, 40){\circle*{3}}
-\put(40, 40){\circle*{3}}
-\put(60, 40){\circle*{3}}
-\put(70, 40){\circle*{3}}
-\put(10, 50){\circle*{3}}
+\put(10, 40){\circle*{2}}
+\put(25, 40){\circle*{2}}
+\put(40, 40){\circle*{2}}
+\put(60, 40){\circle*{2}}
+\put(73, 40){\circle*{2}}
+\put(86, 40){\circle*{2}}
+\put(99, 40){\circle*{2}}
+
+
+\put(10, 50){\circle*{2}}
+\put(25, 60){\circle*{2}}
+\put(40, 65){\circle*{2}}
+\put(60, 70){\circle*{2}}
+\put(73, 73){\circle*{2}}
+\put(86, 80){\circle*{2}}
+\put(99, 81){\circle*{2}}
+
+
 \put(25, 60){\line(15, 5){16}}
 \put(10, 50){\line(15, 10){16}}
-\put(40, 65){\line(20, 5){18}}
-\put(60, 70){\line(10, 3){8}}
-\put(25, 60){\circle*{3}}
-\put(40, 65){\circle*{3}}
-\put(60, 70){\circle*{3}}
-\put(70, 73){\circle*{3}}
+\put(40, 65){\line(20, 5){19}}
+\put(60, 70){\line(13, 3){13}}
+\put(73, 73){\line(13, 7){13}}
+\put(86, 80){\line(13, 1){13}}
+
 \put(10, 30){\makebox(0, 0)   {$x_1$}}
 \put(25, 30){\makebox(0, 0)   {$x_2$}}
 \put(40, 30){\makebox(0, 0)   {$x_3$}}
 \put(60, 30){\makebox(0, 0)   {$x_4$}}
-\put(72, 30){\makebox(0, 0)   {$x_5$}}
-\put(0, 40){\vector(4, 0){100}}
+\put(75, 30){\makebox(0, 0)   {$x_5$}}
+\put(89, 30){\makebox(0, 0)   {$x_6$}}
+\put(102, 30){\makebox(0, 0)   {$x_7$}}
+
+\put(0, 40){\vector(4, 0){120}}
+\normalsize
 \end{picture}\\
 \\
 \begin{picture}(100,100)
-\multiput(50,75)(4,0){10}{\line(1, 0){2}}
-\put(33, 95){\makebox(0, 0)   {$F^*(x)$}}
+\multiput(50,82)(4,0){13}{\line(1, 0){2}}
+\put(33, 95){\makebox(0, 0)   {$\Large F^*(x)$} }
 \put(50, 0){\vector(0, 3){100}}
-\put(10, 40){\circle*{3}}
-\put(25, 40){\circle*{3}}
-\put(40, 40){\circle*{3}}
-\put(60, 40){\circle*{3}}
-\put(70, 40){\circle*{3}}
-\put(10, 50){\circle*{3}}
+\put(10, 40){\circle*{2}}
+\put(25, 40){\circle*{2}}
+\put(40, 40){\circle*{2}}
+\put(60, 40){\circle*{2}}
+\put(73, 40){\circle*{2}}
+\put(86, 40){\circle*{2}}
+\put(99, 40){\circle*{2}}
+\put(10, 50){\circle*{2}}
 \put(25, 60){\line(1, 0){16}}
 \put(10, 50){\line(1, 0){16}}
-\put(40, 65){\line(1, 0){18}}
-\put(60, 70){\line(1, 0){8}}
-\put(25, 60){\circle*{3}}
-\put(40, 65){\circle*{3}}
-\put(60, 70){\circle*{3}}
-\put(70, 73){\circle*{3}}
+\put(40, 65){\line(1, 0){20}}
+\put(60, 70){\line(1, 0){13}}
+\put(73, 73){\line(1, 0){13}}
+\put(86, 80){\line(1, 0){12}}
+\put(25, 60){\circle*{2}}
+\put(40, 65){\circle*{2}}
+\put(60, 70){\circle*{2}}
+\put(73, 73){\circle*{2}}
+\put(86, 80){\circle*{2}}
+\put(99, 81){\circle*{2}}
 \put(10, 30){\makebox(0, 0)   {$x_1$}}
 \put(25, 30){\makebox(0, 0)   {$x_2$}}
 \put(40, 30){\makebox(0, 0)   {$x_3$}}
 \put(60, 30){\makebox(0, 0)   {$x_4$}}
-\put(72, 30){\makebox(0, 0)   {$x_5$}}
-\put(0, 40){\vector(4, 0){100}}
+\put(75, 30){\makebox(0, 0)   {$x_5$}}
+\put(89, 30){\makebox(0, 0)   {$x_6$}}
+\put(102, 30){\makebox(0, 0)   {$x_7$}}
+\put(0, 40){\vector(4, 0){120}}
 \end{picture}
 %\includegraphics[scale=0.6]{pg47_3.png}\\
 %страница 48
