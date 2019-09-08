@@ -126,6 +126,7 @@ $\textbf{Пример}$\\Двое договорились встретится 
 \begin{tikzpicture}
    \begin{axis}[ xmin=0, xmax=1.5, ymin=0, ymax=1.5,ticks=none,
      y label style={ticks=none,at={(axis description cs:0.2,0.7)},rotate=270,anchor=south},
+     at={(0.04\linewidth,0.06\linewidth)},
      axis x line=middle,
      axis y line=middle,
      label style={font=\normalsize},
@@ -185,10 +186,11 @@ $\textbf{Пример}$\\Двое договорились встретится 
    %\draw[dashed] (30, 0) -- (30, 30);
    %  \draw[dashed] (50, 0) -- (50, 50);
      \draw[dashed] (100, 0) -- (100, 50);
-    \node [black, below right] at (0,100) {$1$};
-    \node [black,above right] at (100,0) {$1$};
-
 \end{axis}
+\node [black, below right] at (0,4.9) {$1$};
+\node [black,above right] at (5,0) {$1$};
+\node [black,above right] at (1.6,0) {$\frac{1}{4}$};
+\node [black,above right] at (0,1.4) {$\frac{1}{4}$};
 \end{tikzpicture}\\
 Благоприятные исходы : $\abs{x - y} \leq \frac{1}{4}$\\
 $\frac{1}{4} \leq x - y \leq \frac{1}{4}$\\	
@@ -567,7 +569,7 @@ Cо стр 11 про баскетболиста\\
 \begin{picture}(100,100)
 \put(30, 10){\vector(0, 3){80}}
 \put(30, 10){\vector(4, 0){130}}
-\put(10, 60){\makebox(10, 0){$1$}}
+\put(20, 60){\makebox(10, 0){$1$}}
 \put(10, 80){\makebox(10, 0){$F(x)$}}
 \put(150, 0){\makebox(10, 0){$x$}}
 \put(60, 10){\circle*{3}}
@@ -819,18 +821,19 @@ $M(X) = 0\cdot \frac{3}{8} + 1\cdot \frac{1}{8} + \int\limits_{0}^{1}x\cdot \fra
      yticklabels=\empty,
      xticklabels=\empty,
      at={(0.001\linewidth,0.001\linewidth)},
+     width=5cm,height=5cm,
      scale=1]
      \draw[ultra thick] (50,50) --(100,50);
      \draw[dashed] (0, 50) -- (50, 50);
      \draw[dashed] (50, 0) -- (50, 50);
      \draw[dashed] (100, 0) -- (100, 50);
-     \node [black, right] at (35,5) {$a$};
-     \node [black, right] at (4, 55) {$c$};
-     \node [black, right] at (85,5) {$b$};
+     \node [black, right] at (28,5) {$a$};
+     \node [black, right] at (3, 55) {$c$};
+     \node [black, right] at (78,5) {$b$};
 \end{axis}
-     \draw[fill=black!10!black] (0,2.829) circle (0.4ex);
-     \draw[fill=black!10!black] (1.75,0) circle (0.4ex);
-     \draw[fill=black!10!black] (3.396,0) circle (0.4ex);    
+     \draw[fill=black!10!black] (0,1.6895) circle (0.2ex);
+     \draw[fill=black!10!black] (0.875,0) circle (0.2ex);
+     \draw[fill=black!10!black] (1.750,0) circle (0.2ex);    
  \end{scope}
 \end{tikzpicture}\\
 Пусть распределение $X$ равномерно на $(a, b)$.\\
@@ -872,6 +875,7 @@ F(x)=
      y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
      axis x line=middle,
      axis y line=middle,
+     width=5cm,height=5cm,
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$F(x)$,
      yticklabels=\empty,
@@ -882,7 +886,7 @@ F(x)=
 \draw[ultra thick] (50,0) --(100,50);
 \draw[ultra thick] (100,50) --(150,50);
 \node(3,3)  [below] {1};	
-\node [black, right] at (32,8) {$a$};
+\node [black, right] at (27,7) {$a$};
 \node [black, right] at (100,8) {$b$};
 \node [black, right] at (0,43) {$c$};
  \draw[dashed] (0, 50) -- (100, 50);
@@ -890,9 +894,9 @@ F(x)=
  \draw[dashed] (100, 0) -- (100, 50);
   %   \draw[dashed] (86, 0) -- (86, 270);
 \end{axis}
-     \draw[fill=black!10!black] (0,2.829) circle (0.4ex);
-     \draw[fill=black!10!black] (1.75,0) circle (0.4ex);
-     \draw[fill=black!10!black] (3.396,0) circle (0.4ex);    
+     \draw[fill=black!10!black] (0,1.6898) circle (0.2ex);
+     \draw[fill=black!10!black] (1.75,0) circle (0.2ex);
+     \draw[fill=black!10!black] (0.875,0) circle (0.2ex);    
 \end{tikzpicture}\\
 $M(X) = \int\limits_{a}^{b}\frac{x}{b-a}dx = \frac{a + b}{2}$\\
 В силу симметричности $M_e= \frac{a+b}{2} = M(x)$\\
@@ -943,8 +947,7 @@ $\frac{dP_m(t)}{dt} = \lambda P_m(t) + \lambda P_{m-1}(t)$.\\
 %страница 24
 То есть, случайная величина $X$, распределенная по Пуасону, принимает целые значения от $0$ до $\infty$ с вероятностью $P_m=P(X=m) = \frac{a^m}{m!}e^{-a}$, $a$ -- параметр распределения. $\sum\limits_{m=0}^{\infty}P_m = e^{-a}\sum\limits_{m=0}^{\infty} \frac{a^m}{m!}  = e^{-a}e^a = 1$  (условие нормирования выполнено).
 $M(X) = \sum\limits_{m=0}^{\infty} m\frac{a^m}{m!}e^{-a} = (\sum\limits_{m=1}^{\infty} \frac{a^{m-1}}{(m-1)!})ae^{-a} = ae^{-a}\sum\limits_{k=0}^{\infty} \frac{a^k}{k!} = ae^{-a}e^{a} = a$.\\
-$\alpha_2(X) = \sum\limits_{m=0}^{\infty} m^2\frac{a^m}{m!}e^{-a} = a\sum\limits_{m=1}^{\infty} m\frac{a^{m-1}}{(m-1)!}e^{-a} = a \sum\limits_{m=1}^{\infty} ((m-1)+1)\frac{a^{m-1}}{(m-1)!}e^{-a} =\\$ $\displaystyle{ = a \left (\sum\limits_{m=1}^{\infty}(m-1)\frac{a^{m-1}}{(m-1)!}e^{-a} + \sum\limits_{m=1}^{\infty}\frac{a^{m-1}}{(m-1)!}e^{-a} \right )=a(a+1)}$\\
-(так как  $\sum\limits_{m=1}^{\infty}(m-1)\frac{a^{m-1}}{(m-1)!}e^{-a} = a$ и $ \sum\limits_{m=1}^{\infty}\frac{a^{m-1}}{(m-1)!}e^{-a}  = 1)$\\
+$\alpha_2(X) = \sum\limits_{m=0}^{\infty} m^2\frac{a^m}{m!}e^{-a} = a\sum\limits_{m=1}^{\infty} m\frac{a^{m-1}}{(m-1)!}e^{-a} = a \sum\limits_{m=1}^{\infty} ((m-1)+1)\frac{a^{m-1}}{(m-1)!}e^{-a} =\\$ $\displaystyle{ = a \left ( \underbrace{ \sum\limits_{m=1}^{\infty}(m-1)\frac{a^{m-1}}{(m-1)!}e^{-a}}_{a} + \underbrace{ \sum\limits_{m=1}^{\infty}\frac{a^{m-1}}{(m-1)!}e^{-a}}_{1} \right )=a(a+1)}$\\
 $D(X) = \alpha_2 - m_x^2 = a^2 + a - a^2 = a$. То есть $D(X)=M(X)$.\\
 $\textbf{Теорема}$\\
 $\displaystyle{\lim_{n \to {\infty}}  C^m_np^m(1-p)^{n-m}}$ = $\frac{a^m}{m!}e^{-a}$\\
@@ -1011,11 +1014,10 @@ $D(X) = \int\limits_{0}^{\infty}t^2\lambda e^{-\lambda t}dt - \frac{1}{\lambda^2
 $f(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-m)^2}{2\sigma^2}}$\\
 Выясним смысл параметров $\sigma$ и $m$.\\
 $M(X) = \int\limits_{-\infty}^{\infty}   xf(x)dx = \frac{1}{\sigma \sqrt{2\pi} } \int\limits_{-\infty}^{\infty}e^{-\frac{(x-m)^2}{2\sigma^2}}dx$. Пусть $t = \frac{x - m}{\sigma\sqrt{2}}$.\\
-Тогда $M(X)  = \frac{1}{\sqrt{\pi}}\int\limits_{-\infty}^{\infty}(\sigma \sqrt{2}t+m)e^{-t^2}dt =\\ = \frac{\sqrt{2}\sigma}{\sqrt{\pi}}\int\limits_{-\infty}^{\infty} te^{-t^2}dt + \frac{m}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} e^{-t^2}dt =  \frac{\sqrt{2}\sigma}{\sqrt{\pi}} \cdot 0 + \frac{m}{\sqrt{\pi}} \cdot \sqrt{\pi} = m$\\
-(Так как $\int\limits_{-\infty}^{\infty} e^{-t^2}dt = 0$ и $\int\limits_{-\infty}^{\infty} e^{-t^2}dt = \sqrt{\pi}$)\\
+Тогда $\displaystyle{ M(X)  = \frac{1}{\sqrt{\pi}}\int\limits_{-\infty}^{\infty}(\sigma \sqrt{2}t+m)e^{-t^2}dt =\\ = \frac{\sqrt{2}\sigma}{\sqrt{\pi}} \underbrace{\int\limits_{-\infty}^{\infty} te^{-t^2}dt}_{0} + \frac{m}{\sqrt{\pi}} \underbrace{\int\limits_{-\infty}^{\infty} e^{-t^2}dt}_{\sqrt{\pi}}  = m } $\\
 $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-\frac{(x-m)^2}{2\sigma^2}} dx$ = $\frac{2\sigma^2}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t^2 e^{-t^2} dt = 
- \frac{\sigma^2}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t\cdot2te^{-t^2}dt =\\= \frac{\sigma^2}{\sqrt{\pi}} (-te^{-t^2}|_{-\infty}^{\infty} + \int\limits_{-\infty}^{\infty}e^{-t^2}dt)$ = $\sigma^2$\\
-(Так как $-te^{-t^2}|_{-\infty}^{\infty} = 0$ и $\int\limits_{-\infty}^{\infty} e^{-t^2}dt = \sqrt{\pi}$)\\
+ \frac{\sigma^2}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t\cdot2te^{-t^2}dt =\\= \frac{\sigma^2}{\sqrt{\pi}} ( \underbrace{-te^{-t^2}|_{-\infty}^{\infty}}_{0} + \underbrace{\int\limits_{-\infty}^{\infty}e^{-t^2}dt}_{\sqrt{\pi}})$ = $\sigma^2$\\
+%(Так как $-te^{-t^2}|_{-\infty}^{\infty} = 0$ и $\int\limits_{-\infty}^{\infty} e^{-t^2}dt = \sqrt{\pi}$)\\
 \begin{tikzpicture}
    \begin{axis}[grid=major, xmin=-6, xmax=6, ymin=0, ymax=1,
      axis lines = left,
@@ -1052,7 +1054,7 @@ $\sigma_1<\sigma_2<\sigma_3$\\
 $m_1<m_2<m_3$\\
 $M=Me=m $ -- мода и медиана совпадают с $M(X)$.\\
 $\mu_s(x) = \int\limits_{-\infty}^{\infty} (x-m)^s f(x)dx = \frac{1}{\sigma\sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^s e^{-\frac{(x-m)^2}{2\sigma^2}}dx$ . Пусть $t = \frac{x - m}{\sigma\sqrt{2}}$.
-Тогда $\displaystyle{ \mu_s(x) = \frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}}  \int\limits_{-\infty}^{\infty} t^s e^{-t^2} dt = \frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}}\left (-\frac{1}{2}e^{-t^2}t^{s-1}|_{-\infty}^{\infty}+ \frac{s-1}{2}\int\limits_{-\infty}^{\infty}t^{s-2}e^{-t^2}\right )  } =\\ \displaystyle{ =\frac{(s-1)(\sigma\sqrt{2})^s}{2\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t^{s-2}e^{-t^2}dt =(s-1)\sigma^2\mu_{s-2}}$,\\ так как $\mu_{s-2}  = \frac{(\sigma\sqrt{2})^{s-2}}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty}t ^{s-2} e^{-t^2}dt,$ и $-\frac{1}{2}e^{-t^2}t^{s-1}|_{-\infty}^{\infty} = 0$\\
+Тогда $\displaystyle{ \mu_s(x) = \frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}}  \int\limits_{-\infty}^{\infty} t^s e^{-t^2} dt = \frac{(\sigma \sqrt{2})^s}{\sqrt{\pi}}\left ( \underbrace{-\frac{1}{2}e^{-t^2}t^{s-1}|_{-\infty}^{\infty}}_{0}+ \frac{s-1}{2}\int\limits_{-\infty}^{\infty}t^{s-2}e^{-t^2}\right )  } =\\ \displaystyle{ =\frac{(s-1)(\sigma\sqrt{2})^s}{2\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t^{s-2}e^{-t^2}dt =(s-1)\sigma^2\mu_{s-2}}$,\\ так как $\mu_{s-2}  = \frac{(\sigma\sqrt{2})^{s-2}}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty}t ^{s-2} e^{-t^2}dt$\\
 То есть имеет место рекуррентное соотношение: $\mu_s = (s-1)\sigma^2\mu_{s-2}$\\
 $\mu_0 = 1$ (по условию нормировки). $\mu_1 = 0$. Пользуясь рекуррентным соотношением, получаем что $\mu_{2k+1} = 0$.\\
 Четные: $\mu_2 = \sigma^2, \mu_4 = 3\sigma^4, \mu_6 = 15\sigma^6$ ....\\
