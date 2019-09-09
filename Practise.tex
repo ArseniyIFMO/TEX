@@ -658,6 +658,24 @@ f(x)=
  \end{cases}
 \end{equation*}
 
+\begin{tikzpicture}
+   \begin{axis}[ xmin=-2, xmax=2, ymin=-2, ymax=2,
+     ticks=none,
+     axis y line=middle,
+     axis x line=middle,
+     y label style={at={(axis description cs:.55,0.9)},anchor=south },
+%y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
+     axis line style={->},
+     xlabel=$x$, ylabel=$f(x)$,
+     scale=1]
+     \addplot[domain=-pi/2:*pi/2,samples=200,black]{cos(deg(x))};
+     \node[label={below :{$\frac{\pi}{2}$}},circle,fill,inner sep=2pt] at (axis cs:-pi/2,0) {};
+     \node[label={below:{$-\frac{\pi}{2}$}},circle,fill,inner sep=2pt] at (axis cs:pi/2,0) {};
+     \node[label={above left:{a}},circle,fill,inner sep=2pt] at (axis cs:0,1) {};
+\end{axis}
+\end{tikzpicture}
+
+
 $  \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}a\cdot \cos x dx = 2a = 1$, следовательно, $a = \frac{1}{2}$\\
 \begin{equation*} 
 F(x)=
@@ -667,6 +685,23 @@ F(x)=
    1 ,  x > \frac{\pi}{2}
  \end{cases}
 \end{equation*}
+\begin{tikzpicture}
+   \begin{axis}[ xmin=-2, xmax=2, ymin=-2, ymax=2,
+     ticks=none,
+     axis y line=middle,
+     axis x line=middle,
+     y label style={at={(axis description cs:.55,0.9)},anchor=south },
+%y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
+     axis line style={->},
+     xlabel=$x$, ylabel=$F(x)$,
+     scale=1]
+     \addplot[domain=-pi/2:pi/2,samples=200,black]{1/2*(1+sin(deg(x)))};
+     \addplot[domain=pi/2:3,samples=200,black]{1};
+     \node[label={below :{$\frac{\pi}{2}$}},circle,fill,inner sep=2pt] at (axis cs:-pi/2,0) {};
+     \node[label={below:{$-\frac{\pi}{2}$}},circle,fill,inner sep=2pt] at (axis cs:pi/2,0) {};
+     \node[label={above left:{a}},circle,fill,inner sep=2pt] at (axis cs:0,1) {};
+\end{axis}
+\end{tikzpicture}
 %начало страницы 17
 \begin{center}
 $\textbf{Числовые характеристики случайных величин. }$\\
