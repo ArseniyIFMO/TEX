@@ -14,6 +14,9 @@
 \usepackage{caption}
 \usetikzlibrary{positioning}
 \usetikzlibrary{patterns}
+\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization.formats.functions}
+\usetikzlibrary{patterns,backgrounds}
 \usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
 \usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
 
@@ -643,7 +646,27 @@ $\textbf{Плотность распределения }$\\
 $F(x)$ -- первообразная для $f(x)$. Так как $F(-\infty)=0$, то константа в первообразной выбирается однозначно.\\
 $F(x) = \int\limits_{-\infty}^{x}f(x)dx$\\
 Найдем $P(\alpha < X < \beta)$ через $f(x)$. Так как вероятность одного значения непрерывной случайной величины равна нулю: $P(\alpha <  X < \beta) = \\=P(\alpha \leq  X < \beta) = F(\beta) - F(\alpha)=  \int\limits_{-\infty}^{\beta}f(x)dx -   \int\limits_{-\infty}^{\alpha}f(x)dx =  \int\limits_{\alpha}^{\beta}f(x)dx$.
-\\Геометрически $P(\alpha<x<\beta)$ -- это площадь.\\
+
+\begin{tikzpicture}
+   \begin{axis}[ xmin=-2, xmax=2, ymin=-2, ymax=8,
+     ticks=none,
+     axis y line=middle,
+     axis x line=middle,
+     y label style={at={(axis description cs:.55,0.9)},anchor=south },
+%y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
+     axis line style={->},
+     xlabel=$x$, ylabel=$f(x)$,
+     scale=1]
+     %\addplot[domain=-pi/2:pi/2,samples=200,black,pattern=north east lines]{cos(deg(x)) + sin(deg(x)) + 3};
+     %\addplot[domain=-pi/2:pi/2,samples=200,black]{cos(deg(x))};
+     \node[label={below :{$\alpha$}},circle,fill,inner sep=2pt] at (axis cs:-pi/2 + 0.30,0) {};
+     \node[label={below:{$\beta$}},circle,fill,inner sep=2pt] at (axis cs:pi/2 - 0.30,0) {};
+     \addplot[domain=-pi/2 + 0.3:pi/2 - 0.3,samples=200,black,pattern=north east lines]{cos(deg(x)) + sin(deg(x)) + 3}\closedcycle;	
+     \addplot[domain=-pi/2:pi/2,samples=200]{cos(deg(x)) + sin(deg(x)) + 3};
+     
+\end{axis}
+\end{tikzpicture}\\
+Геометрически $P(\alpha<x<\beta)$ -- это площадь.\\
 %начало страницы 16
 Свойства плотности вероятности:\\
 1)$f(x)\geqslant 0$ (следует из того, что $F(x)$ неубывает)\\
