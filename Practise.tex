@@ -1072,15 +1072,20 @@ $D(X) = \int\limits_{0}^{\infty}t^2\lambda e^{-\lambda t}dt - \frac{1}{\lambda^2
 \subsection{Нормальное распределение}
 \noindent
 \begin{tikzpicture}
-   \begin{axis}[grid=major, xmin=-3, xmax=3, ymin=0, ymax=1,
-    axis lines = left,
+   \begin{axis}[xmin=-3, xmax=3, ymin=0, ymax=0.5,
+      axis y line=middle,
+     axis x line=middle,
+    ticks=none,
      xlabel=$x$, ylabel=$f(x)$,
      label style={font=\normalsize},
-     y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
-     xtick = {-10,0,...,10}, ytick = {0,...,1},
+y label style={at={(axis description cs:0.3,0.9)},rotate=0},
+x label style={at={(axis description cs:1,0.1)}},
+    xtick = {-10,0,...,10}, ytick = {0,...,1},
+    at={(0.04\linewidth,0.06\linewidth)},
      scale=1, restrict y to domain=0:10]
-     \addplot[black, samples=100, smooth, unbounded coords=discard] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-\x*\x/2)  )  });
+     \addplot[black, samples=100, smooth, unbounded coords=discard] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-0.3)*(\x - 0.3)/2)  )  });
    \end{axis}
+ \node[label={below right :{$m$}},circle,fill,inner sep=2pt] at (4,0) {};
 \end{tikzpicture}
 \\
 По нормальному закону распределения случайная ошибка.\\
@@ -1092,12 +1097,13 @@ $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-
  \frac{\sigma^2}{\sqrt{\pi}} \int\limits_{-\infty}^{\infty} t\cdot2te^{-t^2}dt =\\= \frac{\sigma^2}{\sqrt{\pi}} ( \underbrace{-te^{-t^2}|_{-\infty}^{\infty}}_{0} + \underbrace{\int\limits_{-\infty}^{\infty}e^{-t^2}dt}_{\sqrt{\pi}})$ = $\sigma^2$\\
 %(Так как $-te^{-t^2}|_{-\infty}^{\infty} = 0$ и $\int\limits_{-\infty}^{\infty} e^{-t^2}dt = \sqrt{\pi}$)\\
 \begin{tikzpicture}
-   \begin{axis}[grid=major, xmin=-6, xmax=6, ymin=0, ymax=1,
+   \begin{axis}[ xmin=-6, xmax=6, ymin=0, ymax=1,
      axis lines = left,
+     ticks=none,
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$f(x)$,
-	     xtick = {-10,0,...,10}, ytick = {0,...,1},
-    y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
+     xtick = {-10,0,...,10}, ytick = {0,...,1},
+y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 2) * pow(2.17, (-\x*\x/(2*4))  )  }) ;
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 4) * pow(2.17, (-\x*\x/16)  )  });
@@ -1109,12 +1115,13 @@ $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-
 \end{tikzpicture}\\
                            $\sigma_1<\sigma_2<\sigma_3$\\
 \begin{tikzpicture}
-   \begin{axis}[grid=major, xmin=-6, xmax=6, ymin=0, ymax=1,
+   \begin{axis}[ xmin=-6, xmax=6, ymin=0, ymax=1,
      axis lines = left,
+ticks=none,
      xlabel=$x$, ylabel=$f(x)$,
      label style={font=\normalsize},
      xtick = {-10,0,...,10}, ytick = {0,...,1},
-    y label style={at={(axis description cs:0,.5)},rotate=270,anchor=south},
+y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) ) * pow(2.17, (-(\x -4)*(\x-4)/(8))  )  }) ;
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-2)*(\x-2)/8)  )  });
