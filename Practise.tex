@@ -1034,7 +1034,7 @@ $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-
      \node [black, right] at (140,20) {$\sigma_2$};
  \end{axis}
 \end{tikzpicture}\\
-$\sigma_1<\sigma_2<\sigma_3$\\
+                           $\sigma_1<\sigma_2<\sigma_3$\\
 \begin{tikzpicture}
    \begin{axis}[grid=major, xmin=-6, xmax=6, ymin=0, ymax=1,
      axis lines = left,
@@ -1255,32 +1255,34 @@ $y_i$&$p_{ij}$\\
 $\textbf{Совместная плотность вероятности системы случайных величин}$
 \end{center}
 \begin{tikzpicture}
-   \begin{axis}[ ticks=none,xmin=-5, xmax=7, ymin=-3, ymax=5,
+   \begin{axis}[ ticks=none,xmin=-5, xmax=9, ymin=-3, ymax=7,
      axis y line=middle,
      axis x line=middle,
+     width=0.8\textwidth,
      y label style={at={(axis description cs:.45,1)},anchor=south, font = \normalsize},
      axis line style={->},
      x label style = {font = \normalsize},
      xlabel=$\large x$, ylabel=$\large y$,
      scale=0.5]
-\draw[thick] (600,500) --(600,0);
-\draw[thick] (700,500) --(0,500);
-\draw[thick](700,500) --(700,0);
-\draw[thick] (700,400) --(0,400);
-\draw[thick] (600,500) --(600,0);
-\draw[thick] (600,400) --(700,500);
-\draw[thick] (600,430) --(670,500);
-\draw[thick] (600,460) --(640,500);
-\draw[thick] (630,400) --(700,470);
-\draw[thick] (660,400) --(700,440);
-\draw[fill=black!10!black] (500,400) circle (0.2ex);
-\draw[fill=black!10!black] (500,500) circle (0.2ex);
-\draw[fill=black!10!black] (600,300) circle (0.2ex);
-\draw[fill=black!10!black] (700,300) circle (0.2ex);
-\node [below left] at (540,420) {$ y $};
+\draw[thick] (640,500) --(640,0);
+\draw[thick] (740,540) --(0,540);
+\draw[thick](740,540) --(740,0);
+\draw[thick] (740,440) --(0,440);
+\draw[thick] (640,540) --(640,0);
+\draw[thick] (640,440) --(740,540);
+\draw[thick] (640,470) --(710,540);
+\draw[thick] (640,500) --(680,540);
+\draw[thick] (670,440) --(740,510);
+\draw[thick] (700,440) --(740,480);
+
+\draw[fill=black!10!black] (500,440) circle (0.2ex);
+\draw[fill=black!10!black] (500 ,540) circle (0.2ex);
+\draw[fill=black!10!black] (640,300) circle (0.2ex);
+\draw[fill=black!10!black] (740,300) circle (0.2ex);
+\node [below left] at (520,420) {$ y $};
 \node [below left] at (500,700) {$ y + \Delta y$};
-\node [below left] at (630,270) {$x$};
-\node [below right] at (700,300) {$x + \Delta x$};
+\node [below left] at (630,280) {$x$};
+\node [below right] at (720,300) {$x + \Delta x$};
 \end{axis}
 \end{tikzpicture}\\
 Для непрерывной случайной величины : $f(x, y) =  \displaystyle{  \lim_{\substack{{\Delta y\to{\infty}}\\
@@ -2007,17 +2009,17 @@ $\hat{D}(X) = \frac{1}{n} \displaystyle{\sum \limits_{j = 1}^{n}}(x_j - \hat{m})
 Доверительным интервалом называется интервал, который с заданой доверительной вероятностью $\beta$ накрывает оцениваемый параметр $a$.\\
 Оценка $\hat{a}$ случайна, и поэтому замена $a$ на $\hat{a}$ может привести к ошибкам. Интервалы оценки вводятся для того, что бы можно было судить о надёжности оценки. Для симметричного доверительного интервала его ширина $2\varepsilon$ определяется условием: $P(\abs{\hat{a} - a} \leq \varepsilon) = \beta$\\
 Доверительный интервал: $(\hat{a} - \varepsilon, \hat{a} + \varepsilon) = I_\beta$\\
-\begin{picture}(100,60)
+\begin{picture}(200,60)
 \qbezier(20,30)(10,20)(20,10)
-\qbezier(80,30)(90,20)(80,10)
-\put(10, 20){\line(1,0 ){90}}
-\put(50, 20){\line(0,-1 ){3}}
-\put(30, 18){\line(1,1 ){4}}
-\put(30, 22){\line(1,-1 ){4}}
-\put(45, 0){\makebox(10, 0){$\hat{a}$}}
-\put(28, 26){\makebox(10, 0){$a$}}
+\qbezier(170,30)(180,20)(170,10)
+\put(10, 20){\line(1,0 ){180}}
+\put(100, 20){\line(0,-1 ){3}}
+\put(60, 18){\line(1,1 ){4}}
+\put(60, 22){\line(1,-1 ){4}}
+\put(95, 8){\makebox(10, 0){$\hat{a}$}}
+\put(58, 26){\makebox(10, 0){$a$}}
 \put(15, 0){\makebox(10, 0){$\hat{a} - \varepsilon$}}
-\put(80, 0){\makebox(10, 0){$\hat{a} + \varepsilon$}}
+\put(170, 0){\makebox(10, 0){$\hat{a} + \varepsilon$}}
 \end{picture}
 
 %сюда картинку
