@@ -777,6 +777,23 @@ $M(X) = 1\cdot q + 2q\cdot p + 3 q \cdot p^2 + .\ .\ .\ +k\cdot q\cdot p^{k-1}$ 
  Пример отсутствия конечного математического ожидания -- "Петербургская игра". Бросается монета до тех пор, пока не выпадет орёл. Если это случается при бросании c номером $r$, то игрок получит $2^r$ рублей. $x_r=2^r$, $p_r=2^{-r}$.\\ $\sum\limits_{r = 1}^{\infty}  x_rp_r = \sum\limits_{r = 1}^{\infty} 1 = \infty$\\
 \textit{\textbf{Определение}}\\
 Мода -- координата максимума $f(x)$. Если кривая распределения имеет более одного максимума, то распределение называется полимодальным.\\
+\begin{tikzpicture}
+   \begin{axis}[xmin=-5, xmax=5, ymin=0, ymax=0.4,
+      axis y line=middle,
+     axis x line=middle,
+    ticks=none,
+     xlabel=$x$, ylabel=$f(x)$,
+     label style={font=\normalsize},
+y label style={at={(axis description cs:0.3,0.9)},rotate=0},
+x label style={at={(axis description cs:1,0.05)}},
+    xtick = {-10,0,...,10}, ytick = {0,...,1},
+    at={(0.04\linewidth,0.06\linewidth)},
+     scale=1, restrict y to domain=0:10]
+     \addplot[black, samples=100, smooth, unbounded coords=discard] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-1.2*(\x-0.37)*1.2*(\x - 0.37)/4)  )  / 3  });
+     \draw[dashed] (axis cs: 0.37, 0)--(axis cs: 0.37,0.133014);
+   \end{axis}
+ \node[label={below right :{$M$}},circle,fill,inner sep=2pt] at (4.265,0.06\linewidth) {};
+\end{tikzpicture}\\
 \textit{\textbf{Определение}}\\
 Медиана -- $P(X<Me) = P(X>Me)$, для непрерывной случайной величины.\\
 \textit{\textbf{Определение}}\\
@@ -2179,7 +2196,7 @@ K_{n - 1}(V)=
       \addplot[domain=0.00001:pi/60,samples=200,black,pattern=north east lines]{deg(x)^(2) * 2.17^(- deg(x) / 2)/ 12}\closedcycle;	
        \addplot[domain=pi/15:0.5,samples=200,black,pattern=north east lines]{deg(x)^(2) * 2.17^(- deg(x) / 2)/ 12}\closedcycle;
 \end{axis}
-   \draw [<-] (0.7,0.2) -- (1.4,0.2);	
+   \draw [<-] (0.718,0.2) -- (1.4,0.2);	
     \draw [->] (2.0,0.2) -- (2.9,0.2);
     \node [black, right] at (1.5,0.2) {$l_{\beta}$};
 \end{tikzpicture}\\
