@@ -1773,6 +1773,19 @@ $G(y) = P(Y < y) = P(x< X < b) =  \displaystyle{\int \limits_{\psi(y)}^{b}} f(x)
 $g(y) = G'(y) = -f(\psi(y)$ .\\
 Общая формула: $g(y) = f(\psi(y)) \abs{\psi(y)}$\\
 \textbf{Пример} \\
+\begin{tikzpicture}
+  \draw[] (1, 0) -- (1, 4);
+ \draw[dashed] (1, 2) -- (5, 2);
+ \draw[dashed] (1, 4) -- (5, 2);
+ \node [black, right] at ((0,3) {$x$};
+ \node [black, right] at ((3,1.6) {$l$};
+ \node [black, right] at ((3.5,2.3) {$\phi$};
+\draw[-latex] (4.3,2) arc (180:160:1cm) ;
+\draw [<->] (0.5,4) -- (0.5,2);
+\draw [<->] (1,1.8) -- (5,1.8); 
+\draw [black] (5,2) circle (0.06);
+\end{tikzpicture}
+
 Пушка,раположенная на  расстоянии $l$ от бесконечной прямолинейной стены, равномерно вращается. В произвольный момент времени при каждом обороте производится выстрел. Найти плотности распределения точек попаданий  на стене.\\
 $x = l \cdot tg \varphi$. Функция распределения равномерна на $(-\frac{\pi}{2},\frac{\pi}{2})$ : \\
 \begin{equation*} 
