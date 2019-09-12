@@ -1959,6 +1959,28 @@ $P(120 < Y < 150) \approx \Phi^*(\frac{150-120}{\sqrt{48}}) - \Phi^*(\frac{120 -
 \textit{\textbf{Определение}}\\ 
 Статистическая функция распределения случайной величины $X$ -- это частота события $X < x$ в данной выборке: $F^*(x) = P^*(X < x)$.
 Это ступенчатая функция. По теореме Бернулли, при $n$ стремящемся к бесконечности, частота событий стремится к вероятности, $F^*(x)$ сходится по вероятности к $F(x)$. При большом объеме ($n$) выборки строить так $F^*(x)$ трудоёмко.  Там действуют так: весь интервал полученных значений $X$ разбивают на разряды (интервалы). Подсчитывают число наблюдений, приходящихся на данных интервал $m_i$  и находят частоту $p_i^* = \frac{m_i}{n}$.\\
+\begin{picture}(100,100)
+\multiput(50,82)(4,0){13}{\line(1, 0){2}}
+\put(33, 95){\makebox(0, 0)   {$\Large F^*(x)$} }
+\put(50, 0){\vector(0, 3){100}}
+
+\put(10, 50){\circle*{2}}
+\put(25, 60){\line(1, 0){16}}
+\put(10, 50){\line(1, 0){16}}
+\put(40, 65){\line(1, 0){20}}
+\put(60, 70){\line(1, 0){13}}
+\put(73, 73){\line(1, 0){13}}
+\put(86, 80){\line(1, 0){12}}
+\put(25, 60){\circle*{2}}
+\put(40, 65){\circle*{2}}
+\put(60, 70){\circle*{2}}
+\put(73, 73){\circle*{2}}
+\put(86, 80){\circle*{2}}
+\put(99, 81){\circle*{2}}
+
+\put(47, 82){\makebox(0, 0)   {$1$}}
+\put(0, 40){\vector(4, 0){120}}
+\end{picture}\\
 \begin{tabular}[b]{ | l | l |  l | l | l |   }
 \hline
 $ I_i$      & $(x_1, x_2) $ &  $(x_2, x_3) $ & . . . & $(x_k, x_{k + 1})$    \\
@@ -2532,36 +2554,32 @@ $K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omeg
 \put(90, 0){\makebox(0, 0)   {$w_4$}}
 \put(110, 0){\makebox(0, 0) {$w_5$}}
 \put(130, 0){\makebox(0, 0) {$w_6$}}
-
 \end{picture}
 \\
 \\
 \\
 \\
-\\
-\begin{picture}(100,100)
-\put(10, 10){\vector(0, 4){100}}
-\put(10, 10){\vector(4, 0){100}}
-\put(0, 120){\makebox(0, 0) {$S_x(\tau)$}}
-\put(120, 0){\makebox(0, 0) {$\omega$}}
-\put(30, 0){\makebox(0, 0) {$\frac{2\pi}{\tau_0}$}}
-\put(60, 0){\makebox(0, 0) {$\frac{4\pi}{\tau_0}$}}
-\put(90, 0){\makebox(0, 0) {$\frac{6\pi}{\tau_0}$}}
-%\qbezier (10,30) (20,20) (50,30)
-\end{picture}
 \\
 \\
 \begin{tikzpicture}
-\node [left] at (0,5) {$\hat{S_x}(\omega)$};
-\node [below right] at (5,0) {$\omega$};
-\begin{axis}[xmin=-15, xmax=15, ymin=0, ymax=1,
-ticks = none,
-  xlabel=$x$, ylabel=$y$,
- xtick = {0,1,...,10}, ytick = {0,0.2,...,1},
- scale=1, restrict y to domain=0:10]
-% \addplot[blue, samples=400, smooth, unbounded coords=discard] plot ( {(1 - cos(\x)) *  2 });
-     \addplot[blue, samples=400, smooth, unbounded coords=discard] plot (\x, {2/(\x*\x) * (1 - cos(\x))});
+   \begin{axis}[ xmin=pi/2, xmax=6*pi, ymin=0, ymax=2.5,
+     ticks=none,
+ axis y line=middle,   
+  at={(0,0.1\linewidth)},
+     axis x line=middle,
+     label style={font=\normalsize},
+     xlabel=$x$, ylabel=$\hat{S}(x)$,
+ %    xtick = {-10,0,...,10}, ytick = {0,...,1},
+y label style={at={(axis description cs:0.025,1)},rotate=0},
+     scale=1, restrict y to domain=0:10]
+  \addplot[blue, samples=100, smooth, unbounded coords=discard,domain=pi/2:3*pi/2] {sin(deg(x) + pi/2)  + 1 };
+ \addplot[blue, samples=100, smooth, unbounded coords=discard,domain=3*pi/2:7*pi/2] {(sin(deg(x) + pi/2) / 2 + 1/2 };
+ \addplot[blue, samples=100, smooth, unbounded coords=discard,domain=7*pi/2:11*pi/2] {(sin(deg(x) + pi / 2) / 4  + 1/4};
  \end{axis}
+\node[label={below right :{$\frac{2\pi}{\tau}$}},circle,fill,inner sep=1pt] at (pi/2*0.79,0.1\linewidth) {};
+\node[label={below right :{$\frac{4\pi}{\tau}$}},circle,fill,inner sep=1pt] at (3*pi/2*0.79,0.1\linewidth) {};
+\node[label={below right :{$\frac{6\pi}{\tau}$}},circle,fill,inner sep=1pt] at (5*pi/2*0.79,0.1\linewidth) {};
+\node[label={below right :{$\frac{\tau_0}{\pi}$}},circle,fill,inner sep=1pt] at (0.02,6.01) {};
 \end{tikzpicture}
 \\
 \\
