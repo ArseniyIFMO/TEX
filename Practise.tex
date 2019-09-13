@@ -2572,15 +2572,37 @@ $K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omeg
  %    xtick = {-10,0,...,10}, ytick = {0,...,1},
 y label style={at={(axis description cs:0.025,1)},rotate=0},
      scale=1, restrict y to domain=0:10]
-  \addplot[blue, samples=100, smooth, unbounded coords=discard,domain=pi/2:3*pi/2] {sin(deg(x) + pi/2)  + 1 };
- \addplot[blue, samples=100, smooth, unbounded coords=discard,domain=3*pi/2:7*pi/2] {(sin(deg(x) + pi/2) / 2 + 1/2 };
- \addplot[blue, samples=100, smooth, unbounded coords=discard,domain=7*pi/2:11*pi/2] {(sin(deg(x) + pi / 2) / 4  + 1/4};
+  \addplot[black, samples=100, smooth, unbounded coords=discard,domain=pi/2:3*pi/2] {sin(deg(x) + pi/2)  + 1 };
+ \addplot[black, samples=100, smooth, unbounded coords=discard,domain=3*pi/2:7*pi/2] {(sin(deg(x) + pi/2) / 2 + 1/2 };
+ \addplot[black, samples=100, smooth, unbounded coords=discard,domain=7*pi/2:11*pi/2] {(sin(deg(x) + pi / 2) / 4  + 1/4};
  \end{axis}
 \node[label={below right :{$\frac{2\pi}{\tau}$}},circle,fill,inner sep=1pt] at (pi/2*0.79,0.1\linewidth) {};
 \node[label={below right :{$\frac{4\pi}{\tau}$}},circle,fill,inner sep=1pt] at (3*pi/2*0.79,0.1\linewidth) {};
 \node[label={below right :{$\frac{6\pi}{\tau}$}},circle,fill,inner sep=1pt] at (5*pi/2*0.79,0.1\linewidth) {};
-\node[label={below right :{$\frac{\tau_0}{\pi}$}},circle,fill,inner sep=1pt] at (0.02,6.01) {};
+\node[label={below right :{$\frac{\tau_0}{\pi}$}},circle,fill,inner sep=1pt] at (0.028,6.01) {};
 \end{tikzpicture}
+\\
+\\
+\begin{tikzpicture}
+   \begin{axis}[ xmin=-11, xmax=11, ymin=0, ymax=2.5,
+     ticks=none,
+ axis y line=left,   
+  at={(0,0.1\linewidth)},
+     axis x line=middle,
+     axis y line=middle,
+     label style={font=\normalsize},
+     xlabel=$x$,
+ %    xtick = {-10,0,...,10}, ytick = {0,...,1},
+x label style={at={(axis description cs:1,0.025)},rotate=0},
+     scale=1, restrict y to domain=0:10]
+      \addplot[domain=0:pi*3 + 1.8,samples=200,black,pattern=north east lines]{(cos(deg(x/3 - 0.6)) + 1)}\closedcycle;
+      \addplot[domain=0:pi*3 + 1.8,samples=200,black,pattern=north west lines]{(cos(deg(x/3 - 0.6)) + 1) / 2}\closedcycle;
+      \addplot[domain=-11:0,samples=200,black,pattern=north west lines]{(cos(deg( - (x)/3 - 0.6)) + 1) / 2}\closedcycle;7
+\node[label={below right :{$\hat{S}_x(\omega)$}}] at (axis cs:6.8,1.8) {};
+\node[label={below right :{$S_x(\omega)$}}] at (axis cs:-7.2,1.4) {};
+ \end{axis}
+\end{tikzpicture}
+\\
 \\
 \\
 \begin{picture}(100,100)
