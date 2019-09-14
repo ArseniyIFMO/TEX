@@ -2506,28 +2506,7 @@ $\textbf{Cпектральное разложение стационарного
 \end{center}
 a) Пусть стационарный случайный процесс наблюдается как на конечном интервале $(0, T)$. Корреляционная функция $K_X(\tau)$ (АКФ) чётна. $k_x(\tau) = k_x(-\tau)$, следовательно она представима в виде ряда Фурье.\\ $k_X(\tau) = \frac{D_0}{2} +  \displaystyle{\sum \limits_{i = 1}^{\infty}} D_n \cos \omega_n \tau$.\\
 $D_n = \frac{2}{T} \displaystyle{\int \limits _{0} ^ {T}} k_X (\tau) \cos(\omega_n \tau) d\tau$\\
-$D_X =   \displaystyle{\sum \limits_{i = 1}^{\infty}} D_n$.
-\begin{center}
-$\textbf{Спектральный стационарный случайный процесс}$
-\end{center}
-б)бесконечный интервал\\
-Стационарный случайный процесс на $(0, \infty)$. Так как $k_X(\tau)$ чётна, её можно представить в виде интеграла Фурье:\\
-$k_X(\tau) = \displaystyle{\int \limits_{0}^{\infty}} \hat{S}_X(\omega) \cos \omega \tau d\tau$, где $\hat{S}_X (\omega) = \frac{2}{\pi}  \displaystyle{\int \limits_{0}^{\infty}} k_X(\tau) \cos \omega \tau d\tau$ -- спектральная плотность (спектральная плотность дисперсии). $D_X =  \displaystyle{\int \limits_{0}^{\infty}} S_X(\omega) d\omega$ -- то есть площадь под кривой.\\
-  \textbf{Пример}\\ 
-\begin{equation*} 
-k_X(\tau)=
- \begin{cases}
-   1 - \frac{\tau}{\tau_0}, 0 < \tau < \tau_0 \\
-   0 , \tau > \tau_0\\
- \end{cases}
-\end{equation*}
-$\hat{S}_X(\omega)  = \frac{2}{\pi} \displaystyle{\int \limits_{0}^{\infty}}k_X(\tau) \cos \omega \tau d\tau = \frac{2}{\pi}\displaystyle{\int \limits_{0}^{\tau_0}} (1 - \frac{\tau}{\tau_0}) \cos \omega \tau d \tau = \frac{2}{\pi \tau_0 \omega^2} (1 - \cos \omega \tau)$\\
-в)Спектральная плотность в канонической форме:\\
-$K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omega \tau} d\omega$ , где $S_X(\omega) = \frac{1}{2\pi} \displaystyle{\int \limits_{-\infty}^{\infty}} k_X(\tau) e^{-i\omega \tau} d\tau$, $D_X = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega) d \omega$.\\
-%\includegraphics[scale=0.6]{page69.png}\\
-\\
-\\
-\\
+$D_X =   \displaystyle{\sum \limits_{i = 1}^{\infty}} D_n$.\\
 \\
 \begin{picture}(100,100)
 \put(10, 10){\vector(0, 4){100}}
@@ -2556,10 +2535,35 @@ $K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omeg
 \put(130, 0){\makebox(0, 0) {$w_6$}}
 \end{picture}
 \\
+\begin{center}
+$\textbf{Спектральный стационарный случайный процесс}$
+\end{center}
+б)бесконечный интервал\\
+Стационарный случайный процесс на $(0, \infty)$. Так как $k_X(\tau)$ чётна, её можно представить в виде интеграла Фурье:\\
+$k_X(\tau) = \displaystyle{\int \limits_{0}^{\infty}} \hat{S}_X(\omega) \cos \omega \tau d\tau$, где $\hat{S}_X (\omega) = \frac{2}{\pi}  \displaystyle{\int \limits_{0}^{\infty}} k_X(\tau) \cos \omega \tau d\tau$ -- спектральная плотность (спектральная плотность дисперсии). $D_X =  \displaystyle{\int \limits_{0}^{\infty}} S_X(\omega) d\omega$ -- то есть площадь под кривой.\\
 \\
 \\
+  \textbf{Пример}\\ 
 \\
-\\
+\begin{picture}(130,130)
+\put(10, 10){\vector(0, 4){100}}
+\put(10, 10){\vector(4, 0){100}}
+\put(0, 45){\makebox(0, 0) {$1$} }
+\put(0, 120){\makebox(0, 0) {$K_x(\tau)$} }
+\put(120, 0){\makebox(0, 0) {$\tau$} }
+\put(45, 0){\makebox(0, 0) {$\tau_0$} }
+\thicklines
+\put(10, 40){\line(1,-1) {30} }
+\put(40, 10){\line(1,0) {50} }
+\end{picture}\\
+\begin{equation*} 
+k_X(\tau)=
+ \begin{cases}
+   1 - \frac{\tau}{\tau_0}, 0 < \tau < \tau_0 \\
+   0 , \tau > \tau_0\\
+ \end{cases}
+\end{equation*}
+$\hat{S}_X(\omega)  = \frac{2}{\pi} \displaystyle{\int \limits_{0}^{\infty}}k_X(\tau) \cos \omega \tau d\tau = \frac{2}{\pi}\displaystyle{\int \limits_{0}^{\tau_0}} (1 - \frac{\tau}{\tau_0}) \cos \omega \tau d \tau = \frac{2}{\pi \tau_0 \omega^2} (1 - \cos \omega \tau)$\\
 \\
 \begin{tikzpicture}
    \begin{axis}[ xmin=pi/2, xmax=6*pi, ymin=0, ymax=2.5,
@@ -2582,6 +2586,11 @@ y label style={at={(axis description cs:0.025,1)},rotate=0},
 \node[label={below right :{$\frac{\tau_0}{\pi}$}},circle,fill,inner sep=1pt] at (0.028,6.01) {};
 \end{tikzpicture}
 \\
+в)Спектральная плотность в канонической форме:\\
+$K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omega \tau} d\omega$ , где $S_X(\omega) = \frac{1}{2\pi} \displaystyle{\int \limits_{-\infty}^{\infty}} k_X(\tau) e^{-i\omega \tau} d\tau$, $D_X = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega) d \omega$.\\
+$ S_X(\omega)=2S_Xd(\omega)$
+%\includegraphics[scale=0.6]{page69.png}\\
+\\
 \\
 \begin{tikzpicture}
    \begin{axis}[ xmin=-11, xmax=11, ymin=0, ymax=2.5,
@@ -2598,24 +2607,11 @@ x label style={at={(axis description cs:1,0.025)},rotate=0},
       \addplot[domain=0:pi*3 + 1.8,samples=200,black,pattern=north east lines]{(cos(deg(x/3 - 0.6)) + 1)}\closedcycle;
       \addplot[domain=0:pi*3 + 1.8,samples=200,black,pattern=north west lines]{(cos(deg(x/3 - 0.6)) + 1) / 2}\closedcycle;
       \addplot[domain=-11:0,samples=200,black,pattern=north west lines]{(cos(deg( - (x)/3 - 0.6)) + 1) / 2}\closedcycle;7
-\node[label={below right :{$\hat{S}_x(\omega)$}}] at (axis cs:6.8,1.8) {};
-\node[label={below right :{$S_x(\omega)$}}] at (axis cs:-7.2,1.4) {};
+\node[label={below right :{$\hat{S}_X(\omega)$}}] at (axis cs:6.8,1.8) {};
+\node[label={below right :{$S_X(\omega)$}}] at (axis cs:-7.2,1.4) {};
  \end{axis}
 \end{tikzpicture}
 \\
-\\
-\\
-\begin{picture}(100,100)
-\put(10, 10){\vector(0, 4){100}}
-\put(10, 10){\vector(4, 0){100}}
-\put(0, 45){\makebox(0, 0) {$1$} }
-\put(0, 120){\makebox(0, 0) {$K_x(\tau)$} }
-\put(120, 0){\makebox(0, 0) {$\tau$} }
-\put(45, 0){\makebox(0, 0) {$\tau_0$} }
-\thicklines
-\put(10, 40){\line(1,-1) {30} }
-\put(40, 10){\line(1,0) {50} }
-\end{picture}
 %страница 70
 \subsection{Преобразование случайной функции линейной системой}
 \noindent
