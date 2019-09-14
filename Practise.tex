@@ -2544,6 +2544,14 @@ $k_X(\tau) = \displaystyle{\int \limits_{0}^{\infty}} \hat{S}_X(\omega) \cos \om
 \\
 \\
   \textbf{Пример}\\ 
+
+\begin{equation*} 
+k_X(\tau)=
+ \begin{cases}
+   1 - \frac{\tau}{\tau_0}, 0 < \tau < \tau_0 \\
+   0 , \tau > \tau_0\\
+ \end{cases}
+\end{equation*}
 \\
 \begin{picture}(130,130)
 \put(10, 10){\vector(0, 4){100}}
@@ -2556,13 +2564,6 @@ $k_X(\tau) = \displaystyle{\int \limits_{0}^{\infty}} \hat{S}_X(\omega) \cos \om
 \put(10, 40){\line(1,-1) {30} }
 \put(40, 10){\line(1,0) {50} }
 \end{picture}\\
-\begin{equation*} 
-k_X(\tau)=
- \begin{cases}
-   1 - \frac{\tau}{\tau_0}, 0 < \tau < \tau_0 \\
-   0 , \tau > \tau_0\\
- \end{cases}
-\end{equation*}
 $\hat{S}_X(\omega)  = \frac{2}{\pi} \displaystyle{\int \limits_{0}^{\infty}}k_X(\tau) \cos \omega \tau d\tau = \frac{2}{\pi}\displaystyle{\int \limits_{0}^{\tau_0}} (1 - \frac{\tau}{\tau_0}) \cos \omega \tau d \tau = \frac{2}{\pi \tau_0 \omega^2} (1 - \cos \omega \tau)$\\
 \\
 \begin{tikzpicture}
