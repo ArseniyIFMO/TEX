@@ -1,5 +1,5 @@
 \documentclass[russian, 12pt, fleqn,x11names]{article}
-
+\usepackage{float}
 \usepackage[utf8x]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[russian]{babel}
@@ -347,8 +347,8 @@ $P=p^n<0.1=q$, $n > \frac{\ln(q)}{\ln(p)}$\\
 \begin{tikzpicture}
 \draw[gray, thick] (0,7) -- (1,7);
 \draw (1.5,7) circle (0.5);
-\node [below] at (1, 6) {$0.1$};
-\node [above] at (1, 8) {$A$};
+\node [below] at (1.5, 6.5) {$0.1$};
+\node [above] at (1.5, 7.5) {$A$};
 \draw[gray, thick] (2,7) -- (3,7);
 \draw[gray, thick] (3,7) -- (3,8.25);
 \draw[gray, thick] (3,7) -- (3,5.75);
@@ -463,6 +463,7 @@ $p_i$&$p_1$&$p_2$&$...$\\
 \hline
 \end{tabular}\\
 Для наглядности это часто изображают на графике и точки соединяют отрезками прямых. Получившаяся фигура называется многоугольником распределения.
+Так как события $X=x_j$ -- несовместимы и образуют полную группу, то $\sum\limits_{i = 1}^{n}p_i = 1$.
 \begin{figure}[!h]
 \begin{picture}(100,70)
 \put(10, 10){\vector(0, 3){50}}
@@ -488,8 +489,9 @@ $p_i$&$p_1$&$p_2$&$...$\\
 
 \end{picture}
 \caption{Многоугольник распределения}
-\end{figure}
-Так как события $X=x_j$ -- несовместимы и образуют полную группу, то $\sum\limits_{i = 1}^{n}p_i = 1$.\\
+\end{figure}\\
+\newpage
+\noindent
 \textbf{Пример\ }\\
 Баскетболист бросает мяч в кольцо до первого попадания, либо пока не сделано 3 броска. Вероятность попадания при одном броске равна $0.7$.\\
 $X$ -- число бросков.\\
@@ -517,6 +519,7 @@ $F(x)$ полностью характеризует случайную вели
 \textit{\textbf{Определение}}\\
 Случайная величина называется непрерывной, если ее функция распределения непрерывна.\\
 Для дискретной случайной величины :$F(x) = \sum\limits_{x_j < x}P(X=x_j)$
+\newpage
 \begin{figure}[!h]
 \begin{picture}(100,100)
 \put(30, 10){\vector(0, 3){80}}
@@ -579,7 +582,7 @@ $F(x)$ полностью характеризует случайную вели
 \put(96, 60){\line(1, 0){3}}
 \end{picture}
 \caption{Функция распределения}
-\end{figure}\\
+\end{figure}
 \noindent
 \textbf{Пример\ }\\
 Cо стр 11 про баскетболиста
@@ -603,10 +606,10 @@ Cо стр 11 про баскетболиста
 \put(40, 10){\vector(-1, 0){10}}
 \thinlines
 \put(30, 10){\line(1, 0){10}}
-\put(40, 0){\makebox(10, 0)   {$1$}}
-\put(60, 0){\makebox(10, 0)   {$2$}}
-\put(80, 0){\makebox(10, 0)   {$3$}}
-\put(90, 0){\makebox(10, 0)   {$4$}}
+\put(35, 0){\makebox(10, 0)   {$1$}}
+\put(55, 0){\makebox(10, 0)   {$2$}}
+\put(75, 0){\makebox(10, 0)   {$3$}}
+\put(95, 0){\makebox(10, 0)   {$4$}}
 \put(40, 10){\line(0, 1){3}}
 \put(40, 16){\line(0, 1){3}}
 
@@ -656,7 +659,7 @@ $P(\alpha \leq  x \leq  \beta) = F(\beta) - F(\alpha) + P(x = \beta)$\\
 $P(x = \alpha)=$   $\displaystyle{  \lim_{\beta \to{\alpha}}} $           $ P(\alpha \leq x < \beta) =$    $\displaystyle { \lim_{\beta \to {\alpha}}} (F(\beta) - F(\alpha))$\\
 Если слева величина непрерывна, то $P(x=\alpha)=0$.\\
 \begin{center}
-$\textbf{Плотность распределения }$\\
+$\textbf{Плотность вероятности }$\\
 \end{center}
 Пусть непрерывная случайная величина имеет дифференцируемую функцию распределения. Тогда $P(x<X<x + \Delta x) =  F(x + \Delta x) - F(x)$\\
 \textit{\textbf{Определение}}\\ $f(x) =$ $\displaystyle { \lim_{{\Delta x} \to {0}}}$ $\frac{P(x<X<x+\Delta x)}{\Delta x}$ = $F'(x)$ -- плотность вероятности (плотность распределения).\\
@@ -801,6 +804,7 @@ $M(X) = 1\cdot q + 2q\cdot p + 3 q \cdot p^2 + .\ .\ .\ +k\cdot q\cdot p^{k-1}$ 
 \textit{\textbf{Определение}}\\
 Мода -- координата максимума $f(x)$. Если кривая распределения имеет более одного максимума, то распределение называется полимодальным.
 \begin{figure}[!h]
+\resizebox{180pt}{140pt}{
 \begin{tikzpicture}
    \begin{axis}[xmin=-5, xmax=5, ymin=0, ymax=0.4,
       axis y line=middle,
@@ -812,12 +816,13 @@ y label style={at={(axis description cs:0.3,0.9)},rotate=0},
 x label style={at={(axis description cs:1,0.05)}},
     xtick = {-10,0,...,10}, ytick = {0,...,1},
     at={(0.04\linewidth,0.06\linewidth)},
-     scale=1, restrict y to domain=0:10]
+     scale=1, restrict y to domain=0:5]
      \addplot[black, samples=100, smooth, unbounded coords=discard] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-1.2*(\x-0.37)*1.2*(\x - 0.37)/4)  )  / 3  });
      \draw[dashed] (axis cs: 0.37, 0)--(axis cs: 0.37,0.133014);
    \end{axis}
  \node[label={below right :{$M$}},circle,fill,inner sep=2pt] at (4.265,0.06\linewidth) {};
 \end{tikzpicture}
+}
 \caption{Мода $f(x)$}
 \end{figure}\\
 \textit{\textbf{Определение}}\\	
@@ -842,11 +847,12 @@ f(x)=
 \end{equation}
  \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-2, xmax=2, ymin=-1, ymax=2,
+   \begin{axis}[ xmin=-2, xmax=2, ymin=-0.5, ymax=1.5,
      ticks=none,
      axis y line=middle,
      axis x line=middle,
-     y label style={at={(axis description cs:.55,0.9)},anchor=south },
+     label style={font=\normalsize},
+     y label style={at={(axis description cs:.6,0.9)},anchor=south },
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$F(x)$,
@@ -854,9 +860,9 @@ f(x)=
      \addplot[domain=-4:0	,samples=200,black]{0};
      \addplot[domain=0:1,samples=200,black]{x};
      \addplot[domain=1:4,samples=200,black]{0};
-     \node[label={below right :{$1$}},circle,fill,inner sep=2pt] at (axis cs:1,0) {};
-     \node[label={below left:{$0$}},circle,fill,inner sep=2pt] at (axis cs:0,0) {};
-     \node[label={below left:{$\frac{1}{\sqrt{2}}$}},circle,fill,inner sep=2pt] at (axis cs:0.701,0) {};
+     \node[label={below  :{$1$}},circle,fill,inner sep=1pt] at (axis cs:1,0) {};
+     \node[label={below left:{$0$}},circle,fill,inner sep=1pt] at (axis cs:0,0) {};
+     \node[label={below :{$\frac{1}{\sqrt{2}}$}},circle,fill,inner sep=1pt] at (axis cs:0.701,0) {};
      \draw[dashed] (axis cs: 0.701, 0)--(axis cs: 0.701,0.701);
      \draw[dashed] (axis cs: 1, 0)--(axis cs: 1,1);
 \end{axis}
@@ -930,7 +936,7 @@ $M(X) = 0\cdot \frac{3}{8} + 1\cdot \frac{1}{8} + \int\limits_{0}^{1}x\cdot \fra
 \begin{tikzpicture}
 \begin{scope}
   \begin{axis}[ ticks=none,xmin=0, xmax=2, ymin=0, ymax=1,
-     y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
+     y label style={at={(axis description cs:-0.3,1)},rotate=270,anchor=south},
      axis x line=middle,
      axis y line=middle,
      label style={font=\normalsize},
@@ -945,7 +951,7 @@ $M(X) = 0\cdot \frac{3}{8} + 1\cdot \frac{1}{8} + \int\limits_{0}^{1}x\cdot \fra
      \draw[dashed] (50, 0) -- (50, 50);
      \draw[dashed] (100, 0) -- (100, 50);
      \node [black, right] at (28,5) {$a$};
-     \node [black, right] at (3, 55) {$c$};
+     \node [black, right] at (-4, 55) {$c$};
      \node [black, right] at (78,5) {$b$};
 \end{axis}
      \draw[fill=black!10!black] (0,1.6895) circle (0.2ex);
@@ -992,7 +998,7 @@ F(x)=
 \begin{figure}[!h]
 \begin{tikzpicture}
    \begin{axis}[ ticks=none,xmin=0, xmax=2, ymin=0, ymax=1,
-     y label style={at={(axis description cs:0.2,1)},rotate=270,anchor=south},
+     y label style={at={(axis description cs:0.1,1)},rotate=270,anchor=south},
      axis x line=middle,
      axis y line=middle,
      width=5cm,height=5cm,
@@ -1036,8 +1042,8 @@ $P(\alpha<X<\beta) = \int\limits_{\alpha}^{\beta} \frac{1}{(b - a)}dx = \frac{\b
 Случайная величина $X$ принимает целые значения от $0$ до $n$.\\
 $P(X=m)=C^m_np^mq^n$, $q  = (1 - p)$.\\
 1)$\sum\limits_{m=0}^{n}C_n^mp^mq^{n-m} = 1$ -- условие нормирования.\\
-$\displaystyle{M(X) = \sum\limits_{m=0}^{n} \frac{mn!}{(n-m)!m!}p^mq^{n-m}= np\sum\limits_{m=0}^{n}\frac{(n-1)!}{(n-m)!(m-1)!}p^{m-1}q^{n-m} =}$\\$= np\sum\limits_{s=0}^{n - 1} \frac{(n-1)!}{(n-s-1)!s!}p^sq^{n-s-1} = np\sum\limits_{m=0}^{n}\frac{k!}{(k-s)!s!}p^sq^{k-s} = np$\\
-$\alpha_2(X)=\sum\limits_{m=0}^{n}m^2P(X=m) = \sum\limits_{m=2}^{n} m(m-1)P(X=m) + \sum\limits_{m=1}^{n}mP(X=m)=\\= n(n-1)p^2\sum\limits_{m=2}^{n}\frac{(n-1)!}{(n-m)!(m-2)!}p^{m-2}q^{n-m} + np$ = $n(n-1)p^2\sum\limits_{s=0}^{n-2}\frac{(n-2)!}{(n-s-2)!s!}p^sq^{n-s-2}+np =\\= n(n-1)p^2\sum\limits_{s = 0}^{k}\frac{k!}{(k-s)!s!}p^{m-2}q^{k-s} + np = n(n-1)p^2 + np$ = $n(n-1)p^2 + np$.\\
+$\displaystyle{M(X) = \sum\limits_{m=0}^{n} \frac{mn!}{(n-m)!m!}p^mq^{n-m}= np\sum\limits_{m=0}^{n}\frac{(n-1)!}{(n-m)!(m-1)!}p^{m-1}q^{n-m} \underset{s = m - 1}{=}}$\\$= np\sum\limits_{s=0}^{n - 1} \frac{(n-1)!}{(n-s-1)!s!}p^sq^{n-s-1} = np \underbrace{\sum\limits_{m=0}^{n}\frac{k!}{(k-s)!s!}p^sq^{k-s}}_{=1   \textrm{ по условию нормировки}} = np$\\
+$\alpha_2(X)=\sum\limits_{m=0}^{n}m^2P(X=m) = \sum\limits_{m=2}^{n} m(m-1)P(X=m) + \sum\limits_{m=1}^{n}mP(X=m)=\\= n(n-1)p^2\sum\limits_{m=2}^{n}\frac{(n-1)!}{(n-m)!(m-2)!}p^{m-2}q^{n-m} + np$ = $n(n-1)p^2\sum\limits_{s=0}^{n-2}\frac{(n-2)!}{(n-s-2)!s!}p^sq^{n-s-2}+np =\\= n(n-1)p^2 \underbrace{\sum\limits_{s = 0}^{k}\frac{k!}{(k-s)!s!}p^{m-2}q^{k-s}}_{=1} + np = n(n-1)p^2 + np$ = $n(n-1)p^2 + np$.\\
 $D(X)$ = $\alpha_2(x) - m_x^2$ =  $n(n - 1)p^2 + np - n^2p^2$ = $np(1-p)$ = $npq$.\\
 $\sigma(X) = \sqrt{npq}$.\\
 $\mu_3(X) = npq(q-p)$, следовательно асимметрия $S_k$ = $\frac{npq(q-p)}{(npq)^{\frac{3}{2}}} = \frac{q-p}{\sqrt{npq}} = \frac{1-2p}{\sqrt{np(1-p)}}$.\\
@@ -1391,8 +1397,8 @@ $1$&$\frac{1}{4}$&$0$\\
 \put(70, 10){\vector(0, 3){80}}
 \put(50, 30){\vector(4, 0){130}}
 
-\put(60, 80){\makebox(10, 0){$y$}}
-\put(170, 20){\makebox(10, 0){$x$}}
+\put(60, 85){\makebox(10, 0){$Y$}}
+\put(170, 20){\makebox(10, 0){$X$}}
 \put(70, 60){\line(1, 0){70}}	
 \put(90, 30){\line(0, 1){70}}	
 \put(0, 40){\makebox(10, 0){$F(x, y)=$}}
@@ -1856,7 +1862,7 @@ $g(y) = G'(y) = -f(\psi(y)$ .\\
  \draw[dashed] (1, 4) -- (5, 2);
  \node [black, right] at ((0,3) {$x$};
  \node [black, right] at ((3,1.6) {$l$};
- \node [black, right] at ((3.5,2.3) {$\phi$};
+ \node [black, right] at ((3.5,2.3) {$\varphi$};
 \draw[-latex] (4.3,2) arc (180:160:1cm) ;
 \draw [<->] (0.5,4) -- (0.5,2);
 \draw [<->] (1,1.8) -- (5,1.8); 
@@ -1881,26 +1887,33 @@ $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displays
   \begin{axis}[xmin=0, xmax=10, ymin=0, ymax=5,
      axis lines = left,
      y label style={at={(axis description cs:0.15,1)},rotate=270,anchor=south},
-     x label style={at={(axis description cs:1,0)}},
+     x label style={at={(axis description cs:1,0.1)}},
      axis line style={->},
+     ticks = none,
      at={(0.005\linewidth,0.03\linewidth)},
      xlabel=$x$, ylabel=$y$,
-     xtick = {0,5,...,10}, ytick = {0,5},
-     scale=1, restrict y to domain=0:10]
-     \addplot[blue, samples=100, smooth, unbounded coords=discard,domain=0:10] plot (\x, {sin(\x r) + 2});
+     scale=1]
+     \addplot[black, samples=100, smooth, unbounded coords=discard,domain=0:10] plot (\x, {sin(\x r) + 2});
      \draw[dashed] (0, 270) -- (100, 270);
      \draw[dashed] (8, 0) -- (8, 270);
      \draw[dashed] (24, 0) -- (24, 270);
      \draw[dashed] (70, 0) -- (70, 270);
-     \draw[dashed] (86, 0) -- (86, 270);
+     \draw[dashed] (86.5, 0) -- (86.5, 270);
      \node [black,left] at (0,20) {$y$};
      \node [black, right] at (0,20) {\tiny $\Delta_1$ \normalsize};
      \node [black, right] at (30,20) {\tiny $\Delta_2$ \normalsize};
      \node [black, right] at (90,20) {\tiny $\Delta_3$ \normalsize};
+\draw[fill=black!10!black] (8,270) circle (0.15ex);
+\draw [black, fill] (24,270)  circle (0.15ex);
+\draw [black, fill] (70,270) circle (0.15ex);
+\draw [black, fill] (86.5,270) circle (0.15ex);
+
     % \draw [<->,  thick] (0,500) -- (0,0) -- (100,0);
    \end{axis}
-    \node [black,left] at (1,0) {$a$};
-    \node [black,left] at (6.3,0) {$b$};
+\draw [black, fill] (0.649,0.2+0.03\linewidth) circle (0.15ex);
+\draw [black, fill] (6,0.2+0.03\linewidth) circle (0.15ex);
+    \node [black,left] at (0.95,0.2) {$a$};
+    \node [black,left] at (6.19,0.2) {$b$};
 \end{tikzpicture}
 \caption{График $y = \phi(x)$}
 \end{figure}\\
@@ -2421,19 +2434,19 @@ $np_i$&108.7&66.3&20.2&4.8\\
       x  label style={at={(axis description cs:1.01,.01)},anchor=south },
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
-     xlabel=$x$, ylabel=$k_{n-1}(V)$,
+     xlabel=$x$, ylabel=$K_{n-1}(V)$,
      scale=1]
  % \addplot[domain=0.00001:pi/2,samples=200,black]{deg(x)^(2) * 2.17^(- deg(x) / 2)/ 12};
       \addplot[domain=0.00001:pi/2,samples=200,black]{(deg(x + 0.25))^(2) * 2.17^(- (deg(x + 0.25) ) / 2)};
   \addplot[domain=0.00001:0.5,samples=200,black]{(deg(0.52 - x)/2)^(2) * 2.17^(- (deg(0.52 - x)/2) / 2)/ 12};
  \addplot[domain=0.00001:0.15,samples=200,black,pattern=north east lines]{(deg(0.52 - x)/2)^(2) * 2.17^(- (deg(0.52 - x)/2) / 2)/ 12}\closedcycle;
-      \addplot[domain=0.15:pi/2,samples=200,black,pattern=north east lines]{(deg(x + 0.25))^(2) * 2.17^(- (deg(x + 0.25) ) / 2)}\closedcycle;
+      \addplot[domain=0.15:pi/2,samples=200,black,pattern=north west lines]{(deg(x + 0.25))^(2) * 2.17^(- (deg(x + 0.25) ) / 2)}\closedcycle;
 \end{axis}
-  \node [black, right] at (1.6,0.9) {$U_{\alpha}$};
+  \node [black, right] at (1.5,1) {$U_{\alpha}$};
  \node [black, right] at (0.5,4) {$a$};
- \node [black, right] at (2.2,3) {$\hat{a}$};
+ \node [black, right] at (2.2,3) {$b$};
   \node [black, left] at (0.5,2.3) {$\beta$};
-  \node [black, right] at (3.2,2.3) {$\alpha$};
+  \node [black, right] at (3.05,2.3657) {$\alpha$};
  \draw [->] (0.5,2.3) -- (0.6,2.1);
  \draw [->] (3.2,2.3) -- (3.0,1.7);
 \end{tikzpicture}
@@ -2537,8 +2550,8 @@ $Y=\varphi(X_1, X_2, \ .\ .\ .\  X_n)$.\\
 По формуле Тейлора до первого порядка:\\
  $y  \approx  \varphi(m_{X_1}, m_{X_2}, \ .\ .\ .  ,m_{X_n}) + \displaystyle{\sum \limits _{i  = 1} ^ {n} } \varphi_{X_i} (m_{X_1}, m_{X_2}, \ .\ .\ ,m_{X_n})(X_i - m_{X_i})$\\
 Для линейной функции находим:\\
-$m_y =  \varphi(m_{X_1}, m_{X_2}, \ .\ .\ . ,m_{X_n}) $. $D_Y =  \displaystyle{\sum \limits _{i  = 1} ^ {n} } ((\frac{\partial \varphi}{\partial X_i})((m_{X_1}, m_{X_2}, \ .\ .\ . , m_{X_n}))^2D_{X_i}  + \\ + 2\displaystyle{\sum \limits _{i  < j} } (\frac{\partial \varphi}{\partial X_i}) (m_{X_1}, m_{X_2}, \ .\ .\ ,m_{X_n})  \cdot (\frac{\partial \varphi}{\partial X_j}) (m_{X_1}, m_{X_2}, \ .\ .\ ,m_{X_n}) K_{ij}$\\
-Если $X_1, \ .\ .\ .\ ,X_n$ не коррелируют, то $D_Y =  \displaystyle{\sum \limits _{i  = 1} ^ {n} } (\frac{\partial \varphi}{\partial X_i} (m_{X_1}, m_{X_2}, \ .\ .\ ,m_{X_n}))^2$, то есть ошибка $\sigma_y  = \sqrt{\displaystyle{\sum \limits _{i  = 1} ^ {n} } (\frac{\partial \varphi}{\partial X_i}(m_{X_1}, m_{X_2}, \ .\ .\ . , m_{X_n}))^2 \sigma_{X_i}^2}$\\
+$m_y =  \varphi(m_{X_1}, m_{X_2}, \ .\ .\ . ,m_{X_n}) $. $D_Y =  \displaystyle{\sum \limits _{i  = 1} ^ {n} \left(  \left (\frac{\partial \varphi}{\partial X_i}\right )(m_{X_1}, m_{X_2}, \ .\ .\ . , m_{X_n}) \right)^2D_{X_i}}  + \\ + 2\displaystyle{\sum \limits _{i  < j} \left (\frac{\partial \varphi}{\partial X_i} \right )  \left (m_{X_1}, m_{X_2}, \ .\ .\ ,m_{X_n} \right )  \cdot \left (\frac{\partial \varphi}{\partial X_j}\right ) (m_{X_1}, m_{X_2}, \ .\ .\ ,m_{X_n}) K_{ij}}$\\
+Если $X_1, \ .\ .\ .\ ,X_n$ не коррелируют, то $D_Y =  \displaystyle{\sum \limits _{i  = 1} ^ {n}\left (\frac{\partial \varphi}{\partial X_i} (m_{X_1}, m_{X_2}, \ .\ .\ ,m_{X_n}) \right )^2}$, то есть ошибка $\sigma_y  = \sqrt{\displaystyle{\sum \limits _{i  = 1} ^ {n}  \left (\frac{\partial \varphi}{\partial X_i}(m_{X_1}, m_{X_2}, \ .\ .\ . , m_{X_n})\right )^2 \sigma_{X_i}^2}}$\\
 %страница 66
 \textbf{Пример} \\
 Оценить количество тепла, выделяемого в проводнике сопротивления $R$ за время $T$ при токе $I$ : $Q=I^2RT$ и дисперсию оценки $\hat{\sigma_Q}$, если $I=10$ ампер, $\hat{R} = 30$ см, $\hat{T} = 10$ минут, $\hat{\sigma}_{\hat{I}} = 0.1$ ампер, $\hat{\sigma}_{\hat{R}} = 0.2$ сантиметра, $\hat{\sigma}_{\hat{T}} = 0.5$ секунд.\\
