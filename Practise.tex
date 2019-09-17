@@ -679,8 +679,8 @@ $F(x) = \int\limits_{-\infty}^{x}f(x)dx$\\
      scale=1]
      %\addplot[domain=-pi/2:pi/2,samples=200,black,pattern=north east lines]{cos(deg(x)) + sin(deg(x)) + 3};
      %\addplot[domain=-pi/2:pi/2,samples=200,black]{cos(deg(x))};
-     \node[label={below :{$\alpha$}},circle,fill,inner sep=2pt] at (axis cs:-pi/2 + 0.30,0) {};
-     \node[label={below:{$\beta$}},circle,fill,inner sep=2pt] at (axis cs:pi/2 - 0.30,0) {};
+     \node[label={below :{$\alpha$}},circle,fill,inner sep=1pt] at (axis cs:-pi/2 + 0.30,0) {};
+     \node[label={below:{$\beta$}},circle,fill,inner sep=1pt] at (axis cs:pi/2 - 0.30,0) {};
      \addplot[domain=-pi/2 + 0.3:pi/2 - 0.3,samples=200,black,pattern=north east lines]{cos(deg(x)) + sin(deg(x)) + 3}\closedcycle;	
      \addplot[domain=-pi/2:pi/2,samples=200]{cos(deg(x)) + sin(deg(x)) + 3};
      
@@ -714,9 +714,9 @@ f(x)=
      xlabel=$x$, ylabel=$f(x)$,
      scale=1]
      \addplot[domain=-pi/2:*pi/2,samples=200,black]{cos(deg(x))};
-     \node[label={below :{$\frac{\pi}{2}$}},circle,fill,inner sep=2pt] at (axis cs:-pi/2,0) {};
-     \node[label={below:{$-\frac{\pi}{2}$}},circle,fill,inner sep=2pt] at (axis cs:pi/2,0) {};
-     \node[label={above left:{a}},circle,fill,inner sep=2pt] at (axis cs:0,1) {};
+     \node[label={below :{$\frac{\pi}{2}$}},circle,fill,inner sep=1pt] at (axis cs:-pi/2,0) {};
+     \node[label={below:{$-\frac{\pi}{2}$}},circle,fill,inner sep=1pt] at (axis cs:pi/2,0) {};
+     \node[label={above left:{a}},circle,fill,inner sep=1pt] at (axis cs:0,1) {};
 \end{axis}
 \end{tikzpicture}
 \caption{График $f(x)$}
@@ -745,9 +745,9 @@ F(x)=
      scale=1]
      \addplot[domain=-pi/2:pi/2,samples=200,black]{1/2*(1+sin(deg(x)))};
      \addplot[domain=pi/2:3,samples=200,black]{1};
-     \node[label={below :{$\frac{\pi}{2}$}},circle,fill,inner sep=2pt] at (axis cs:-pi/2,0) {};
-     \node[label={below:{$-\frac{\pi}{2}$}},circle,fill,inner sep=2pt] at (axis cs:pi/2,0) {};
-     \node[label={above left:{a}},circle,fill,inner sep=2pt] at (axis cs:0,1) {};
+     \node[label={below :{$\frac{\pi}{2}$}},circle,fill,inner sep=1pt] at (axis cs:-pi/2,0) {};
+     \node[label={below:{$-\frac{\pi}{2}$}},circle,fill,inner sep=1pt] at (axis cs:pi/2,0) {};
+     \node[label={above left:{a}},circle,fill,inner sep=1pt] at (axis cs:0,1) {};
 \end{axis}
 \end{tikzpicture}
 \caption{График $F(x)$}
@@ -820,7 +820,7 @@ x label style={at={(axis description cs:1,0.05)}},
      \addplot[black, samples=100, smooth, unbounded coords=discard] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-1.2*(\x-0.37)*1.2*(\x - 0.37)/4)  )  / 3  });
      \draw[dashed] (axis cs: 0.37, 0)--(axis cs: 0.37,0.133014);
    \end{axis}
- \node[label={below right :{$M$}},circle,fill,inner sep=2pt] at (4.265,0.06\linewidth) {};
+ \node[label={below right :{$M$}},circle,fill,inner sep=1pt] at (4.265,0.06\linewidth) {};
 \end{tikzpicture}
 }
 \caption{Мода $f(x)$}
@@ -1128,21 +1128,24 @@ $D(X) = \int\limits_{0}^{\infty}t^2\lambda e^{-\lambda t}dt - \frac{1}{\lambda^2
 \noindent
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[xmin=-5, xmax=5, ymin=0, ymax=0.4,
+   \begin{axis}[xmin=-5, xmax=5, ymin=0, ymax=0.3,
       axis y line=middle,
      axis x line=middle,
     ticks=none,
+  width=4cm,height=4cm,
      xlabel=$x$, ylabel=$f(x)$,
      label style={font=\normalsize},
-y label style={at={(axis description cs:0.3,0.9)},rotate=0},
-x label style={at={(axis description cs:1,0.05)}},
+y label style={at={(axis description cs:0.1,1)},rotate=0},
+x label style={at={(axis description cs:1,0.01)}},
+clip mode=individual ,
     xtick = {-10,0,...,10}, ytick = {0,...,1},
     at={(0.04\linewidth,0.06\linewidth)},
      scale=1, restrict y to domain=0:10]
      \addplot[black, samples=100, smooth, unbounded coords=discard] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-1.2*(\x-0.37)*1.2*(\x - 0.37)/4)  )  / 3  });
      \draw[dashed] (axis cs: 0.37, 0)--(axis cs: 0.37,0.133014);
+ \node[label={below right :{$m$}},circle,fill,inner sep=1pt] at (axis cs: 0.37, 0) {};
    \end{axis}
- \node[label={below right :{$m$}},circle,fill,inner sep=2pt] at (4.265,0.06\linewidth) {};
+ %\node[label={below right :{$m$}},circle,fill,inner sep=1pt] at (2.115,0.06\linewidth) {};
 \end{tikzpicture}
 \caption{Нормальное распределение}
 \end{figure}\\
@@ -1156,10 +1159,11 @@ $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-
 %(Так как $-te^{-t^2}|_{-\infty}^{\infty} = 0$ и $\int\limits_{-\infty}^{\infty} e^{-t^2}dt = \sqrt{\pi}$)\\
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-3, xmax=9, ymin=0, ymax=1,
+   \begin{axis}[ xmin=-3, xmax=9, ymin=0, ymax=0.8,
      ticks=none,
  axis y line=middle,
      axis x line=middle,
+  width=5cm,height=5cm,
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$f(x)$,
      xtick = {-10,0,...,10}, ytick = {0,...,1},
@@ -1168,9 +1172,9 @@ y label style={at={(axis description cs:0.3,0.9)},rotate=0},
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 2) * pow(2.17, (-(\x-3)*(\x-3)/(2*4))  )  }) ;
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 4) * pow(2.17, (-(\x-3)*(\x-3)/16)  )  });
      \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-3)*(\x-3)/2)  )  });	  
-     \node [black, right] at (160,10) {$\sigma_3$};
-     \node [black, right] at (140,30) {$\sigma_1$};
-     \node [black, right] at (150,20) {$\sigma_2$};
+     \node [black, right] at (axis cs: 4, 0.4) {$\sigma_3$};
+     \node [black, right] at (axis cs: 5.17, 0.2) {$\sigma_2$};
+     \node [black, right] at (axis cs: 6.37, 0.12) {$\sigma_1$};
  \end{axis}
 \end{tikzpicture}\\
 \caption{    $\sigma_1<\sigma_2<\sigma_3$}
@@ -1185,13 +1189,14 @@ ticks=none,
      label style={font=\normalsize},
      xtick = {-10,0,...,10}, ytick = {0,...,1},
 y label style={at={(axis description cs:0.25,1)},rotate=0},
+  width=6cm,height=6cm,
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:12] plot (\x, { (1/  (sqrt(2*3.14) ) * pow(2.17, (-(\x -5)*(\x-5)/(8))  )  }) ;
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:12] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-3)*(\x-3)/8)  )  });
      \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:12] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-1)*(\x-1)/8)  )  });	  
-     \node [black, right] at (120,50) {$m_2$};
-     \node [black, right] at (100,50) {$m_1$};
-     \node [black, right] at (140,50) {$m_3$};   
+     \node [black, right, above] at (axis cs:3, 0.41) {$m_2$};
+     \node [black, right, above] at (axis cs:1, 0.41) {$m_1$};
+     \node [black, right, above] at (axis cs:5, 0.41) {$m_3$};   
  \draw[dashed] (axis cs: 1, 0)--(axis cs: 1,0.399043);
  \draw[dashed] (axis cs: 3, 0)--(axis cs: 3,0.399043);
  \draw[dashed] (axis cs: 5, 0)--(axis cs: 5,0.399043);
@@ -1229,16 +1234,17 @@ $\Phi(x) = 2 \Phi_1(\sqrt{2}{x})$
    \begin{axis}[ xmin=-15, xmax=15, ymin=0, ymax=2,
      ticks=none,
  axis y line=middle,
+  width=6cm,height=4cm,
      axis x line=middle,
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$\Phi^*(x)$,
      xtick = {-10,0,...,10}, ytick = {0,...,1},
-y label style={at={(axis description cs:0.31,1)},rotate=0},
+y label style={at={(axis description cs:0.21,1)},rotate=0},
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:15] plot (\x, {1 - (1)  /( \x  + 2) }) ;
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-15:0] plot (\x, {(1)  /( \x * (-1)  + 2) }) ;
     \draw[dashed] (axis cs: 0, 1)--(axis cs: 15,1);
-\node[label={below right :{$1$}},circle,fill,inner sep=1pt] at (axis cs:0,1) {};
+\node[label={above right :{$1$}},circle,fill,inner sep=1pt] at (axis cs:0,1) {};
  \end{axis}
 \end{tikzpicture}
 \caption{График $\Phi^*(x)$}
@@ -1248,7 +1254,7 @@ $\textbf{Теорема}$\\
 $(x^{-1} - x^{-3})\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} < 1 - \Phi^*(x) < x^{-1}\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$\\
 Доказательство:\\
 Очевидно, $(1-3x^{-4})\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} < \frac{1}{\sqrt{2\pi}} e ^{- \frac{x^2}{2} } < (1 + x^{-2}) \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$. Теперь проинтегрируем это неравенство  и получим то что требуется в условии, так как член этого неравенства -- произведение членов неравенства из условия теоремы.\\
-"Правило трех сигма:" Для нормального распределения величина\\ $P(\ \abs{(X-m)} \leq 3\sigma)$ = $0,9975$ $\approx$ $1$, то есть, с практической достоверностью значение нормального распределения случайной величины $X$ попадают в интервал $m-3\sigma\leq X \leq m+ 3\sigma$.\\
+"Правило трех сигма:" Для нормального распределения величина\\ $P(\ \abs{(X-m)} \leq 3\sigma)$ = $0,9975$ $\approx$ $1$, то есть, с практической достоверностью значение нормального распределения случайной величины $X$ попадают в интервал $m-3\sigma\leq X \leq m+ 3\sigma$.
 \begin{flushright}\(\blacksquare\)\end{flushright}
 \textbf{Пример} \\
 $X$ -- распределена по нормальному распределению с $m=10$, $\sigma=10$. Найти $P(5<X<20)$. Какую точность оклонения $\varepsilon$ случайной величины $X$ от $m$ можно можно гарантировать с вероятностью $0.9$.\\
@@ -1275,7 +1281,7 @@ $P(\abs{x - 10} < \varepsilon) \geq 0.9$ следовательно $P(\ \abs{(x
 $F(x, y) = P(X<x, Y<y)$ -- это вероятность попадания в угол.\\
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ ticks=none,xmin=-3, xmax=3, ymin=-3, ymax=3,
+   \begin{axis}[ ticks=none,xmin=-3, xmax=4, ymin=-3, ymax=3,
      axis y line=middle,
      axis x line=middle,
      y label style={at={(axis description cs:.45,1)},anchor=south, font = \normalsize},
@@ -1321,7 +1327,7 @@ $F(x, y) = P(X<x, Y<y)$ -- это вероятность попадания в �
 \begin{figure}[!h]
 
 \begin{tikzpicture}
-   \begin{axis}[ ticks=none,xmin=-3, xmax=3, ymin=-3, ymax=3,
+   \begin{axis}[ ticks=none,xmin=-3, xmax=4, ymin=-3, ymax=3,
      axis y line=middle,
      axis x line=middle,
      y label style={at={(axis description cs:.45,1)},anchor=south, font = \normalsize},
@@ -1352,7 +1358,7 @@ $F_2(y):$\\
 \begin{figure}[!h]
 \begin{tikzpicture}
    \begin{axis}[  ticks=none,
-	xmin=-3, xmax=3, ymin=-3, ymax=3,
+	xmin=-3, xmax=4, ymin=-3, ymax=3,
      axis y line=middle,
      axis x line=middle,
      y label style={at={(axis description cs:.45,1)},anchor=south,  font = \normalsize},
@@ -1360,7 +1366,9 @@ $F_2(y):$\\
      axis line style={->},
      xlabel=$\large x$, ylabel=$\large y$,
      scale=0.5]
-\draw[thick] (600,400) --(0,400);
+\draw[thick] (650,400) --(0,400);
+\draw (600,400) --(500,100);
+\draw (550,400) --(450,100);
 \draw (500,400) --(400,100);
 \draw (450,400) --(350,100);
 \draw (400,400) --(300,100);
@@ -1419,7 +1427,7 @@ $1$&$\frac{1}{4}$&$0$\\
 Дискретная система случайных величин $X,Y$ характеризуется таблицей распределения : $p_{ij} = P(X=x_i, Y = y_i)$\\
 \begin{tabular}[b]{ | l | l |}
 \hline
-\backslashbox{$y$}{$x$}&$x_i$\\
+\backslashbox{$Y$}{$X$}&$x_i$\\
 \hline
 $y_i$&$p_{ij}$\\
 \hline
@@ -1439,6 +1447,7 @@ $\textbf{Совместная плотность вероятности сист
      x label style = {font = \normalsize},
      xlabel=$\large x$, ylabel=$\large y$,
      scale=0.5]
+\tikzstyle{every node}=[font=\small]
 \draw[thick] (640,500) --(640,0);
 \draw[thick] (740,540) --(0,540);
 \draw[thick](740,540) --(740,0);
@@ -1454,10 +1463,10 @@ $\textbf{Совместная плотность вероятности сист
 \draw[fill=black!10!black] (500 ,540) circle (0.2ex);
 \draw[fill=black!10!black] (640,300) circle (0.2ex);
 \draw[fill=black!10!black] (740,300) circle (0.2ex);
-\node [below left] at (520,420) {$ y $};
-\node [below left] at (500,700) {$ y + \Delta y$};
-\node [below left] at (630,280) {$x$};
-\node [below right] at (720,300) {$x + \Delta x$};
+\node [below left] at (520,430) {$ y $};
+\node [below left] at (510,693) {$ y + \Delta y$};
+\node [below left] at (630,290) {$x$};
+\node [below right] at (720,310) {$x + \Delta x$};
 \end{axis}
 \end{tikzpicture}
 \caption{График совместных величин}
@@ -1532,7 +1541,7 @@ $\textbf{Теорема}$\\
 $K_{XY} = \displaystyle{\int\limits_{-\infty}^{\infty}} (x-M(X))f_1(x)dx \displaystyle{\int\limits_{-\infty}^{\infty}} (y-M(Y)) f_2(y)dy = 0$\\
 $r_{XY} = \frac{K_{XY}}{\sigma_x \sigma_y}$, $\sigma_x = \sqrt{D(X)}$, $\sigma_y = \sqrt{D(Y)}$.\\
 \begin{flushright}\(\blacksquare\)\end{flushright}
-\textbf{Пример}\\
+\textbf{Пример}
 %\includegraphics[scale=0.2]{UntitledDiagram3.png}\\
 \begin{figure}[!h]
 \begin{tikzpicture}
@@ -1544,7 +1553,7 @@ $r_{XY} = \frac{K_{XY}}{\sigma_x \sigma_y}$, $\sigma_x = \sqrt{D(X)}$, $\sigma_y
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$y$,
-     scale=1]
+   ]
 \end{axis}
  \node [black, right] at ((3.5,4.5) {\tiny $1$ \normalsize};
  \draw (5,4) circle (0.01);
@@ -1731,6 +1740,22 @@ $X, Y$ независимы, следовательно $X^2$ и $Y^2$ неза�
 $D(XY) = M(X^2)M(Y^2) - m_x^2 m_y^2$, $M(X^2) = D(X) + m_x^2$; $M(Y^2) = D(Y) + m_y^2$ , следовательно утверждение теоремы верно.
 \begin{flushright}\(\blacksquare\)\end{flushright}
 %страница 40
+Применение теоремы о числовых характеристиках.\\
+$Y=aX+b$, следовательно, $r_{XY}=\pm 1$\\
+$K_{XY}$ = $M(XY) = M((X-m_k)(Y-m_y))  = M((X-m_x)(aX + b - am_x - b)) = aM((X-m_x)^2) = aD_x$\\
+$D_y = D(aX+b)  = a^2 D_x$, $\sigma_x$ = $\abs{a} \sigma_x$
+\begin{equation*} 
+r_{XY} = \frac{aD_x}{\sigma_x \sigma_y} = \frac{aD_x}{\sigma_x \abs{a} \sigma_x} = \frac{a}{\abs{a}}=
+ \begin{cases}
+  +1, a > 0\\
+   -1, a < 0\\
+ \end{cases}
+\end{equation*}\\
+$\abs{r_{XY}} \leq 1$\\
+Пусть $Z = \sigma_y X \pm \sigma_xY$\\
+$D(Z) = \sigma_y^2 D_x + \sigma_x^2D_y \pm 2\sigma_2 \sigma_y K_{xy} = 2 \sigma_x^2 \sigma_y^2 \pm  2 \sigma_x \sigma_y K_{xy} \geq 0$\\
+ $2\sigma_x^2 \sigma_y^2 \pm  2 \sigma_x \sigma_y K_{xy} \geq 0$\\
+ $\sigma_x^2 \sigma_y^2 \pm  K_{xy} \geq 0$, следовательно $\abs{K_{xy}} \leq \sigma_x \sigma_y$, следовательно $\abs{r_{xy}} \leq 1$\\
 %страница 41
 \subsection{Законы распределения функций случайной величины}
 \noindent
@@ -1749,6 +1774,9 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \put(30, 30){\line(3, 4){60}}
 \put(120, 100){$y=\varphi(x)$}
 \put(0, 45){\makebox(0, 0) {$y$}}
+\put(45, 50){\circle*{2}}
+\put(30, 30){\circle*{2}}
+\put(60, 70){\circle*{2}}
 \put(30, 0){\makebox(0, 0) {$a$}}
 \put(60, 0){\makebox(0, 0) {$b$}}
 \put(45, 0){\makebox(0, 0) {$x$}}
@@ -1845,7 +1873,7 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \put(60, 28){\line(0, 1) {3}}
 \put(60, 0){\makebox(0, 0) {$b$}}
 \end{picture}
-\caption{График $y = \phi(x)$}
+\caption{График $y = \varphi(x)$}
 \end{figure}\\
 \\
 Пусть $\psi(y)$ -- обратная функция к $\varphi(x)$.
@@ -1915,7 +1943,7 @@ $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displays
     \node [black,left] at (0.95,0.2) {$a$};
     \node [black,left] at (6.19,0.2) {$b$};
 \end{tikzpicture}
-\caption{График $y = \phi(x)$}
+\caption{График $y = \varphi(x)$}
 \end{figure}\\
 
 \noindent
