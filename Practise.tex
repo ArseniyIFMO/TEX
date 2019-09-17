@@ -812,7 +812,7 @@ $M(X) = 1\cdot q + 2q\cdot p + 3 q \cdot p^2 + .\ .\ .\ +k\cdot q\cdot p^{k-1}$ 
     ticks=none,
      xlabel=$x$, ylabel=$f(x)$,
      label style={font=\normalsize},
-y label style={at={(axis description cs:0.3,0.9)},rotate=0},
+y label style={at={(axis description cs:0.35,1)},rotate=0},
 x label style={at={(axis description cs:1,0.05)}},
     xtick = {-10,0,...,10}, ytick = {0,...,1},
     at={(0.04\linewidth,0.06\linewidth)},
@@ -1810,7 +1810,7 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \put(36, 50){\line(1, 0) {3}}
 
 \end{picture}
-\caption{График $y = \phi(x)$}
+\caption{График $y = \varphi(x)$}
 \end{figure}\\
 \\
 \\
@@ -2008,8 +2008,7 @@ $p_i$ & $\frac{1}{6}$ & $\frac{2}{3}$ & $\frac{1}{6}$\\
 Для непрерывных случайных величин. \\
 $D_x =  \displaystyle{\int\limits_{-\infty}^{\infty} }(x-m_x)^2 f(x) dx \geq \displaystyle{\int\limits_{\abs{x - m_x} > \alpha} } \abs{x-m_x}^2 f(x) dx$
 $\geq  \\ \geq \alpha^2  \cdot \displaystyle{\int\limits_{\abs{x - m_x} > \alpha} }f(x) dx = \alpha^2 P(\abs{X - m_x} \geq \alpha)$ \\
-Для дискретных случайных величин -- аналогично.\\
-\begin{flushright}\(\blacksquare\)\end{flushright}
+Для дискретных случайных величин -- аналогично. \begin{flushright}\(\blacksquare\)\end{flushright}
 \textbf{Пример} \\
 $P(\abs{X - m_x} \geq  3 \sigma_x) \leq  \frac{D_x}{9\sigma_x^2} = \frac{1}{9}$\\
 Видно,что оценка по  приближению Чебышева  завышена.  Например для нормального распределения это $0.003 \ll \frac{1}{9}$\\
