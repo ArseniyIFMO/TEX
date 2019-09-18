@@ -1042,7 +1042,7 @@ $P(\alpha<X<\beta) = \int\limits_{\alpha}^{\beta} \frac{1}{(b - a)}dx = \frac{\b
 Случайная величина $X$ принимает целые значения от $0$ до $n$.\\
 $P(X=m)=C^m_np^mq^n$, $q  = (1 - p)$.\\
 1)$\sum\limits_{m=0}^{n}C_n^mp^mq^{n-m} = 1$ -- условие нормирования.\\
-$\displaystyle{M(X) = \sum\limits_{m=0}^{n} \frac{mn!}{(n-m)!m!}p^mq^{n-m}= np\sum\limits_{m=0}^{n}\frac{(n-1)!}{(n-m)!(m-1)!}p^{m-1}q^{n-m} \underset{s = m - 1}{=}}$\\$= np\sum\limits_{s=0}^{n - 1} \frac{(n-1)!}{(n-s-1)!s!}p^sq^{n-s-1} = np \underbrace{\sum\limits_{m=0}^{n}\frac{k!}{(k-s)!s!}p^sq^{k-s}}_{=1   \textrm{ по условию нормировки}} = np$\\
+$\displaystyle{M(X) = \sum\limits_{m=0}^{n} \frac{mn!}{(n-m)!m!}p^mq^{n-m}= np\sum\limits_{m=0}^{n}\frac{(n-1)!}{(n-m)!(m-1)!}p^{m-1}q^{n-m} \underset{s = m - 1}{=}}$\\$= np\sum\limits_{s=0}^{n - 1} \frac{(n-1)!}{(n-s-1)!s!}p^sq^{n-s-1} = np \underbrace{\sum\limits_{m=0}^{n}\frac{k!}{(k-s)!s!}p^sq^{k-s}}_{=1   \textrm{ по условию нормировки (для n = k)}} = np$\\
 $\alpha_2(X)=\sum\limits_{m=0}^{n}m^2P(X=m) = \sum\limits_{m=2}^{n} m(m-1)P(X=m) + \sum\limits_{m=1}^{n}mP(X=m)=\\= n(n-1)p^2\sum\limits_{m=2}^{n}\frac{(n-1)!}{(n-m)!(m-2)!}p^{m-2}q^{n-m} + np$ = $n(n-1)p^2\sum\limits_{s=0}^{n-2}\frac{(n-2)!}{(n-s-2)!s!}p^sq^{n-s-2}+np =\\= n(n-1)p^2 \underbrace{\sum\limits_{s = 0}^{k}\frac{k!}{(k-s)!s!}p^{m-2}q^{k-s}}_{=1} + np = n(n-1)p^2 + np$ = $n(n-1)p^2 + np$.\\
 $D(X)$ = $\alpha_2(x) - m_x^2$ =  $n(n - 1)p^2 + np - n^2p^2$ = $np(1-p)$ = $npq$.\\
 $\sigma(X) = \sqrt{npq}$.\\
@@ -1544,21 +1544,24 @@ $r_{XY} = \frac{K_{XY}}{\sigma_x \sigma_y}$, $\sigma_x = \sqrt{D(X)}$, $\sigma_y
 \textbf{Пример}
 %\includegraphics[scale=0.2]{UntitledDiagram3.png}\\
 \begin{figure}[!h]
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.6]
    \begin{axis}[ xmin=-2, xmax=2, ymin=-2, ymax=2,
      ticks=none,
      axis y line=middle,
      axis x line=middle,
+label style={font=\large},
      y label style={at={(axis description cs:.55,0.9)},anchor=south },
+     x label style={at={(axis description cs: 0.9,0.5)},anchor=south },
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$y$,
    ]
 \end{axis}
- \node [black, right] at ((3.5,4.5) {\tiny $1$ \normalsize};
+ \node [black, right, scale = 0.5] at (3.5,4.5) {$1$ };
  \draw (5,4) circle (0.01);
+
 \draw[fill=black!10!black] (3.45,4.35) circle (0.3ex);
-\node [black, right] at ((5,3) {\tiny $1$ \normalsize};
+\node [black, right, scale  =0.5] at ((5,3) {$1$ };
  \draw [black, thick] (3.45,2.85) circle [radius=1.5];
 \pattern[pattern=north east lines, pattern color=black]  (3.45,2.85) circle [radius = 1.5];
  \draw [fill=black!10!black] (4.95,2.85)  circle (0.3ex);
@@ -1780,6 +1783,10 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \put(30, 0){\makebox(0, 0) {$a$}}
 \put(60, 0){\makebox(0, 0) {$b$}}
 \put(45, 0){\makebox(0, 0) {$x$}}
+\put(30, 10){\circle*{2}}
+\put(45, 10){\circle*{2}}
+\put(60, 10){\circle*{2}}
+\put(10, 50){\circle*{2}}
 \put(30, 10){\line(0, 1) {3}}
 \put(30, 16){\line(0, 1) {3}}
 \put(30, 22){\line(0, 1) {3}}
@@ -1832,6 +1839,14 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \put(30, 40){\line(0, 1) {3}}
 \put(30, 46){\line(0, 1) {3}}
 
+
+\put(30, 10){\circle*{2}}
+\put(40, 10){\circle*{2}}
+\put(60, 10){\circle*{2}}
+
+\put(10, 43){\circle*{2}}
+\put(10, 33){\circle*{2}}
+\put(10, 50){\circle*{2}}
 
 
 \put(12, 50){\line(1, 0) {3}}
@@ -2069,28 +2084,26 @@ $P(120 < Y < 150) \approx \Phi^*(\frac{150-120}{\sqrt{48}}) - \Phi^*(\frac{120 -
 Статистическая функция распределения случайной величины $X$ -- это частота события $X < x$ в данной выборке: $F^*(x) = P^*(X < x)$.
 Это ступенчатая функция. По теореме Бернулли, при $n$ стремящемся к бесконечности, частота событий стремится к вероятности, $F^*(x)$ сходится по вероятности к $F(x)$. При большом объеме ($n$) выборки строить так $F^*(x)$ трудоёмко.  Там действуют так: весь интервал полученных значений $X$ разбивают на разряды (интервалы). Подсчитывают число наблюдений, приходящихся на данных интервал $m_i$  и находят частоту $p_i^* = \frac{m_i}{n}$.
 \begin{figure}[!h]
-\begin{picture}(100,100)
-\multiput(50,82)(4,0){13}{\line(1, 0){2}}
-\put(33, 95){\makebox(0, 0)   {$\Large F^*(x)$} }
-\put(50, 0){\vector(0, 3){100}}
-
-\put(10, 50){\circle*{2}}
-\put(25, 60){\line(1, 0){16}}
-\put(10, 50){\line(1, 0){16}}
-\put(40, 65){\line(1, 0){20}}
-\put(60, 70){\line(1, 0){13}}
-\put(73, 73){\line(1, 0){13}}
-\put(86, 80){\line(1, 0){12}}
-\put(25, 60){\circle*{2}}
-\put(40, 65){\circle*{2}}
-\put(60, 70){\circle*{2}}
-\put(73, 73){\circle*{2}}
-\put(86, 80){\circle*{2}}
-\put(99, 81){\circle*{2}}
-
-\put(47, 82){\makebox(0, 0)   {$1$}}
-\put(0, 40){\vector(4, 0){120}}
-\end{picture}\\
+\begin{picture}(100,80)
+\multiput(40,42)(4,0){16}{\line(1, 0){2}}
+\put(16,70){\makebox(0, 0)   {$\small{ F^*(x)}$} }
+\put(40, 0){\vector(0, 3){70}}
+\put(10, 10){\circle*{2}}
+\put(25, 20){\line(1, 0){16}}
+\put(10, 10){\line(1, 0){16}}
+\put(40, 25){\line(1, 0){20}}
+\put(60, 30){\line(1, 0){13}}
+\put(73, 33){\line(1, 0){13}}
+\put(86, 40){\line(1, 0){12}}
+\put(25, 20){\circle*{2}}
+\put(40, 25){\circle*{2}}
+\put(60, 30){\circle*{2}}
+\put(73, 33){\circle*{2}}
+\put(86, 40){\circle*{2}}
+\put(99, 41){\circle*{2}}
+\put(38, 42){\makebox(0, 0)   {$1$}}
+\put(0, 0){\vector(4, 0){120}}
+\end{picture}
 \caption{Функция распределения $F^*(x)$}
 \end{figure}\\
 \begin{tabular}[b]{ | l | l |  l | l | l |   }
@@ -2107,29 +2120,29 @@ $ I_i$      & $(x_1, x_2) $ &  $(x_2, x_3) $ & . . . & $(x_k, x_{k + 1})$    \\
 
 \begin{figure}[!h]
 \begin{picture}(100,100)
-\put(50, 0){\vector(0, 3){100}}
-\put(0, 40){\vector(4, 0){100}}
-\put(55, 40){\line(0, 1){40}}
-\put(55, 80){\line(-1, 0){10}}
-\put(45, 40){\line(0, 1){40}}
-\put(35, 40){\line(0, 1){30}}
-\put(35, 70){\line(1, 0){10}}
-\put(55, 70){\line(1, 0){10}}
-\put(65, 40){\line(0, 1){30}}
-\put(25, 65){\line(1, 0){10}}
-\put(25, 40){\line(0, 1){25}}
-\put(75, 40){\line(0, 1){20}}
-\put(15, 40){\line(0, 1){15}}
-\put(15, 55){\line(1, 0){10}}
-\put(85, 40){\line(0, 1){10}}
-\put(75, 50){\line(1, 0){10}}
-\put(65, 60){\line(1, 0){10}}
-\put(13, 30){\makebox(0, 0)   {$x_1$}}
-\put(25, 30){\makebox(0, 0)   {$x_2$}}
-\put(38, 30){\makebox(0, 0)   {$x_3$}}
-\put(15, 40){\circle*{2}}
-\put(25, 40){\circle*{2}}
-\put(35, 40){\circle*{2}}
+\put(50,20){\vector(0, 3){80}}
+\put(0, 20){\vector(4, 0){100}}
+\put(55, 20){\line(0, 1){40}}
+\put(55, 60){\line(-1, 0){10}}
+\put(45, 20){\line(0, 1){40}}
+\put(35, 20){\line(0, 1){30}}
+\put(35, 50){\line(1, 0){10}}
+\put(55, 50){\line(1, 0){10}}
+\put(65, 20){\line(0, 1){30}}
+\put(25, 45){\line(1, 0){10}}
+\put(25, 20){\line(0, 1){25}}
+\put(75, 20){\line(0, 1){20}}
+\put(15, 20){\line(0, 1){15}}
+\put(15, 35){\line(1, 0){10}}
+\put(85, 20){\line(0, 1){10}}
+\put(75, 30){\line(1, 0){10}}
+\put(65, 40){\line(1, 0){10}}
+\put(13, 10){\makebox(0, 0)   {$x_1$}}
+\put(25, 10){\makebox(0, 0)   {$x_2$}}
+\put(38, 10){\makebox(0, 0)   {$x_3$}}
+\put(15, 20){\circle*{2}}
+\put(25, 20){\circle*{2}}
+\put(35, 20){\circle*{2}}
 \end{picture}
 \caption{Статистический ряд $x$}
 \end{figure}
@@ -2358,8 +2371,8 @@ K_{n - 1}(V)=
      y label style={at={(axis description cs:.1,1)},anchor=south },
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
-     xlabel=$x$, ylabel=$k_{n-1}(V)$,
-     scale=1]
+     xlabel=$x$, ylabel=$K_{n-1}(V)$,
+     scale=0.6]
      %\addplot[domain=-pi/2:pi/2,samples=200,black,pattern=north east lines]{pow(deg(x), 3)};
      \node[label={below :{$\alpha$}},circle,fill,inner sep=2pt] at (axis cs:-pi/2 + 0.30,0) {};
      \node[label={below:{$\beta$}},circle,fill,inner sep=2pt] at (axis cs:pi/2 - 0.30,0) {};
@@ -2368,9 +2381,9 @@ K_{n - 1}(V)=
       \addplot[domain=0.00001:pi/60,samples=200,black,pattern=north east lines]{deg(x)^(2) * 2.17^(- deg(x) / 2)/ 12}\closedcycle;	
        \addplot[domain=pi/15:0.5,samples=200,black,pattern=north east lines]{deg(x)^(2) * 2.17^(- deg(x) / 2)/ 12}\closedcycle;
 \end{axis}
-   \draw [<-] (0.718,0.2) -- (1.4,0.2);	
-    \draw [->] (2.0,0.2) -- (2.9,0.2);
-    \node [black, right] at (1.5,0.2) {$l_{\beta}$};
+   \draw [<-] (0.5,0.2) -- (0.7,0.2);	
+    \draw [->] (1.3,0.2) -- (1.7,0.2);
+    \node [black, right] at (0.7,0.2) {$l_{\beta}$};
 \end{tikzpicture}\\
 \caption{График $K_{n - 1}(V)$ }
 \end{figure}\\
@@ -2638,11 +2651,11 @@ $D_n = \frac{2}{T} \displaystyle{\int \limits _{0} ^ {T}} k_X (\tau) \cos(\omega
 $D_X =   \displaystyle{\sum \limits_{i = 1}^{\infty}} D_n$.\\
 \\
 \begin{figure}[!h]
-\begin{picture}(100,120)
-\put(10, 10){\vector(0, 4){100}}
-\put(10, 10){\vector(4, 0){200}}
-\put(0, 120){\makebox(0, 0) {$D_n$}}
-\put(200, 0){\makebox(0, 0) {$\omega_n$}}
+\begin{picture}(100,100)
+\put(10, 10){\vector(0, 4){70}}
+\put(10, 10){\vector(4, 0){150}}
+\put(0, 70){\makebox(0, 0) {$D_n$}}
+\put(150, 0){\makebox(0, 0) {$\omega_n$}}
 \put(30, 10){\line(0, 4){3}}
 \put(50, 10){\line(0, 4){3}}
 \put(70, 10){\line(0, 4){3}}
@@ -2686,11 +2699,11 @@ k_X(\tau)=
 \end{equation*}
 \\
 \begin{figure}[!h]
-\begin{picture}(130,130)
-\put(10, 10){\vector(0, 4){100}}
+\begin{picture}(130,110)
+\put(10, 10){\vector(0, 4){70}}
 \put(10, 10){\vector(4, 0){100}}
 \put(0, 45){\makebox(0, 0) {$1$} }
-\put(0, 120){\makebox(0, 0) {$K_x(\tau)$} }
+\put(0, 90){\makebox(0, 0) {$K_x(\tau)$} }
 \put(120, 0){\makebox(0, 0) {$\tau$} }
 \put(45, 0){\makebox(0, 0) {$\tau_0$} }
 \thicklines
