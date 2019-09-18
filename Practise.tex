@@ -1960,10 +1960,49 @@ $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displays
 \end{tikzpicture}
 \caption{График $y = \varphi(x)$}
 \end{figure}\\
-
+\newpage
 \noindent
 \textbf{Пример} \\
 %страница 42
+\begin{figure}[!h]
+\begin{tikzpicture}
+  \begin{axis}[xmin=-2, xmax=12, ymin=0, ymax=5,
+     axis lines = left,
+     y label style={at={(axis description cs:0.15,1)},rotate=270,anchor=south},
+     x label style={at={(axis description cs:1,0.1)}},
+clip mode=individual ,
+     axis line style={->},
+     ticks = none,
+     at={(0.005\linewidth,0.03\linewidth)},
+     xlabel=$x$, ylabel=$y$,
+     scale=1]
+     \addplot[black, samples=100, smooth, unbounded coords=discard,domain=0:3*pi] plot (\x, {sin(\x r) + 2});
+     \draw[dashed] (axis cs:0, 0) -- (axis cs: 0, 2);
+     \draw[dashed] (axis cs:pi/2, 0) -- (axis cs:pi/2,3);
+     \draw[dashed] (axis cs:3*pi/2, 0) -- (axis cs:3*pi/2, 1);
+     \draw[dashed] (axis cs:5*pi/2, 0) -- (axis cs:5*pi/2, 3);
+      \draw[dashed] (axis cs:3*pi, 0) -- (axis cs:3*pi, 2);
+\draw[fill=black!10!black] (axis cs: 0, 2) circle (0.15ex);
+\draw [black, fill] (axis cs:pi/2,3)  circle (0.15ex);
+\draw [black, fill] (axis cs:5*pi/2, 3) circle (0.15ex);
+\draw [black, fill] (axis cs:3*pi, 2) circle (0.15ex);
+\draw [black, fill] (axis cs:3*pi/2, 1)  circle (0.15ex);
+\node [black,below, -latex] at (axis cs:0,0) {$a$};
+\node [black,below, -latex] at (axis cs:pi/2,0) {$a_1$};
+\node [black,below, -latex] at (axis cs:3*pi/2,0) {$a_2$};
+\node [black,below, -latex] at (axis cs:5*pi/2,0) {$a_3$};
+\node [black,below, -latex] at (axis cs:3*pi,0) {$b$};
+\draw [black, fill] (axis cs:0,0) circle (0.15ex);
+\draw [black, fill] (axis cs:pi/2,0) circle (0.15ex);
+\draw [black, fill] (axis cs:3*pi/2,0) circle (0.15ex);
+\draw [black, fill] (axis cs:5*pi/2,0) circle (0.15ex);
+\draw [black, fill] (axis cs:3*pi,0) circle (0.15ex);
+    % \draw [<->,  thick] (0,500) -- (0,0) -- (100,0);
+   \end{axis}
+
+\end{tikzpicture}
+\caption{График $y = \varphi(x)$}
+\end{figure}\\
 Для получения формулы для $g(y)$ оказывается удобнее действовать по--другому. Разобьем $(a, b)$ на интервалы монотонности $\varphi$.\\
 $G(y) = P(Y<y) = P((Y < y) \cap (x \in (a, a_1)))) + P((Y < y) \cap (x \in (a_1, a_2)))  +  ....  + \\+P((Y < y) \cap (x \in (a_{n-1}, b)))$\\
 $g(y) = G'(y)$. Для каждого слагаемого производная находится по формуле для монотонной функции. Пусть на $i_m$ интервале монотонности обратная функция к $\varphi(x)$ -- это $\psi_i(y)$. Тогда $g(y) = \displaystyle{\sum\limits_{i = 1}^{n}} f(t_i(y))\abs{\psi(y)}$\\
