@@ -651,6 +651,19 @@ Cо стр 11 про баскетболиста
 \end{figure}\\
 \textbf{Пример\ }\\
 Случайная величина -- площадь разрушений, наносимых цели  бомбой. Значение этой случайной величины непрерывно заполняет промежуток от $0$ $\pi R^2$ ($R$ -- радиус разрушительного действия). Но в точках $0$ и $\pi R^2$ у функции распределения скачки, так как этим значениям соотвествуют конечные вероятности (вероятности положений 1 и 3 соответственно) круга разрыва.\\
+\begin{figure}[!h]
+\begin{tikzpicture}
+
+\draw [pattern=north east lines] (0,0) ellipse (2cm and 1cm);
+\draw [pattern=north west lines] (1,1) circle (0.5cm);
+\draw [pattern=north west lines] (0.1,0.4) circle (0.5cm);
+\draw [pattern=north west lines] (2,2) circle (0.5cm);
+\node [black, right] at (-0.8,0.2) {$I$};
+\node [black, right] at (1.4,1.3) {$II$};
+\node [black, right] at (2.4,2) {$III$};
+\end{tikzpicture}
+\caption{График функции распределения}
+\end{figure}\\
 %начало страницы 15
 Вероятность попадания точки на отрезок.\\
 $P(\alpha \leq  x <  \beta) = P(x < \beta) - P(x < \alpha) = F(\beta) - F(\alpha)$\\
