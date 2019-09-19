@@ -518,8 +518,27 @@ $F(x)$ полностью характеризует случайную вели
 4)$F(x)$ непрерывна слева. $\displaystyle{ F(x_i) = \lim_{x\to{x_i - 0}} F(x) }$ \\
 \textit{\textbf{Определение}}\\
 Случайная величина называется непрерывной, если ее функция распределения непрерывна.\\
-Для дискретной случайной величины :$F(x) = \sum\limits_{x_j < x}P(X=x_j)$
 \newpage
+\begin{figure}[!h]
+\begin{tikzpicture}
+   \begin{axis}[ xmin=-15, xmax=15, ymin=0, ymax=2,
+     ticks=none,
+ axis y line=middle,
+  width=6cm,height=4cm,
+     axis x line=middle,
+     label style={font=\normalsize},
+     xlabel=$x$, ylabel=$F(x)$,
+     xtick = {-10,0,...,10}, ytick = {0,...,1},
+y label style={at={(axis description cs:0.21,1)},rotate=0},
+     scale=1, restrict y to domain=0:10]
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:15] plot (\x, {1 - (1)  /( \x  + 2) }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-15:0] plot (\x, {(1)  /( \x * (-1)  + 2) }) ;
+    \draw[dashed] (axis cs: 0, 1)--(axis cs: 15,1);
+ \end{axis}
+\end{tikzpicture}
+\end{figure}
+\noindent
+Для дискретной случайной величины :$F(x) = \sum\limits_{x_j < x}P(X=x_j)$
 \begin{figure}[!h]
 \begin{picture}(100,100)
 \put(30, 10){\vector(0, 3){80}}
@@ -584,6 +603,7 @@ $F(x)$ полностью характеризует случайную вели
 \caption{Функция распределения}
 \end{figure}
 \noindent
+\\
 \textbf{Пример\ }\\
 Cо стр 11 про баскетболиста
 \begin{figure}[!h]
@@ -653,7 +673,28 @@ Cо стр 11 про баскетболиста
 Случайная величина -- площадь разрушений, наносимых цели  бомбой. Значение этой случайной величины непрерывно заполняет промежуток от $0$ $\pi R^2$ ($R$ -- радиус разрушительного действия). Но в точках $0$ и $\pi R^2$ у функции распределения скачки, так как этим значениям соотвествуют конечные вероятности (вероятности положений 1 и 3 соответственно) круга разрыва.\\
 \begin{figure}[!h]
 \begin{tikzpicture}
-
+   \begin{axis}[ xmin=-18, xmax=18, ymin=0, ymax=2,
+     ticks=none,
+ axis y line=middle,
+  width=6cm,height=4cm,
+     axis x line=middle,
+clip mode=individual ,
+     label style={font=\normalsize},
+     xlabel=$x$, ylabel=$F(x)$,
+     xtick = {-10,0,...,10}, ytick = {0,...,1},
+y label style={at={(axis description cs:0.21,1)},rotate=0},
+     scale=1, restrict y to domain=0:10]
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:14.5, <-] plot (\x, {1 - (1)  /( \x  + 2) - 1/4 }) ;
+    \draw[dashed] (axis cs: 0, 1)--(axis cs: 14.5,1);
+ \draw[dashed] (axis cs: 14.5, 0)--(axis cs: 14.5,1);
+\draw[<-](axis cs: 14.5, 1)--(axis cs: 18,1);
+   \node[label={below :{$\pi R^2$}},circle,fill,inner sep=1pt, -latex] at (axis cs:14.5,0) {};
+   \node[label={ left :{$1$}},circle,fill,inner sep=1pt, -latex] at (axis cs:0,1) {};
+ \end{axis}
+\end{tikzpicture}
+\end{figure}
+\begin{figure}[!h]
+\begin{tikzpicture}
 \draw [pattern=north east lines] (0,0) ellipse (2cm and 1cm);
 \draw [pattern=north west lines] (1,1) circle (0.5cm);
 \draw [pattern=north west lines] (0.1,0.4) circle (0.5cm);
@@ -663,7 +704,7 @@ Cо стр 11 про баскетболиста
 \node [black, right] at (2.4,2) {$III$};
 \end{tikzpicture}
 \caption{График функции распределения}
-\end{figure}\\
+\end{figure}
 %начало страницы 15
 Вероятность попадания точки на отрезок.\\
 $P(\alpha \leq  x <  \beta) = P(x < \beta) - P(x < \alpha) = F(\beta) - F(\alpha)$\\
@@ -908,7 +949,29 @@ $M(X-a)^2$ = $\int\limits_{-\infty}^{\infty}(x-m_x+m_x-a)^2f(x)dx$ = $\int\limit
 Если симметрия относительно $m_x$, то $S_k = 0$.\\
 Четвертый момент служит для характеристики крутости, то есть\\
  островершинности или плосковершинности распределения. За стандартное распределение,  с которым проводится сравнение принято нормальное распределение: $f(x) = \frac{1}{\sqrt{2\pi}\sigma}\cdot e^{-\frac{(x-m_x)^2}{2\sigma^2}}$. \\
-Его эксцесс = $E_x = \frac{\mu_4}{\sigma_4} - 3$. Для нормального $E_x = 0$.\\
+Его эксцесс = $E_x = \frac{\mu_4}{\sigma_4} - 3$. Для нормального $E_x = 0$.
+\begin{figure}[H]
+\begin{tikzpicture}
+   \begin{axis}[ xmin=-3, xmax=12, ymin=0, ymax=0.8,
+     ticks=none,
+ axis y line=middle,
+     axis x line=middle,
+  width=5cm,height=5cm,
+     label style={font=\normalsize},
+     xlabel=$x$, ylabel=$f(x)$,
+     xtick = {-10,0,...,10}, ytick = {0,...,1},
+y label style={at={(axis description cs:0.3,0.9)},rotate=0},
+     scale=1, restrict y to domain=0:10]
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 2) * pow(2.17, (-(\x-3)*(\x-3)/(2*4))  )  }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 4) * pow(2.17, (-(\x-3)*(\x-3)/16)  )  });
+     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-3)*(\x-3)/2)  )  });	  
+     \node [black, right] at (axis cs: 4, 0.4) {$E_x > 0$};
+     \node [black, right] at (axis cs: 4.97, 0.23) {$E_x = 0$};
+     \node [black, right] at (axis cs: 5.27, 0.12) {$E_x < 0$};
+ \end{axis}
+\end{tikzpicture}
+\caption{   Распределения с различными эксцессами}
+\end{figure}
 \textbf{Пример\ }\\
 \begin{equation*} 
 f(x)=
