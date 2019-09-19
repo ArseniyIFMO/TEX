@@ -692,6 +692,7 @@ y label style={at={(axis description cs:0.21,1)},rotate=0},
    \node[label={ left :{$1$}},circle,fill,inner sep=1pt, -latex] at (axis cs:0,1) {};
  \end{axis}
 \end{tikzpicture}
+\caption{Функция распределения}
 \end{figure}
 \begin{figure}[!h]
 \begin{tikzpicture}
@@ -2147,10 +2148,10 @@ $X_1$ -- значение $X$ в первом опыте. $X_2$ -- во втор
 $D(Y)  = \frac{1}{n^2}\displaystyle{\sum\limits_{i = 1}^{n}} D(X_i) = \frac{D_x}{n}$\\
 $\textbf{Теорема(Чебышева)}$\\
 При неограниченном увеличении числа независимых опытов  среднее \\ арифметическое наблюденных значений случайной величины, имеющих ограниченную дисперсию $D_x$, сходится по вероятности к её математическому ожиданию, то есть
-$\displaystyle{  \lim_{n\to{\infty}}  }  \displaystyle{ P\left(\Bigl|\frac{1}{n} \sum\limits_{i = 1}^{n} x_i - m_x \Bigr| < \varepsilon\right) = 1}$, где $ \varepsilon$ --  сколь угодно маленькое положительное число.\\
+$\displaystyle{  \lim_{n\to{\infty}}  }  \displaystyle{ P\bigg (\Bigl|\frac{1}{n} \sum\limits_{i = 1}^{n} x_i - m_x \Bigr| < \varepsilon\bigg ) = 1}$, где $ \varepsilon$ --  сколь угодно маленькое положительное число.\\
 \underline{Доказательство:}\\
 $Y$ имеет $m_y=m_x$, $D_y = \frac{1}{n}D_x$ Неравенство Чебышева для $Y$:\\ $P(\abs{Y-m_y} \geq \varepsilon) \leq \frac{D_y}{\varepsilon^2} = \frac{D_x}{n\varepsilon^2}.$
-Пусть $\varepsilon$ и $\Delta$ сколь угодно малые. Выберем $n$ так, что $\frac{D_x}{n\varepsilon^2} < \Delta$. Тогда $\displaystyle{P\left ( \Bigl| \frac{1}{n}  \sum\limits_{i = 1}^{n} x_i - m_x\Bigr| \geq \varepsilon \right ) < \Delta}$, переходим к противоположному событию,  $\displaystyle{P\left (\Bigl| \frac{1}{n}  \sum\limits_{i = 1}^{n} x_i - m_x\Bigr|  < \varepsilon\right ) > 1 - \Delta}$.\\
+Пусть $\varepsilon$ и $\Delta$ сколь угодно малые. Выберем $n$ так, что $\frac{D_x}{n\varepsilon^2} < \Delta$. Тогда $\displaystyle{P\bigg ( \Bigl| \frac{1}{n}  \sum\limits_{i = 1}^{n} x_i - m_x\Bigr| \geq \varepsilon \bigg ) < \Delta}$, переходим к противоположному событию,  $\displaystyle{P\bigg (\Bigl| \frac{1}{n}  \sum\limits_{i = 1}^{n} x_i - m_x\Bigr|  < \varepsilon \bigg ) > 1 - \Delta}$.\\
 \begin{flushright}\(\blacksquare\)\end{flushright}
 %страница 44
 $\textbf{Теорема (Бернулли)}$\\
