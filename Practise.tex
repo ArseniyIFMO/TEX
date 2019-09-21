@@ -2945,7 +2945,7 @@ $\hat{S}_X(\omega)=2S_X(\omega)$
 \\
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-11, xmax=11, ymin=0, ymax=2.5,
+   \begin{axis}[ xmin=-2*pi, xmax=2*pi, ymin=0, ymax=2.5,
      ticks=none,
  axis y line=left,   
   at={(0,0.1\linewidth)},
@@ -2956,14 +2956,16 @@ $\hat{S}_X(\omega)=2S_X(\omega)$
  %    xtick = {-10,0,...,10}, ytick = {0,...,1},
 x label style={at={(axis description cs:1,0.025)},rotate=0},
      scale=1, restrict y to domain=0:10]
-      \addplot[domain=0:pi*3 + 1.8,samples=200,black,pattern=north east lines]{(cos(deg(x/3 - 0.6)) + 1)}\closedcycle;
-      \addplot[domain=0:pi*3 + 1.8,samples=200,black,pattern=north west lines]{(cos(deg(x/3 - 0.6)) + 1) / 2}\closedcycle;
-      \addplot[domain=-11:0,samples=200,black,pattern=north west lines]{(cos(deg( - (x)/3 - 0.6)) + 1) / 2}\closedcycle;7
-\node[label={below right :{$\hat{S}_X(\omega)$}}] at (axis cs:6.6,1.8) {};
-\node[label={below right :{$S_X(\omega)$}}] at (axis cs:-7.2,1.4) {};
- \end{axis}
-\end{tikzpicture}
+      \addplot[domain=-2*pi:-pi,samples=200,black,pattern=north east lines,enlarge x limits=false]{(sin(deg(x + pi/2) + pi + pi/2) * (-1) + 1)/2}\closedcycle;
+      \addplot[domain=-pi:pi,samples=200,black,pattern=north east lines,enlarge x limits=false]{((sin(deg(x + pi/2)+  pi + pi/2 + pi/2)  * (-1) / 2 + 1)/3 * 2}\closedcycle;
+      \addplot[domain=pi:2*pi,samples=200,black,pattern=north east lines,enlarge x limits=false]{(sin(deg(-x + pi/2) + pi + pi/2) * (-1) + 1)/2}\closedcycle;
 
+      \addplot[domain=0:pi,samples=200,black,pattern=north west lines,enlarge x limits=false]{2 * ((sin(deg(x + pi/2)+  pi + pi/2 + pi/2)  * (-1) / 2 + 1)/3 * 2}\closedcycle;
+      \addplot[domain=pi:2*pi,samples=200,black,pattern=north west lines,enlarge x limits=false]{2*(sin(deg(-x + pi/2) + pi + pi/2) * (-1) + 1)/2}\closedcycle;
+ \node[label={below right :{$\hat{S}_X(\omega)$}}] at (axis cs:0,2.3) {};
+\node[label={below right :{$S_X(\omega)$}}] at (axis cs:-4, 1.6) {};
+\end{axis}
+\end{tikzpicture}
 \caption{Спектральная плотность в канонической форме}
 \end{figure}\\
 \\
