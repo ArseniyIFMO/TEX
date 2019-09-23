@@ -1951,62 +1951,47 @@ a) $\varphi$ монотонно возрастает на $(a, b)$. $f(x)$ -- п
 $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \\
 \\
-\\
 \begin{figure}[!h]
-\begin{picture}(100,100)
-\put(10, 10){\vector(0, 4){100}}
-\put(10, 10){\vector(4, 0){100}}
-\put(0, 120){\makebox(0, 0) {$y$}}
-\put(100, 0){\makebox(0, 0) {$x$}}
-\put(30, 30){\line(3, 4){60}}
-\put(120, 100){$y=\varphi(x)$}
-\put(0, 45){\makebox(0, 0) {$y$}}
-\put(45, 50){\circle*{2}}
-\put(30, 30){\circle*{2}}
-\put(60, 70){\circle*{2}}
-\put(30, 0){\makebox(0, 0) {$a$}}
-\put(60, 0){\makebox(0, 0) {$b$}}
-\put(45, 0){\makebox(0, 0) {$x$}}
-\put(30, 10){\circle*{2}}
-\put(45, 10){\circle*{2}}
-\put(60, 10){\circle*{2}}
-\put(10, 50){\circle*{2}}
-\put(30, 10){\line(0, 1) {3}}
-\put(30, 16){\line(0, 1) {3}}
-\put(30, 22){\line(0, 1) {3}}
-\put(60, 10){\line(0, 1) {3}}
-\put(60, 16){\line(0, 1) {3}}
-\put(60, 22){\line(0, 1) {3}}
-\put(60, 28){\line(0, 1) {3}}
-\put(60, 34){\line(0, 1) {3}}
-\put(60, 40){\line(0, 1) {3}}
-\put(60, 46){\line(0, 1) {3}}
-\put(60, 52){\line(0, 1) {3}}
-\put(60, 58){\line(0, 1) {3}}
-\put(60, 64){\line(0, 1) {3}}
-
-\put(45, 10){\line(0, 1) {3}}
-\put(45, 16){\line(0, 1) {3}}
-\put(45, 22){\line(0, 1) {3}}
-\put(45, 28){\line(0, 1) {3}}
-\put(45, 34){\line(0, 1) {3}}
-\put(45, 40){\line(0, 1) {3}}
-\put(45, 46){\line(0, 1) {3}}
-
-
-\put(12, 50){\line(1, 0) {3}}
-\put(18, 50){\line(1, 0) {3}}
-\put(24, 50){\line(1, 0) {3}}
-\put(30, 50){\line(1, 0) {3}}
-\put(36, 50){\line(1, 0) {3}}
-
-\end{picture}
+\begin{tikzpicture}
+   \begin{axis}[ xmin=0, xmax=6, ymin=0, ymax=13,
+     ticks=none,
+     axis y line=middle,
+     axis x line=middle,
+clip mode=individual ,
+label style={font=\large},
+%     y label style={at={(axis description cs:0.1,12)},anchor=south },
+    x label style={at={(axis description cs: 1,0.05)},anchor=south },
+y label style={at={(axis description cs: 0.05,1)},anchor=south },
+%y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
+     axis line style={->},
+ width=0.4\textwidth,
+     xlabel=$x$, ylabel=$y$,
+   ]
+     \addplot[black, samples=100, smooth, unbounded coords=discard,domain=1:6] plot (\x, {3*sqrt(\x - 1) + x + 1}); 
+	\node [black,below, -latex] at (axis cs:2,0) {$a$};
+	\node [black,below, -latex] at (axis cs:4,0) {$b$};	
+	\node [black,below, -latex] at (axis cs:3,0) {$x$};	
+	\node [black,below, -latex] at  (axis cs:0.2, 8.242640) {$y$};
+     \draw[dashed] (axis cs:2, 0) -- (axis cs:2, 6);
+     \draw[dashed] (axis cs:3, 0) -- (axis cs:3, 8.242640);
+   \draw[dashed] (axis cs:0, 8.242640) -- (axis cs:3, 8.242640);
+     \draw[dashed] (axis cs:4, 0) -- (axis cs:4, 10.196152);
+\draw [black, fill] (axis cs:2, 6)  circle (0.15ex);
+\draw [black, fill] (axis cs:3, 8.242640)  circle (0.15ex);
+\draw [black, fill] (axis cs:4, 10.196152)  circle (0.15ex);
+\draw [black, fill] (axis cs:2, 0)  circle (0.15ex);
+\draw [black, fill] (axis cs:3, 0)  circle (0.15ex);
+\draw [black, fill] (axis cs:4, 0)  circle (0.15ex);
+\draw [black, fill] (axis cs:0,  8.242640)  circle (0.15ex);
+\end{axis}
+\end{tikzpicture}
 \caption{График $y = \varphi(x)$}
 \end{figure}\\
-\\
-\\
-\\
-\noindent
+Пусть $\psi(y)$ -- обратная функция к $\varphi(x)$.
+Тогда $G(Y) =   \displaystyle{\int \limits_{a}^{\psi(y)}} f(x) dx$. $g(y) = G'(y) =\\= f(\psi(y))\psi'(y)$\\
+б)$\varphi$ -- монотонно убывает на $(a, b)$\\
+$G(y) = P(Y < y) = P(x< X < b) =  \displaystyle{\int \limits_{\psi(y)}^{b}} f(x) dx$\\
+$g(y) = G'(y) = -f(\psi(y)$ .\\
 \begin{figure}[!h]
 \begin{picture}(100,100)
 \put(10, 10){\vector(0, 4){100}}
@@ -2074,13 +2059,8 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \end{picture}
 \caption{График $y = \varphi(x)$}
 \end{figure}\\
-\\
-Пусть $\psi(y)$ -- обратная функция к $\varphi(x)$.
-Тогда $G(Y) =   \displaystyle{\int \limits_{a}^{\psi(y)}} f(x) dx$. $g(y) = G'(y) =\\= f(\psi(y))\psi'(y)$\\
-б)$\varphi$ -- монотонно убывает на $(a, b)$\\
-$G(y) = P(Y < y) = P(x< X < b) =  \displaystyle{\int \limits_{\psi(y)}^{b}} f(x) dx$\\
-$g(y) = G'(y) = -f(\psi(y)$ .\\
 Общая формула: $g(y) = f(\psi(y)) \abs{\psi(y)}$\\
+\newpage
 \textbf{Пример} \\
 \begin{figure}[!h]
 \begin{tikzpicture}
