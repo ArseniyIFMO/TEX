@@ -44,8 +44,26 @@
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{mathtext}
 \usetikzlibrary{intersections,decorations.markings}
-
-
+\usetikzlibrary{arrows,patterns}
+\makeatletter
+\tikzset{% customization of pattern 
+        hatch distance/.store in=\hatchdistance,
+        hatch distance=5pt,
+        hatch thickness/.store in=\hatchthickness,
+        hatch thickness=5pt
+        }
+\pgfdeclarepatternformonly[\hatchdistance,\hatchthickness]{north east hatch}% name
+    {\pgfqpoint{-1pt}{-1pt}}% below left
+    {\pgfqpoint{\hatchdistance}{\hatchdistance}}% above right
+    {\pgfpoint{\hatchdistance-1pt}{\hatchdistance-1pt}}%
+    {
+        \pgfsetcolor{\tikz@pattern@color}
+        \pgfsetlinewidth{\hatchthickness}
+        \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+        \pgfpathlineto{\pgfqpoint{\hatchdistance}{\hatchdistance}}
+        \pgfusepath{stroke}
+    }
+\makeatother
 \addto\captionsenglish{ \renewcommand*\contentsname{Оглавление}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 \graphicspath{}
@@ -89,8 +107,8 @@ $A$ -- выпадение орла, $\overline{A}$ -- решки.\\
 \end{scope}
 \node[label={above:{$B\cdot \overline{A}$}}] at (0,4.8) {};
 \node[label={above:{$A\cdot B$}}] at (3.5,0) {};
-\draw[->] (0.1, 4.8) -- (0.3,4.4); 
-\draw[->] (3.5, 0.6) -- (3.5,1.3); 
+\draw[->, thick] (0.1, 4.8) -- (0.3,4.4); 
+\draw[->, thick] (3.5, 0.6) -- (3.5,1.3); 
 \node[label={above:{$B$}}] at (0,0.5) {};
 \node[label={above:{$A$}}] at (7,0.5) {};
 \end{tikzpicture}
@@ -2662,6 +2680,7 @@ $np_i$&108.7&66.3&20.2&4.8\\
 Обычно, схема действий такая: По экспериментальным данным составляется функция $U$ и на основе "нулевой гипотезы" $H$ вычисляется её распределение. Затем проверяют, как изменится $U$, если гипотезы $H$ неверна (верна $\overline{H}$).
 %страница 59
 Обычно $U$ в этом случае намного больше. На рисунке показано два распределения величины $U$, соответствующие двум конкурирующим гипотезам $H(a)$ и $\hat{H}(\hat{a})$. Если из опыта получилось большое значение $U$, то можно сказать, то либо справедлива гипотеза $H$,но произошло чрезвычайно маловероятное событие,либо более правдоподобна гипотеза $\overline{H}$. Если оставаться в рамках одной гипотезы, то результат следует признать значимым в том смысле, что он выходит за рамки обычных статистических ошибок.\\
+\newpage
 \begin{figure}[!h]
 \begin{tikzpicture}
 [declare function={
@@ -2694,7 +2713,7 @@ $np_i$&108.7&66.3&20.2&4.8\\
  \draw [->] (3.2,2.3) -- (3.0,1.7);
 \end{tikzpicture}
 \caption{Сравнение конкурирующих гипотез}
-\end{figure}\\
+\end{figure}
 \textit{\textbf{Определение}}\\
 Отвергая нулевую гипотезу $H$, когда она справедлива, мы совершаем ошибку первого рода. Принимая нулевую гипотезу $H$, когда справедлива конкурирующая гипотеза 
  $\overline{H}$, мы совершаем ошибку второго рода. Вероятность ошибки первого рода называется уровнем значимости ($\alpha$). Если вероятность ошибки второго рода равна $\beta$, то $1 - \beta$ называют мощностью критерия.\\
@@ -2812,11 +2831,83 @@ $\sigma(\hat{Q}) = \sqrt{D(\hat{Q})} = \sqrt{(2\cdot12\cdot 10^6)^2\cdot 0.01 + 
 \textit{\textbf{Определение}}\\ 
 Случайной функцией называется семейство случайных величин,зависящих от параметра $t$, пробегающего произвольное множество $\Omega$. В случае когда $\Omega$ -- подмножество вещественной прямой случайная функция называется случайным процессом ($t$ интерпретируется как время), когда $\Omega$ состоит из целых чисел, говорят о случайной последовательности. 
 Зафиксировав $t$ мы получаем случайную величину, зафиксировав элементарное событие, получаем неслучайную функцию от $t$, она называется реализацией случайной 
-функции(траекторией). Проводя несколько опытов, получаем семейство реализаций (например, при нескольких полетах определяем отклонение высоты от заданой). 
+функции(траекторией). Проводя несколько опытов, получаем семейство реализаций (например, при нескольких полетах определяем отклонение высоты от заданой). \\
+\newpage
+\begin{figure}[!h]
+\begin{tikzpicture}
+   \begin{axis}[ xmin=0, xmax=12, ymin=0, ymax=1,
+ axis y line=middle,
+     axis x line=middle,
+ticks=none,
+     xlabel=$t$, ylabel=$H(t)$,
+     label style={font=\normalsize},
+     xtick = {-10,0,...,10}, ytick = {0,...,1},
+y label style={at={(axis description cs:0,1)},rotate=0},
+  width=6cm,height=6cm,
+     scale=1, restrict y to domain=0:10]
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 1) /8 + 1/2 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2 - 2) /8 + 1/2 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2 - 2.2) /4 + 1/2 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2 - 1.7) /4 + 1/2 }) ;
+     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/4) /8 + 1/2 }) ;  
+     \draw[dashed] (axis cs:0, 1/2) -- (axis cs:12, 1/2);	
+  
+\end{axis}
+\end{tikzpicture}
+\caption{$m_1<m_2<m_3$}
+\end{figure}
 Зафиксируем в несколько моментов $t$, получим систему случайных величин, то есть случайная функция -- обобщение системы случайных величин. 
 Не будем рассматривать законы распределения случайной функции, остановимся только на характеристиках. Если числовые характеристики случайной величины -- числа, то соответствующие характеристики случайных функций -- функции (неслучайные).\\
 \textit{\textbf{Определение}}\\ 
 Математическое ожидание $M(X(t)) = m_X(t)$ случайной функции $X(t)$ называется неслучайная функция $m_x(t)$, которая при каждом значении $t$ равна математическому ожиданию соответствующего сечения случайной функции, дисперсия $D_X(t) = D(X(t))$.
+\begin{figure}[!h]
+\begin{tikzpicture}
+   \begin{axis}[ xmin=0, xmax=12, ymin=0, ymax=1,
+ axis y line=middle,
+     axis x line=middle,
+clip mode=individual ,
+ticks=none,
+     xlabel=$t$, ylabel=$H(t)$,
+     label style={font=\normalsize},
+     xtick = {-10,0,...,10}, ytick = {0,...,1},
+y label style={at={(axis description cs:0,1)},rotate=0},
+  width=6cm,height=6cm,
+     scale=1, restrict y to domain=0:10]
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) *2- 1) /8 + 1/2 + 0.03}) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2 - 2) /8 + 1/2  - 0.03}) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2 - 2.2) /4 + 1/2 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2 - 1.7) /4 + 1/2 }) ;
+     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/4) /8 + 1/2 }) ;  
+     \draw[dashed] (axis cs:0, 1/2) -- (axis cs:12, 1/2);	
+  \node [black, right,  -latex] at (axis cs:14,1/2) {$m_{X_1}(t)$};
+\end{axis}
+\end{tikzpicture}
+\caption{$111$}
+\end{figure}
+\begin{figure}[!h]
+\begin{tikzpicture}
+   \begin{axis}[ xmin=0, xmax=12, ymin=0, ymax=1,
+ axis y line=middle,
+     axis x line=middle,
+ticks=none,
+     xlabel=$t$, ylabel=$H(t)$,
+     label style={font=\normalsize},
+clip mode=individual ,
+     xtick = {-10,0,...,10}, ytick = {0,...,1},
+y label style={at={(axis description cs:0,1)},rotate=0},
+  width=6cm,height=6cm,
+     scale=1, restrict y to domain=0:10]
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) *4- 1) /8 + 1/2 + 0.03}) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)*16 - 2) /8 + 1/2  - 0.03}) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)*16 - 2.2) /4 + 1/2 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)*16 - 1.7) /4 + 1/2 }) ;
+     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)*32) /8 + 1/2 }) ;  
+     \draw[dashed] (axis cs:0, 1/2) -- (axis cs:12, 1/2);	
+\node [black, right,  -latex] at (axis cs:14,1/2) {$m_{X_2}(t)$};
+\end{axis}
+\end{tikzpicture}
+\caption{$1$}
+\end{figure}
 Этих характеристик явно не достаточно. Например, процессы показанные на рисунках, будут иметь примерно одинаковые математические ожидания и дисперсии. Чтобы уловить их разницу, надо указать связь между значениями случайной функции $X(t)$ в различные моменты времени. Ее характеризует корреляционная функция.\\
 \textit{\textbf{Определение}}\\ 
 Корреляционной (автокорреляционной) функцией случайной функции $X(t)$ называется неслучайная функция двух аргументов, $K_{X}(t, t') $, которая при каждой паре $t, t'$ равна корреляционному моменту соответствующих сечений случайной функции:$K_X(t, t') = M(  
