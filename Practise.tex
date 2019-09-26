@@ -728,6 +728,7 @@ y label style={at={(axis description cs:0.21,1)},rotate=0},
     \draw[dashed] (axis cs: 0, 1)--(axis cs: 14.5,1);
  \draw[dashed] (axis cs: 14.5, 0)--(axis cs: 14.5,1);
 \draw[<-](axis cs: 14.5, 1)--(axis cs: 18,1);
+\draw[-, thick](axis cs: -18, 0)--(axis cs: 0,0);
    \node[label={below :{$\pi R^2$}},circle,fill,inner sep=1pt, -latex] at (axis cs:14.5,0) {};
    \node[label={ left :{$1$}},circle,fill,inner sep=1pt, -latex] at (axis cs:0,1) {};
  \end{axis}
@@ -799,19 +800,22 @@ f(x)=
 \end{equation*}
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-2, xmax=2, ymin=-2, ymax=2,
+   \begin{axis}[ xmin=-2, xmax=2, ymin=0, ymax=1 ,
      ticks=none,
      axis y line=middle,
      axis x line=middle,
-     y label style={at={(axis description cs:.55,0.9)},anchor=south },
+width=5cm,
+  height=4cm,
+clip mode=individual ,
+     y label style={at={(axis description cs:.6,0.8)},anchor=south },
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$f(x)$,
      scale=1]
-     \addplot[domain=-pi/2:*pi/2,samples=200,black]{cos(deg(x))};
-     \node[label={below :{$\frac{\pi}{2}$}},circle,fill,inner sep=1pt] at (axis cs:-pi/2,0) {};
-     \node[label={below:{$-\frac{\pi}{2}$}},circle,fill,inner sep=1pt] at (axis cs:pi/2,0) {};
-     \node[label={above left:{a}},circle,fill,inner sep=1pt] at (axis cs:0,1) {};
+     \addplot[domain=-pi/2:*pi/2,samples=200,black]{cos(deg(x))/2};
+     \node[label={below :{$\frac{\pi}{2}$}},circle,fill,inner sep=1pt, -latex] at (axis cs:-pi/2,0) {};
+     \node[label={below:{$-\frac{\pi}{2}$}},circle,fill,inner sep=1pt, -latex] at (axis cs:pi/2,0) {};
+     \node[label={above left:{a}},circle,fill,inner sep=1pt] at (axis cs:0,0.5) {};
 \end{axis}
 \end{tikzpicture}
 \caption{График $f(x)$}
@@ -829,11 +833,14 @@ F(x)=
 
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-2, xmax=2, ymin=-2, ymax=2,
+   \begin{axis}[ xmin=-2, xmax=2, ymin=0, ymax=2,
      ticks=none,
      axis y line=middle,
      axis x line=middle,
-     y label style={at={(axis description cs:.55,0.9)},anchor=south },
+width=5cm,
+  height=4cm,
+clip mode=individual ,
+     y label style={at={(axis description cs:.65,0.85)},anchor=south },
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$F(x)$,
@@ -1044,7 +1051,7 @@ $M(X-a)^2$ = $\int\limits_{-\infty}^{\infty}(x-m_x+m_x-a)^2f(x)dx$ = $\int\limit
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$f(x)$,
      xtick = {-10,0,...,10}, ytick = {0,...,1},
-y label style={at={(axis description cs:0.3,0.9)},rotate=0},
+y label style={at={(axis description cs:0.25,1)},rotate=0},
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 2) * pow(2.17, (-(\x-3)*(\x-3)/(2*4))  )  }) ;
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 4) * pow(2.17, (-(\x-3)*(\x-3)/16)  )  });
@@ -1332,7 +1339,7 @@ $D(X) = \int\limits_{0}^{\infty}t^2\lambda e^{-\lambda t}dt - \frac{1}{\lambda^2
       axis y line=middle,
      axis x line=middle,
     ticks=none,
-  width=4cm,height=4cm,
+  width=5cm,height=4cm,
      xlabel=$x$, ylabel=$f(x)$,
      label style={font=\normalsize},
 y label style={at={(axis description cs:0.1,1)},rotate=0},
@@ -1751,17 +1758,19 @@ $r_{XY} = \frac{K_{XY}}{\sigma_x \sigma_y}$, $\sigma_x = \sqrt{D(X)}$, $\sigma_y
      axis x line=middle,
 label style={font=\large},
      y label style={at={(axis description cs:.55,0.9)},anchor=south },
-     x label style={at={(axis description cs: 0.9,0.5)},anchor=south },
+     x label style={at={(axis description cs: 0.96,0.5)},anchor=south },
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$y$,
    ]
+\node [black, right] at (axis cs: 0.1, 1.2) {$1$ }; %,scale = 0.8
+ \node [black,above right] at (axis cs: 1, 0) {$1$ };
 \end{axis}
- \node [black, right, scale = 0.5] at (3.5,4.5) {$1$ };
+
  \draw (5,4) circle (0.01);
 
 \draw[fill=black!10!black] (3.45,4.35) circle (0.3ex);
-\node [black, right, scale  =0.5] at ((5,3) {$1$ };
+
  \draw [black, thick] (3.45,2.85) circle [radius=1.5];
 \pattern[pattern=north east lines, pattern color=black]  (3.45,2.85) circle [radius = 1.5];
  \draw [fill=black!10!black] (4.95,2.85)  circle (0.3ex);
@@ -1932,7 +1941,7 @@ $Y_i = a_i X_i$,\\
 $K_{XY} = M(XY) = M((X-m_x)(Y-m_y)) = M(XY)  - m_xM(Y) - m_y M(X) +\\+ m_xm_y  = M(XY) - M(X)M(Y)$
 \begin{flushright}\(\blacksquare\)\end{flushright}
 %страница 39
-Для двух некоррелирующих величин: $M(XY) = M(X)M(Y)$. Если произведение более 2х случаных величин, то некоррелируемости недостаточно (требуется зануление некоторых высших смешныых моментов), что заведомо выполняется при независимости случайных величин.\\
+Для двух некоррелирующих величин: $M(XY) = M(X)M(Y)$. Если произведение более 2х случаных величин, то некоррелируемости недостаточно (требуется зануление некоторых высших смешанных моментов), что заведомо выполняется при независимости случайных величин.\\
 Независимы, следовательно $\displaystyle{ M(\prod_{i}x_i) = \prod_{i} M(x_i)}$\\
 10)Для независимых случайных величин $X,\ Y,\ Z$.\\
 $D(XY)=D(X)D(Y) + m_xD(Y) + m_y^2D(X)$ \\
@@ -1944,9 +1953,12 @@ $X, Y$ независимы, следовательно $X^2$ и $Y^2$ неза�
 $D(XY) = M(X^2)M(Y^2) - m_x^2 m_y^2$, $M(X^2) = D(X) + m_x^2$; $M(Y^2) = D(Y) + m_y^2$ , следовательно утверждение теоремы верно.
 \begin{flushright}\(\blacksquare\)\end{flushright}
 %страница 40
-Применение теоремы о числовых характеристиках.\\
+\begin{center}
+$\textbf{Применение теоремы о числовых характеристиках.}$
+\end{center}
 $Y=aX+b$, следовательно, $r_{XY}=\pm 1$\\
-$K_{XY}$ = $M(XY) = M((X-m_k)(Y-m_y))  = M((X-m_x)(aX + b - am_x - b)) = aM((X-m_x)^2) = aD_x$\\
+\underline{Доказательство:}\\	
+$K_{XY}$ = $M(XY) = M((X-m_k)(Y-m_y))  = M((X-m_x)(aX + b - am_x - b)) =\\ = aM((X-m_x)^2) = aD_x$\\
 $D_y = D(aX+b)  = a^2 D_x$, $\sigma_x$ = $\abs{a} \sigma_x$
 \begin{equation*} 
 r_{XY} = \frac{aD_x}{\sigma_x \sigma_y} = \frac{aD_x}{\sigma_x \abs{a} \sigma_x} = \frac{a}{\abs{a}}=
@@ -1955,11 +1967,14 @@ r_{XY} = \frac{aD_x}{\sigma_x \sigma_y} = \frac{aD_x}{\sigma_x \abs{a} \sigma_x}
    -1, a < 0\\
  \end{cases}
 \end{equation*}\\
+\begin{flushright}\(\blacksquare\)\end{flushright}
 $\abs{r_{XY}} \leq 1$\\
+\underline{Доказательство:}\\	
 Пусть $Z = \sigma_y X \pm \sigma_xY$\\
 $D(Z) = \sigma_y^2 D_x + \sigma_x^2D_y \pm 2\sigma_2 \sigma_y K_{xy} = 2 \sigma_x^2 \sigma_y^2 \pm  2 \sigma_x \sigma_y K_{xy} \geq 0$\\
  $2\sigma_x^2 \sigma_y^2 \pm  2 \sigma_x \sigma_y K_{xy} \geq 0$\\
  $\sigma_x^2 \sigma_y^2 \pm  K_{xy} \geq 0$, следовательно $\abs{K_{xy}} \leq \sigma_x \sigma_y$, следовательно $\abs{r_{xy}} \leq 1$\\
+\begin{flushright}\(\blacksquare\)\end{flushright}
 %страница 41
 \subsection{Законы распределения функций случайной величины}
 \noindent
@@ -2013,7 +2028,7 @@ $g(y) = G'(y) = -f(\psi(y)$ .
 \begin{figure}[H]
 \begin{picture}(100,110)
 \put(10, 10){\vector(0, 4){100}}
-\put(10, 10){\vector(4, 0){100}}
+\put(10, 10){\vector(4, 0){120}}
 \put(0, 120){\makebox(0, 0) {$y$}}
 \put(100, 0){\makebox(0, 0) {$x$}}
 \put(100, 40){\makebox(0, 0) {$y=\varphi(x)$}}
@@ -2109,7 +2124,8 @@ $g(x) = \frac{1}{\pi} \abs{(arctg \frac{x}{l})'} = \frac{l}{\pi(l^2 + x^2)}$ -- 
 $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displaystyle{\sum_{i}}  \displaystyle{\int\limits_{\Delta_i(y)} } f(x) dx$\\
 \begin{figure}[!h]
 \begin{tikzpicture}
-  \begin{axis}[xmin=0, xmax=10, ymin=0, ymax=5,
+  \begin{axis}[xmin=-2, xmax=12, ymin=0, ymax=5,
+clip mode=individual ,
      axis lines = left,
      y label style={at={(axis description cs:0.15,1)},rotate=270,anchor=south},
      x label style={at={(axis description cs:1,0.1)}},
@@ -2118,27 +2134,32 @@ $G(y) = P(Y<y) = P(X \in \Delta_1(y)) + P(X \in \Delta_1(y))$ . . . = $\displays
      at={(0.005\linewidth,0.03\linewidth)},
      xlabel=$x$, ylabel=$y$,
      scale=1]
-     \addplot[black, samples=100, smooth, unbounded coords=discard,domain=0:10] plot (\x, {sin(\x r) + 2});
-     \draw[dashed] (0, 270) -- (100, 270);
-     \draw[dashed] (8, 0) -- (8, 270);
-     \draw[dashed] (24, 0) -- (24, 270);
-     \draw[dashed] (70, 0) -- (70, 270);
-     \draw[dashed] (86.5, 0) -- (86.5, 270);
-     \node [black,left] at (0,20) {$y$};
-     \node [black, right] at (0,20) {\tiny $\Delta_1$ \normalsize};
-     \node [black, right] at (30,20) {\tiny $\Delta_2$ \normalsize};
-     \node [black, right] at (90,20) {\tiny $\Delta_3$ \normalsize};
-\draw[fill=black!10!black] (8,270) circle (0.15ex);
-\draw [black, fill] (24,270)  circle (0.15ex);
-\draw [black, fill] (70,270) circle (0.15ex);
-\draw [black, fill] (86.5,270) circle (0.15ex);
+     \addplot[black, samples=100, smooth, unbounded coords=discard,domain=-pi/2:3*pi+ pi/2] plot (\x, {sin(\x r) + 2});
+     \draw[dashed] (axis cs:-pi/2, 0) -- (axis cs:-pi/2, 1);
+     \draw[dashed] (axis cs:pi/6, 0) -- (axis cs:pi/6, 2.5);
+     \draw[dashed] (axis cs:5*pi/6, 0) -- (axis cs:5*pi/6, 2.5);
+     \draw[dashed] (axis cs:13*pi/6, 0) -- (axis cs:13*pi/6, 2.5);
+     \draw[dashed] (axis cs:17*pi/6, 0) -- (axis cs:17*pi/6, 2.5);
+     \draw[dashed] (axis cs:3*pi + pi / 2, 0) -- (axis cs:3*pi+ pi/2, 1);
+     \draw[dashed] (axis cs:- 2, 2.5) -- (axis cs:12, 2.5);
 
-    % \draw [<->,  thick] (0,500) -- (0,0) -- (100,0);
+\draw[fill=black!10!black] (axis cs:-pi/2, 1) circle (0.15ex);
+\draw [black, fill] (axis cs:pi/6, 2.5)  circle (0.15ex);
+\draw [black, fill] (axis cs:5*pi/6, 2.5) circle (0.15ex);
+\draw [black, fill] (axis cs:13*pi/6, 2.5) circle (0.15ex);
+\draw [black, fill] (axis cs:3*pi+ pi/2, 1) circle (0.15ex);
+
+     \node [black, right] at (axis cs:-pi/2 + 1/2, 1/2) {\tiny $\Delta_1$ \normalsize};
+     \node [black, right] at (axis cs:5*pi/6 + 1, 1/2) {\tiny $\Delta_2$ \normalsize};
+     \node [black, right] at (axis cs:17*pi/6 + 1/2, 1/2) {\tiny $\Delta_3$ \normalsize};
+
+
+\draw [black, fill] (axis cs:-pi/2, 0) circle (0.15ex);
+\draw [black, fill] (axis cs:3*pi + pi / 2, 0) circle (0.15ex);
+    \node [black,below] at (axis cs:-pi/2, 0) {$a$};
+    \node [black,below] at (axis cs:3*pi + pi / 2, 0) {$b$};
    \end{axis}
-\draw [black, fill] (0.649,0.2+0.03\linewidth) circle (0.15ex);
-\draw [black, fill] (6,0.2+0.03\linewidth) circle (0.15ex);
-    \node [black,left] at (0.95,0.2) {$a$};
-    \node [black,left] at (6.19,0.2) {$b$};
+
 \end{tikzpicture}
 \caption{График $y = \varphi(x)$}
 \end{figure}\\
@@ -2706,7 +2727,7 @@ $np_i$&108.7&66.3&20.2&4.8\\
  \addplot[domain=0.00001:0.15,samples=200,black,pattern=north east lines]{(deg(0.52 - x)/2)^(2) * 2.17^(- (deg(0.52 - x)/2) / 2)/ 12}\closedcycle;
       \addplot[domain=0.15:pi/2,samples=200,black,pattern=north west lines]{(deg(x + 0.25))^(2) * 2.17^(- (deg(x + 0.25) ) / 2)}\closedcycle;
 \end{axis}
-  \node [black, right] at (1.5,1) {$U_{\alpha}$};
+  \node [black, right] at (1.5,1) {$u_{\alpha}$};
  \node [black, right] at (0.5,4) {$a$};
  \node [black, right] at (2.2,3) {$b$};
   \node [black, left] at (0.5,2.3) {$\beta$};
