@@ -100,16 +100,26 @@ $A$ -- выпадение орла, $\overline{A}$ -- решки.\\
 \fill[pattern=north west lines] (2,3) circle (2);
 \draw (2,3) circle (2);
 \draw (5,3) circle (2);
-\begin{scope}
-\clip (2,3) circle (2);
+%\begin{scope}
+%\clip (2,3) circle (2);
 \fill[pattern=north east lines] (5,3) circle (2);
-\end{scope}
+%\end{scope}
 \node[label={above:{$B\cdot \overline{A}$}}] at (0,4.8) {};
 \node[label={above:{$A\cdot B$}}] at (3.5,0) {};
-\draw[->, thick] (0.1, 4.8) -- (0.6,4.0); 
-\draw[->, thick] (3.5, 0.6) -- (3.5,1.9); 
+\draw[->, thick, green] (0.1, 4.8) -- (0.6,4.0); 
+\draw[->, thick, red] (3.5, 0.6) -- (3.5,1.9); 
 \node[label={above:{$B$}}] at (1,1.5) {};
 \node[label={above:{$A$}}] at (6,1.5) {};
+\draw[red, thick] (3,3) arc (180:138:2) ;
+\draw[red, thick] (3,3) arc (180:222:2) ;
+
+
+\draw[green] (0,3) arc (180:42:2) ;
+\draw[green] (0,3) arc (180:318:2) ;
+
+
+\draw[red, thick] (4,3) arc (0:42:2) ;
+\draw[red, thick] (4,3) arc (0:-42:2) ;
 \end{tikzpicture}
 \caption{Пересечение множеств}
 \end{figure}
