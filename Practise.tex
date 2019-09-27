@@ -1267,13 +1267,13 @@ $S_k$ $>$ $0$ если $p<\frac{1}{2}$\\
 \subsection{Распределение Пуасона}
 \noindent
 Пусть нас интересует вероятность того, что за данный промежуток времени произойдёт $m$ событий. При этом выполнены следующие условия:\\
-1)Произойдёт событие или нет в момент времени $t$ не зависит от истории событий, предшествующих моменту $t$\\
-2)Вероятность отдельного события за малый интервал времени $\Delta t$ возрастает пропорционально длительности интервала, то есть вероятность отдельного события за интервал $(t, t + \Delta t)$ равна $\lambda \Delta t$ + $O(\Delta t)$, $O(\Delta t)$ -- бесконечно малое, более высокого порядка малости, чем $\Delta t$. $\lambda$  -- среднее число событий на единицу времени (длинны)\\
+1)Произойдёт событие или нет в момент времени $t$ не зависит от истории событий, предшествующих моменту $t$.\\
+2)Вероятность отдельного события за малый интервал времени $\Delta t$ возрастает пропорционально длительности интервала, то есть вероятность отдельного события за интервал $(t, t + \Delta t)$ равна $\lambda \Delta t$ + $O(\Delta t)$, $O(\Delta t)$ -- бесконечно малое, более высокого порядка малости, чем $\Delta t$. $\lambda$  -- среднее число событий на единицу времени (длинны).\\
 3)Вероятность двух или большего числа событий за $(t, t + \Delta t)$ есть $o(\Delta t)$.\\
-Найдем вероятность того, что в интервале $(0, t)$ не произойдёт ни одного события -- $P_0(t)$\\
-За промежуток $(0, t + \Delta t)$ не произойдёт ни одного события, если не будет событий в интервалах $(0, t)$ и $(t, t+\Delta t$, то есть,
-$P_0(t+\Delta t) = P_0(t)(1-\alpha\Delta t + o(\Delta t))$ следовательно, $\frac{P_0(t+\Delta t) - P_0(t)}{\Delta t} = -\alpha P_0(t) + \frac{O(\Delta t)}{\Delta t}$, следовательно, при $\Delta   t  \rightarrow 0$ $\frac{dP_0(t)}{dt}  = -\alpha P_0(t)$, следовательно $ln(P_0) = -\alpha t + c$, следовательно $P_0(t) = Ae^{-\alpha t}$\\
-При $t = 0$ $P_0(0)  = 1$, следовательно, $A = 1$, то есть $P_0(t) = e^{-\alpha t}$\\
+Найдем вероятность того, что в интервале $(0, t)$ не произойдёт ни одного события -- $P_0(t)$.\\
+За промежуток $(0, t + \Delta t)$ не произойдёт ни одного события, если не будет событий в интервалах $(0, t)$ и $(t, t+\Delta t)$, то есть,
+$P_0(t+\Delta t) = P_0(t)(1-\alpha\Delta t + o(\Delta t))$, следовательно, $\frac{P_0(t+\Delta t) - P_0(t)}{\Delta t} = -\alpha P_0(t) + \frac{O(\Delta t)}{\Delta t}$, следовательно, при $\Delta   t  \rightarrow 0$ $\frac{dP_0(t)}{dt}  = -\alpha P_0(t)$, следовательно $ln(P_0) = -\alpha t + c$, следовательно $P_0(t) = Ae^{-\alpha t}$.\\
+При $t = 0$ $P_0(0)  = 1$, следовательно, $A = 1$, то есть $P_0(t) = e^{-\alpha t}$.\\
 Вероятность того, что за $(0, t)$ произойдёт событие $P_1(t)$. 
 Тут две возможности: либо произойдёт в $(0, t)$, либо произойдёт в $(t, t + \Delta t)$ , следовательно $P_1(t+\Delta t)$=\\= $P_1(t)(1-\alpha \Delta t + o(\Delta t)) + P_0(t)(\alpha \Delta t + o(\Delta t)$,
  следовательно $\frac{P_1(t+\Delta t) - P_1(t)}{\Delta t} =\\= -\lambda P_1(t) + \lambda P_0(t) + \frac{o(\Delta t)}{\Delta t}$,  следовательно $\frac{dP_1(t)}{dt}  = \lambda P_1(t) + \lambda e^{-\lambda t}$.\\
@@ -1285,7 +1285,7 @@ $\frac{dP_m(t)}{dt} = \lambda P_m(t) + \lambda P_{m-1}(t)$.\\
 %страница 24
 То есть, случайная величина $X$, распределенная по Пуасону, принимает целые значения от $0$ до $\infty$ с вероятностью $P_m=P(X=m) = \frac{a^m}{m!}e^{-a}$, $a$ -- параметр распределения. $\sum\limits_{m=0}^{\infty}P_m = e^{-a}\sum\limits_{m=0}^{\infty} \frac{a^m}{m!}  = e^{-a}e^a = 1$  (условие нормирования выполнено).
 $M(X) = \sum\limits_{m=0}^{\infty} m\frac{a^m}{m!}e^{-a} = (\sum\limits_{m=1}^{\infty} \frac{a^{m-1}}{(m-1)!})ae^{-a} = ae^{-a}\sum\limits_{k=0}^{\infty} \frac{a^k}{k!} = ae^{-a}e^{a} = a$.\\
-$\alpha_2(X) = \sum\limits_{m=0}^{\infty} m^2\frac{a^m}{m!}e^{-a} = a\sum\limits_{m=1}^{\infty} m\frac{a^{m-1}}{(m-1)!}e^{-a} = a \sum\limits_{m=1}^{\infty} ((m-1)+1)\frac{a^{m-1}}{(m-1)!}e^{-a} =\\$ $\displaystyle{ = a \left ( \underbrace{ \sum\limits_{m=1}^{\infty}(m-1)\frac{a^{m-1}}{(m-1)!}e^{-a}}_{a} + \underbrace{ \sum\limits_{m=1}^{\infty}\frac{a^{m-1}}{(m-1)!}e^{-a}}_{1} \right )=a(a+1)}$\\
+$\alpha_2(X) = \sum\limits_{m=0}^{\infty} m^2\frac{a^m}{m!}e^{-a} = a\sum\limits_{m=1}^{\infty} m\frac{a^{m-1}}{(m-1)!}e^{-a} = a \sum\limits_{m=1}^{\infty} ((m-1)+1)\frac{a^{m-1}}{(m-1)!}e^{-a} =\\$ $\displaystyle{ = a \left ( \underbrace{ \sum\limits_{m=1}^{\infty}(m-1)\frac{a^{m-1}}{(m-1)!}e^{-a}}_{a} + \underbrace{ \sum\limits_{m=1}^{\infty}\frac{a^{m-1}}{(m-1)!}e^{-a}}_{1} \right )=a(a+1)}$.\\
 $D(X) = \alpha_2 - m_x^2 = a^2 + a - a^2 = a$. То есть $D(X)=M(X)$.\\
 $\textbf{Теорема}$\\
 $\displaystyle{\lim_{n \to {\infty}}  C^m_np^m(1-p)^{n-m}}$ = $\frac{a^m}{m!}e^{-a}$\\
@@ -1988,7 +1988,7 @@ $P(a<X<x) = \displaystyle{\int \limits_{a}^{x}} f(x) dx$.\\
 \\
 \begin{figure}[H]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=0, xmax=6, ymin=0, ymax=13,
+   \begin{axis}[ xmin=0, xmax=4, ymin=0.5, ymax=3,
      ticks=none,
      axis y line=middle,
      axis x line=middle,
@@ -2002,22 +2002,28 @@ y label style={at={(axis description cs: 0.05,1)},anchor=south },
  width=0.4\textwidth,
      xlabel=$x$, ylabel=$y$,
    ]
-     \addplot[black, samples=100, smooth, unbounded coords=discard,domain=1:6] plot (\x, {3*sqrt(\x - 1) + x + 1}); 
-	\node [black,below, -latex] at (axis cs:2,0) {$a$};
-	\node [black,below, -latex] at (axis cs:4,0) {$b$};	
-	\node [black,below, -latex] at (axis cs:3,0) {$x$};	
-	\node [black,below, -latex] at  (axis cs:0.2, 8.242640) {$y$};
-     \draw[dashed] (axis cs:2, 0) -- (axis cs:2, 6);
-     \draw[dashed] (axis cs:3, 0) -- (axis cs:3, 8.242640);
-   \draw[dashed] (axis cs:0, 8.242640) -- (axis cs:3, 8.242640);
-     \draw[dashed] (axis cs:4, 0) -- (axis cs:4, 10.196152);
-\draw [black, fill] (axis cs:2, 6)  circle (0.15ex);
-\draw [black, fill] (axis cs:3, 8.242640)  circle (0.15ex);
-\draw [black, fill] (axis cs:4, 10.196152)  circle (0.15ex);
-\draw [black, fill] (axis cs:2, 0)  circle (0.15ex);
-\draw [black, fill] (axis cs:3, 0)  circle (0.15ex);
-\draw [black, fill] (axis cs:4, 0)  circle (0.15ex);
-\draw [black, fill] (axis cs:0,  8.242640)  circle (0.15ex);
+     \addplot[black, samples=100, smooth, unbounded coords=discard,domain=1:pi/2+ 1] {sin(deg(x-1)) +1}; 
+	\node [black,below, -latex] at (axis cs:1.1,0.5) {$a$};
+	\node [black,below, -latex] at (axis cs:pi/2 + 1,0.5) {$b$};	
+	\node [black,below, -latex] at (axis cs:pi/4 + 1-0.1,0.5) {$x$};
+
+		\node [black,left, -latex] at (axis cs:0,0.70710 + 1) {$y$};		
+
+	\draw[dashed] (axis cs:1.1, 0.5) -- (axis cs:1.1,  0.0998 + 1);
+	\draw[dashed] (axis cs:pi/2 + 1 -0.1, 0.5) -- (axis cs:pi/2 + 1 - 0.1, 1.995);
+	\draw[dashed] (axis cs:pi/4 + 1, 0.5) -- (axis cs:pi/4 + 1, 0.70710 + 1);
+	\draw[dashed] (axis cs:0, 0.70710 + 1) -- (axis cs:pi/4 + 1, 0.70710 + 1);
+	\draw [black, fill] (axis cs:1+0.1,0.5)   circle (0.15ex);
+	\draw [black, fill] (axis cs:pi/2 + 1-0.1,0.5)  circle (0.15ex);
+
+	\draw [black, fill] (axis cs:0,0.70710 + 1)  circle (0.15ex);
+
+
+
+	\draw [black, fill] (axis cs:pi/4 + 1,0.5)  circle (0.15ex);
+	\draw [black, fill] (axis cs:1+0.1, 0.0998 + 1)   circle (0.15ex);
+	\draw [black, fill] (axis cs:pi/2 + 1-0.1,1.995)  circle (0.15ex);
+	\draw [black, fill] (axis cs:pi/4 + 1,0.70710 + 1)  circle (0.15ex);
 \end{axis}
 \end{tikzpicture}
 \caption{График $y = \varphi(x)$}
