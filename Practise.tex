@@ -108,8 +108,8 @@ $A$ -- выпадение орла, $\overline{A}$ -- решки.\\
 \node[label={above:{$A\cdot B$}}] at (3.5,0) {};
 \draw[->, thick] (0.1, 4.8) -- (0.6,4.0); 
 \draw[->, thick] (3.5, 0.6) -- (3.5,1.9); 
-\node[label={above:{$B$}}] at (0,0.5) {};
-\node[label={above:{$A$}}] at (7,0.5) {};
+\node[label={above:{$B$}}] at (1,1.5) {};
+\node[label={above:{$A$}}] at (6,1.5) {};
 \end{tikzpicture}
 \caption{Пересечение множеств}
 \end{figure}
@@ -1056,9 +1056,12 @@ y label style={at={(axis description cs:0.25,1)},rotate=0},
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 2) * pow(2.17, (-(\x-3)*(\x-3)/(2*4))  )  }) ;
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 4) * pow(2.17, (-(\x-3)*(\x-3)/16)  )  });
      \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-3)*(\x-3)/2)  )  });	  
-     \node [black, right] at (axis cs: 4, 0.4) {$E_x > 0$};
-     \node [black, right] at (axis cs: 4.97, 0.23) {$E_x = 0$};
-     \node [black, right] at (axis cs: 5.27, 0.12) {$E_x < 0$};
+     \node [black, right] at (axis cs: 6, 0.43) {$E_x > 0$};
+    \draw[->](axis cs:6.2, 0.43) -- (axis cs:3.1, 0.42);
+    \draw[->](axis cs:6.2, 0.33) -- (axis cs:3.1, 0.21);
+    \draw[->](axis cs:6.2, 0.22) -- (axis cs:3.1, 0.11);
+     \node [black, right] at (axis cs: 6, 0.33) {$E_x = 0$};
+     \node [black, right] at (axis cs: 6, 0.22) {$E_x < 0$};
  \end{axis}
 \end{tikzpicture}
 \caption{   Распределения с различными эксцессами}
