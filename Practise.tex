@@ -727,21 +727,21 @@ Cо стр 11 про баскетболиста
 Случайная величина -- площадь разрушений, наносимых цели  бомбой. Значение этой случайной величины непрерывно заполняет промежуток от $0$ $\pi R^2$ ($R$ -- радиус разрушительного действия). Но в точках $0$ и $\pi R^2$ у функции распределения скачки, так как этим значениям соотвествуют конечные вероятности (вероятности положений 1 и 3 соответственно) круга разрыва.\\
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-18, xmax=18, ymin=0, ymax=2,
+   \begin{axis}[ xmin=-18, xmax=23, ymin=0, ymax=2,
      ticks=none,
  axis y line=middle,
-  width=6cm,height=4cm,
+  width=7cm,height=4cm,
      axis x line=middle,
 clip mode=individual ,
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$F(x)$,
      xtick = {-10,0,...,10}, ytick = {0,...,1},
-y label style={at={(axis description cs:0.21,1)},rotate=0},
+y label style={at={(axis description cs:0.25,1)},rotate=0},
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:14.5, <-] plot (\x, {1 - (1)  /( \x  + 2) - 1/4 }) ;
     \draw[dashed] (axis cs: 0, 1)--(axis cs: 14.5,1);
  \draw[dashed] (axis cs: 14.5, 0)--(axis cs: 14.5,1);
-\draw[<-](axis cs: 14.5, 1)--(axis cs: 18,1);
+\draw[<-](axis cs: 14.5, 1)--(axis cs: 23,1);
 \draw[-, thick](axis cs: -18, 0)--(axis cs: 0,0);
    \node[label={below :{$\pi R^2$}},circle,fill,inner sep=1pt, -latex] at (axis cs:14.5,0) {};
    \node[label={ left :{$1$}},circle,fill,inner sep=1pt, -latex] at (axis cs:0,1) {};
@@ -1065,7 +1065,7 @@ $M(X-a)^2$ = $\int\limits_{-\infty}^{\infty}(x-m_x+m_x-a)^2f(x)dx$ = $\int\limit
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$f(x)$,
      xtick = {-10,0,...,10}, ytick = {0,...,1},
-y label style={at={(axis description cs:0.25,1)},rotate=0},
+y label style={at={(axis description cs:0.20,1)},rotate=0},
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 2) * pow(2.17, (-(\x-3)*(\x-3)/(2*4))  )  }) ;
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:10] plot (\x, { (1/  (sqrt(2*3.14) * 4) * pow(2.17, (-(\x-3)*(\x-3)/16)  )  });
@@ -1773,15 +1773,15 @@ $r_{XY} = \frac{K_{XY}}{\sigma_x \sigma_y}$, $\sigma_x = \sqrt{D(X)}$, $\sigma_y
      ticks=none,
      axis y line=middle,
      axis x line=middle,
-label style={font=\large},
+label style={font=\Large},
      y label style={at={(axis description cs:.55,0.9)},anchor=south },
      x label style={at={(axis description cs: 0.96,0.5)},anchor=south },
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$y$,
    ]
-\node [black, right] at (axis cs: 0.1, 1.2) {$1$ }; %,scale = 0.8
- \node [black,above right] at (axis cs: 1, 0) {$1$ };
+\node [black, right, scale = 1.2] at (axis cs: 0.1, 1.2) {$1$ }; %,scale = 0.8
+ \node [black,above right, scale  = 1.2] at (axis cs: 1, 0) {$1$ };
 \end{axis}
 
  \draw (5,4) circle (0.01);
@@ -1983,7 +1983,7 @@ r_{XY} = \frac{aD_x}{\sigma_x \sigma_y} = \frac{aD_x}{\sigma_x \abs{a} \sigma_x}
   +1, a > 0\\
    -1, a < 0\\
  \end{cases}
-\end{equation*}\\
+\end{equation*}
 \begin{flushright}\(\blacksquare\)\end{flushright}
 $\abs{r_{XY}} \leq 1$\\
 \underline{Доказательство:}\\	
@@ -2172,9 +2172,9 @@ clip mode=individual ,
 \draw [black, fill] (axis cs:13*pi/6, 2.5) circle (0.15ex);
 \draw [black, fill] (axis cs:3*pi+ pi/2, 1) circle (0.15ex);
 
-     \node [black, right] at (axis cs:-pi/2 + 1/2, 1/2) {\tiny $\Delta_1$ \normalsize};
+     \node [black, right] at (axis cs:-pi/2 + 1/2, 0.1) {\tiny $\Delta_1$ \normalsize};
      \node [black, right] at (axis cs:5*pi/6 + 1, 1/2) {\tiny $\Delta_2$ \normalsize};
-     \node [black, right] at (axis cs:17*pi/6 + 1/2, 1/2) {\tiny $\Delta_3$ \normalsize};
+     \node [black, right] at (axis cs:17*pi/6 + 1/2, 0.1) {\tiny $\Delta_3$ \normalsize};
 
 
 \draw [black, fill] (axis cs:-pi/2, 0) circle (0.15ex);
@@ -3126,6 +3126,8 @@ soft clip={domain=pi:2*pi},
 
 \addplot+[gray,pattern=north east lines] fill between[of=A4 and B, %5
 soft clip={domain=0:pi},
+  every segment no 0/.style={pattern=north east lines,pattern color=black},
+  every segment no 1/.style={pattern=fivepointed stars,pattern color=gray}
 ];
 
 
