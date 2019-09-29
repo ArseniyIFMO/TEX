@@ -727,7 +727,7 @@ Cо стр 11 про баскетболиста
 Случайная величина -- площадь разрушений, наносимых цели  бомбой. Значение этой случайной величины непрерывно заполняет промежуток от $0$ $\pi R^2$ ($R$ -- радиус разрушительного действия). Но в точках $0$ и $\pi R^2$ у функции распределения скачки, так как этим значениям соотвествуют конечные вероятности (вероятности положений 1 и 3 соответственно) круга разрыва.\\
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-18, xmax=23, ymin=0, ymax=2,
+   \begin{axis}[ xmin=-18, xmax=25, ymin=0, ymax=2,
      ticks=none,
  axis y line=middle,
   width=7cm,height=4cm,
@@ -741,7 +741,7 @@ y label style={at={(axis description cs:0.25,1)},rotate=0},
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:14.5, <-] plot (\x, {1 - (1)  /( \x  + 2) - 1/4 }) ;
     \draw[dashed] (axis cs: 0, 1)--(axis cs: 14.5,1);
  \draw[dashed] (axis cs: 14.5, 0)--(axis cs: 14.5,1);
-\draw[<-](axis cs: 14.5, 1)--(axis cs: 23,1);
+\draw[<-](axis cs: 14.5, 1)--(axis cs: 22,1);
 \draw[-, thick](axis cs: -18, 0)--(axis cs: 0,0);
    \node[label={below :{$\pi R^2$}},circle,fill,inner sep=1pt, -latex] at (axis cs:14.5,0) {};
    \node[label={ left :{$1$}},circle,fill,inner sep=1pt, -latex] at (axis cs:0,1) {};
@@ -814,14 +814,15 @@ f(x)=
 \end{equation*}
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-2, xmax=2, ymin=0, ymax=1 ,
+   \begin{axis}[ xmin=-2.0, xmax=2.0, ymin=0, ymax=1 ,
      ticks=none,
      axis y line=middle,
      axis x line=middle,
-width=5cm,
+width=6cm,
   height=4cm,
 clip mode=individual ,
-     y label style={at={(axis description cs:.6,0.8)},anchor=south },
+     y label style={at={(axis description cs:.55,0.8)},anchor=south },
+     x label style={at={(axis description cs:1,0)}},
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$f(x)$,
@@ -851,7 +852,7 @@ F(x)=
      ticks=none,
      axis y line=middle,
      axis x line=middle,
-width=5cm,
+width=6cm,
   height=4cm,
 clip mode=individual ,
      y label style={at={(axis description cs:.65,0.85)},anchor=south },
@@ -1356,7 +1357,7 @@ $D(X) = \int\limits_{0}^{\infty}t^2\lambda e^{-\lambda t}dt - \frac{1}{\lambda^2
       axis y line=middle,
      axis x line=middle,
     ticks=none,
-  width=5cm,height=4cm,
+  width=6cm,height=4cm,
      xlabel=$x$, ylabel=$f(x)$,
      label style={font=\normalsize},
 y label style={at={(axis description cs:0.1,1)},rotate=0},
@@ -3160,13 +3161,13 @@ soft clip={domain=pi:2*pi},
      width = 12cm,
        xmin=0, xmax=9, ymin=-0.5, ymax=0.5  ]
   \addplot[black, samples=100, smooth, unbounded coords=discard,domain=0:3] {sin((deg(x))*8) / 4};
-  \addplot[black, samples=100, smooth, unbounded coords=discard,domain=0:3, dashed] {cos((deg(x) - 1.4)*8)/4 };
+  \addplot[black, samples=100, smooth, unbounded coords=discard,domain=0:3, dashed] {cos((deg(x) - 1.4)*8)/8 };
   \draw  (axis cs:3,-0.5)--(axis cs:3,0.5);
  \draw(axis cs:3,0.5)--(axis cs:6,0.5);
  \draw  (axis cs:3,-0.5)--(axis cs:6,-0.5);
  \draw  (axis cs:6,-0.5)--(axis cs:6,0.5);
   \addplot[black, samples=100, smooth, unbounded coords=discard,domain=6:9] {sin(deg(x)*8) / 2};
-  \addplot[black, samples=100, smooth, unbounded coords=discard,domain=6:9, dashed] {cos((deg(x) - 1)*8) / 4};
+  \addplot[black, samples=100, smooth, unbounded coords=discard,domain=6:9, dashed] {cos((deg(x) - 1)*8) / 8};
   \node[] at (axis cs:4.5, 0){$A$};
   \node[] at (axis cs:9, 0.65){$y(t)$};
   \node[] at (axis cs:9, -0.3){$Y(t)$} ;
