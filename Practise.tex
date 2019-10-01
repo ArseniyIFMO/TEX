@@ -1384,7 +1384,7 @@ $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-
 %(Так как $-te^{-t^2}|_{-\infty}^{\infty} = 0$ и $\int\limits_{-\infty}^{\infty} e^{-t^2}dt = \sqrt{\pi}$)\\
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-5, xmax=14, ymin=0, ymax=0.8,
+   \begin{axis}[ xmin=-6, xmax=14, ymin=0, ymax=0.8,
      ticks=none,
  axis y line=middle,
      axis x line=middle,
@@ -1392,13 +1392,13 @@ $D(X) = \frac{1}{\sigma \sqrt{2\pi}} \int\limits_{-\infty}^{\infty} (x-m)^2 e^{-
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$f(x)$,
      xtick = {-10,0,...,10}, ytick = {0,...,1},
-y label style={at={(axis description cs:0.25,1)},rotate=0},
+y label style={at={(axis description cs:0.27,1)},rotate=0},
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-5:12] plot (\x, { (1/  (sqrt(2*3.14) * 2) * pow(2.17, (-(\x-3)*(\x-3)/(2*4))  )  }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-5:12] plot (\x, { (1/  (sqrt(2*3.14) * 4) * pow(2.17, (-(\x-3)*(\x-3)/16)  )  });
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-5:12] plot (\x, { (1/  (sqrt(2*3.14) * 4) * pow(2.17, (-(\x-3)*(\x-3)/14)  )  });
      \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-5:12] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-3)*(\x-3)/2)  )  });	  
      \node [black,above] at (axis cs: 3, 0.40) {$\sigma_3$};
-     \node [black, above] at (axis cs:3, 0.21) {$\sigma_2$};
+     \node [black, above] at (axis cs:3, 0.18) {$\sigma_2$};
      \node [black, above] at (axis cs: 3, 0.08) {$\sigma_1$};
  \end{axis}
 \end{tikzpicture}\\
@@ -1414,7 +1414,7 @@ ticks=none,
      label style={font=\normalsize},
      xtick = {-10,0,...,10}, ytick = {0,...,1},
 y label style={at={(axis description cs:0.25,1)},rotate=0},
-  width=5.25cm,height=6cm,
+  width=5.5cm,height=5cm,
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:12] plot (\x, { (1/  (sqrt(2*3.14) ) * pow(2.17, (-(\x -5)*(\x-5)/(8))  )  }) ;
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-10:12] plot (\x, { (1/  (sqrt(2*3.14)) * pow(2.17, (-(\x-3)*(\x-3)/8)  )  });
@@ -1422,8 +1422,8 @@ y label style={at={(axis description cs:0.25,1)},rotate=0},
      \node [black, right, above] at (axis cs:3, 0.41) {$m_2$};
      \node [black, right, above] at (axis cs:1, 0.41) {$m_1$};
      \node [black, right, above] at (axis cs:5, 0.41) {$m_3$};   
- \draw[dashed] (axis cs: 1, 0)--(axis cs: 1,0.399043);
- \draw[dashed] (axis cs: 3, 0)--(axis cs: 3,0.399043);
+ \draw[dashed] (axis cs: 1.1, 0)--(axis cs: 1,0.399043);
+ \draw[dashed] (axis cs: 3.1, 0)--(axis cs: 3,0.399043);
  \draw[dashed] (axis cs: 5, 0)--(axis cs: 5,0.399043);
   \end{axis}
 \end{tikzpicture}
