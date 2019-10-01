@@ -968,7 +968,7 @@ y label style={at={(axis description cs:0.25,1)},rotate=0},
 
 \begin{figure}[H]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=-21, xmax=10, ymin=0, ymax=0.7,
+   \begin{axis}[ xmin=-23, xmax=18, ymin=0, ymax=0.7,
      ticks=none,
  axis y line=middle,
      axis x line=middle,
@@ -979,8 +979,8 @@ y label style={at={(axis description cs:0.25,1)},rotate=0},
 y label style={at={(axis description cs:0.65,1)},rotate=0},
  x label style={at={(axis description cs:1.1,0)}},
      scale=1, restrict y to domain=0:10]
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-3:9] plot (\x, { (pow(2.17, (\x - 5)/2) * (pow(2.17, (\x - 5)/2  ) )* pow(2.17, pow(pow(2.17, (\x - 5)/2), 2) * (-1) ) }) ;
-   \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-23:-3] plot (\x, { (pow(2.17, (-\x - 13)/2) * (pow(2.17, (-\x - 13)/2  ) )* pow(2.17, pow(pow(2.17, (-\x - 13)/2), 2) * (-1) ) }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:18] plot (\x, { (pow(2.17, (\x - 13)/2) * (pow(2.17, (\x - 13)/2  ) )* pow(2.17, pow(pow(2.17, (\x - 13)/2), 2) * (-1) ) }) ;
+   \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-23:-0] plot (\x, { (pow(2.17, (-\x - 15)/4) * (pow(2.17, (-\x - 15)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 15)/4), 2) * (-1) ) }) ;
 
  
 
@@ -3161,7 +3161,7 @@ soft clip={domain=pi:2*pi},
       clip mode= individual,
      width = 12cm,
        xmin=0, xmax=9, ymin=-0.5, ymax=0.5  ]
-  \addplot[black, samples=100, smooth, unbounded coords=discard,domain=0:3] {sin((deg(x))*8) / 4};
+  \addplot[black, samples=100, smooth, unbounded coords=discard,domain=0:3] {sin((deg(x -  0.2)-0.3)*8) / 4};
   \addplot[black, samples=100, smooth, unbounded coords=discard,domain=0:3, dashed] {cos((deg(x) - 1.4)*8)/8 };
   \draw  (axis cs:3,-0.5)--(axis cs:3,0.5);
  \draw(axis cs:3,0.5)--(axis cs:6,0.5);
@@ -3172,8 +3172,8 @@ soft clip={domain=pi:2*pi},
   \node[] at (axis cs:4.5, 0){$A$};
   \node[] at (axis cs:9, 0.65){$y(t)$};
   \node[] at (axis cs:9, -0.3){$Y(t)$} ;
-  \node[] at (axis cs:0, 0.65){$x(t)$};
-  \node[] at (axis cs:0.6, -0.45){$X(t)$} ;
+  \node[] at (axis cs:0, 0.35){$x(t)$};
+  \node[] at (axis cs:0.8, -0.45){$X(t)$} ;
 \draw [->] (axis cs:1, 1) -- (axis cs:2, 1);
   \end{axis}
 % \node [black, right] at (0,-4) {$x(t),y(t)$};
