@@ -3081,9 +3081,13 @@ y label style={at={(axis description cs:0.025,1)},rotate=0},
 в)Спектральная плотность в канонической форме:\\
 $K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omega \tau} d\omega$ , где $S_X(\omega) = \frac{1}{2\pi} \displaystyle{\int \limits_{-\infty}^{\infty}} k_X(\tau) e^{-i\omega \tau} d\tau$, $D_X = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega) d \omega$.\\
 $\hat{S}_X(\omega)=2S_X(\omega)$
-%\includegraphics[scale=0.6]{page69.png}\\
 \\
+\begin{figure}[h!]
+\includegraphics[scale = 0.3]{Drawed.png}
+\caption{Спектральный случайный процесс}
+\end{figure}
 \\
+\iffalse
 \begin{figure}[!h]
 \begin{tikzpicture}
    \begin{axis}[ xmin=-2*pi, xmax=2*pi, ymin=0, ymax=2.5,
@@ -3141,6 +3145,7 @@ soft clip={domain=pi:2*pi},
 \end{tikzpicture}
 \caption{Спектральная плотность в канонической форме}
 \end{figure}
+\fi
 %страница 70
 \subsection{Преобразование случайной функции линейной системой}
 \noindent
