@@ -2882,34 +2882,6 @@ $\sigma(\hat{Q}) = \sqrt{D(\hat{Q})} = \sqrt{(2\cdot12\cdot 10^6)^2\cdot 0.01 + 
    \begin{axis}[ xmin=0, xmax=12, ymin=0, ymax=1,
  axis y line=middle,
      axis x line=middle,
-ticks=none,
-     xlabel=$t$, ylabel=$H(t)$,
-     label style={font=\normalsize},
-     xtick = {-10,0,...,10}, ytick = {0,...,1},
-y label style={at={(axis description cs:0,1)},rotate=0},
-  width=6cm,height=6cm,
-     scale=1, restrict y to domain=0:10]
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 1) /8 + 1/2 }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2 - 2) /8 + 1/2 }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2 - 2.2) /4 + 1/2 }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2 - 1.7) /4 + 1/2 }) ;
-     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/4) /8 + 1/2 }) ;  
-     \draw[dashed] (axis cs:0, 1/2) -- (axis cs:12, 1/2);	
-  
-\end{axis}
-\end{tikzpicture}
-\caption{$1$}
-\end{figure}
-\noindent
-Зафиксируем в несколько моментов $t$, получим систему случайных величин, то есть случайная функция -- обобщение системы случайных величин. 
-Не будем рассматривать законы распределения случайной функции, остановимся только на характеристиках. Если числовые характеристики случайной величины -- числа, то соответствующие характеристики случайных функций -- функции (неслучайные).\\
-\textit{\textbf{Определение}}\\ 
-Математическое ожидание $M(X(t)) = m_X(t)$ случайной функции $X(t)$ называется неслучайная функция $m_x(t)$, которая при каждом значении $t$ равна математическому ожиданию соответствующего сечения случайной функции, дисперсия $D_X(t) = D(X(t))$.\\
-\begin{figure}[!h]
-\begin{tikzpicture}
-   \begin{axis}[ xmin=0, xmax=12, ymin=0, ymax=1,
- axis y line=middle,
-     axis x line=middle,
 clip mode=individual ,
 ticks=none,
      xlabel=$t$, ylabel=$H(t)$,
@@ -2924,11 +2896,45 @@ y label style={at={(axis description cs:0,1)},rotate=0},
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2 - 1.7) /4 + 1/2 }) ;
      \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/4) /8 + 1/2 }) ;  
      \draw[dashed] (axis cs:0, 1/2) -- (axis cs:12, 1/2);	
-  \node [black, right,  -latex] at (axis cs:14,1/2) {$m_{X_1}(t)$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{$1)$}
+\end{figure}
+\noindent
+Зафиксируем в несколько моментов $t$, получим систему случайных величин, то есть случайная функция -- обобщение системы случайных величин. 
+Не будем рассматривать законы распределения случайной функции, остановимся только на характеристиках. Если числовые характеристики случайной величины -- числа, то соответствующие характеристики случайных функций -- функции (неслучайные).\\
+\textit{\textbf{Определение}}\\ 
+Математическое ожидание $M(X(t)) = m_X(t)$ случайной функции $X(t)$ называется неслучайная функция $m_x(t)$, которая при каждом значении $t$ равна математическому ожиданию соответствующего сечения случайной функции, дисперсия $D_X(t) = D(X(t))$.\\
+\begin{figure}[!h]
+\begin{tikzpicture}
+   \begin{axis}[ xmin=0, xmax=12, ymin=0, ymax=1,
+ axis y line=middle,
+     axis x line=middle,
+ticks=none,
+     xlabel=$t$, ylabel=$H(t)$,
+clip mode=individual ,
+     label style={font=\normalsize},
+     xtick = {-10,0,...,10}, ytick = {0,...,1},
+y label style={at={(axis description cs:0,1)},rotate=0},
+  width=6cm,height=6cm,
+     scale=1, restrict y to domain=0:10]
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)*2 - 1) /8 + 1/2 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 2) /8 + 0.45 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 2.2) /8 + 0.55 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 1.65) /8 + 1/2 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 1.8) /16 + 1/2 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) -  2.3) /8 + 0.45 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 2.25) /8 + 0.5 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 175) /8 + 0.55 }) ;
+     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2) /8 + 0.45 }) ;  
+     \draw[dashed] (axis cs:0, 1/2) -- (axis cs:12, 1/2);	
+    \node [black, right,  -latex] at (axis cs:14,1/2) {$m_{X_1}(t)$};
 \end{axis}
 \end{tikzpicture}
 \caption{$2$}
-\end{figure}
+\end{figure}\\
+
 \begin{figure}[!h]
 \begin{tikzpicture}
    \begin{axis}[ xmin=0, xmax=12, ymin=0, ymax=1,
@@ -2953,7 +2959,6 @@ y label style={at={(axis description cs:0,1)},rotate=0},
 \end{tikzpicture}
 \caption{$3$}
 \end{figure}
-\\
 \newpage
 \noindent
 Этих характеристик явно не достаточно. Например, процессы показанные на рисунках, будут иметь примерно одинаковые математические ожидания и дисперсии. Чтобы уловить их разницу, надо указать связь между значениями случайной функции $X(t)$ в различные моменты времени. Ее характеризует корреляционная функция.\\
