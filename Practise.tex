@@ -976,11 +976,11 @@ y label style={at={(axis description cs:0.25,1)},rotate=0},
      label style={font=\normalsize},
      xlabel=$x$, ylabel=$f(x)$,
      xtick = {-10,0,...,10}, ytick = {0,...,1},
-y label style={at={(axis description cs:0.65,1)},rotate=0},
+y label style={at={(axis description cs:0.55,1)},rotate=0},
  x label style={at={(axis description cs:1.1,0)}},
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:18] plot (\x, { (pow(2.17, (\x - 13)/2) * (pow(2.17, (\x - 13)/2  ) )* pow(2.17, pow(pow(2.17, (\x - 13)/2), 2) * (-1) ) }) ;
-   \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-23:-0] plot (\x, { (pow(2.17, (-\x - 15)/4) * (pow(2.17, (-\x - 15)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 15)/4), 2) * (-1) ) }) ;
+   \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-23:3] plot (\x, { (pow(2.17, (-\x - 15)/4) * (pow(2.17, (-\x - 15)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 15)/4), 2) * (-1) ) }) ;
 
  
 
