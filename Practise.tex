@@ -2908,7 +2908,7 @@ y label style={at={(axis description cs:0,1)},rotate=0},
 Математическое ожидание $M(X(t)) = m_X(t)$ случайной функции $X(t)$ называется неслучайная функция $m_x(t)$, которая при каждом значении $t$ равна математическому ожиданию соответствующего сечения случайной функции, дисперсия $D_X(t) = D(X(t))$.\\
 \begin{figure}[!h]
 \begin{tikzpicture}
-   \begin{axis}[ xmin=0, xmax=12, ymin=0, ymax=1,
+   \begin{axis}[ xmin=0, xmax=48, ymin=0, ymax=1,
  axis y line=middle,
      axis x line=middle,
 ticks=none,
@@ -2919,17 +2919,13 @@ clip mode=individual ,
 y label style={at={(axis description cs:0,1)},rotate=0},
   width=6cm,height=6cm,
      scale=1, restrict y to domain=0:10]
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)*2 - 1) /8 + 1/2 }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 2) /8 + 0.45 }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 2.2) /8 + 0.55 }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 1.65) /8 + 1/2 }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 1.8) /16 + 1/2 }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) -  2.3) /8 + 0.45 }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 2.25) /8 + 0.5 }) ;
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x) - 175) /8 + 0.55 }) ;
-     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)/2) /8 + 0.45 }) ;  
-     \draw[dashed] (axis cs:0, 1/2) -- (axis cs:12, 1/2);	
-    \node [black, right,  -latex] at (axis cs:14,1/2) {$m_{X_1}(t)$};
+
+    \addplot[black, samples=1000, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x + 3.14/2 + 0.7)/2   ) /32 + 0.45 }) ;
+    \addplot[black, samples=1000, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x + 3.14/2)/ 2) /32 + 0.55 }) ;
+    \addplot[black, samples=1000, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x)/ 2 - 0.5+ 3.14/2)/32  + 1/2 }) ;
+    \addplot[black, samples=1000, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x)/ 2 + 3.14/2) /32+ 0.40 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x)/ 2) /32 + 0.60 }) ;
+    \node [black, right,  -latex] at (axis cs:50,1/2) {$m_{X_1}(t)$};
 \end{axis}
 \end{tikzpicture}
 \caption{$2$}
@@ -3088,11 +3084,10 @@ $K_X(\tau) = \displaystyle{\int \limits_{-\infty}^{\infty}} S_X(\omega)e^{i\omeg
 $\hat{S}_X(\omega)=2S_X(\omega)$
 \\
 \begin{figure}[h!]
-\includegraphics[scale = 0.3]{Drawed.png}
+\includegraphics[scale = 0.3]{a.png}
 \caption{Спектральный случайный процесс}
 \end{figure}
-\\
-\iffalse
+\\\iffalse
 \begin{figure}[!h]
 \begin{tikzpicture}
    \begin{axis}[ xmin=-2*pi, xmax=2*pi, ymin=0, ymax=2.5,
@@ -3102,7 +3097,7 @@ $\hat{S}_X(\omega)=2S_X(\omega)$
      axis x line=middle,
      axis y line=middle,
      label style={font=\normalsize},
-     xlabel=$x$,
+     xlabel=$\omega$,
  %    xtick = {-10,0,...,10}, ytick = {0,...,1},
 x label style={at={(axis description cs:1.05,0.025)},rotate=0},
      scale=1, restrict y to domain=0:10]
@@ -3144,12 +3139,12 @@ soft clip={domain=pi:2*pi},
 ];
 
 
- \node[label={below right :{$\hat{S}_X(\omega)$}}] at (axis cs:0,2.5) {};
+ \node[label={below right :{$\hat{S}_X (\omega)$}}] at (axis cs:0,2.5) {};
 \node[label={below right :{$S_X(\omega)$}}] at (axis cs:-4, 1.6) {};
 \end{axis}
 \end{tikzpicture}
 \caption{Спектральная плотность в канонической форме}
-\end{figure}
+\end{figure}\\
 \fi
 %страница 70
 \subsection{Преобразование случайной функции линейной системой}
