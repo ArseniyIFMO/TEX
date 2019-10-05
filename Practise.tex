@@ -979,11 +979,12 @@ y label style={at={(axis description cs:0.25,1)},rotate=0},
 y label style={at={(axis description cs:0.55,1)},rotate=0},
  x label style={at={(axis description cs:1.1,0)}},
      scale=1, restrict y to domain=0:10]
-    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:18] plot (\x, { (pow(2.17, (\x - 13)/2) * (pow(2.17, (\x - 13)/2  ) )* pow(2.17, pow(pow(2.17, (\x - 13)/2), 2) * (-1) ) }) ;
-   \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-23:3] plot (\x, { (pow(2.17, (-\x - 15)/4) * (pow(2.17, (-\x - 15)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 15)/4), 2) * (-1) ) }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:13] plot (\x, { ((pow(2.17, (\x - 13)/2) * (pow(2.17, (\x - 13)/2  ) )* pow(2.17, pow(pow(2.17, (\x - 13)/2), 2) * (-1) ) ) / 2 + 0.2304145 }) ;
+    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=13:18] plot (\x, { ((pow(2.17, (\x - 13)/2) * (pow(2.17, (\x - 13)/2  ) )* pow(2.17, pow(pow(2.17, (\x - 13)/2), 2) * (-1) )) }) ;
+   \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-23:-15] plot (\x, { (pow(2.17, (-\x - 15)/4) * (pow(2.17, (-\x - 15)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 15)/4), 2) * (-1) ) }) ;
+ \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-15:3] plot (\x, {( (pow(2.17, (-\x - 15)/4) * (pow(2.17, (-\x - 15)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 15)/4), 2) * (-1) ) ) / 2 + 0.2304145 }) ;
 
- 
-
+ 0.460829
  \end{axis}
 \end{tikzpicture}
 \caption{Полимодальное распределение}
@@ -2921,8 +2922,8 @@ y label style={at={(axis description cs:0,1)},rotate=0},
      scale=1, restrict y to domain=0:10]
 
     \addplot[black, samples=1000, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x + 3.14/2 + 0.7)/2   ) /32 + 0.45 }) ;
-    \addplot[black, samples=1000, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x + 3.14/2)/ 2) /32 + 0.55 }) ;
-    \addplot[black, samples=1000, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x)/ 2 - 0.5+ 3.14/2)/32  + 1/2 }) ;
+    \addplot[black, samples=1000, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x + 3.14/2)/ 2) /40 + 0.55 }) ;
+    \addplot[black, samples=1000, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x)/ 2 - 0.5+ 3.14/2)/50  + 1/2 }) ;
     \addplot[black, samples=1000, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x)/ 2 + 3.14/2) /32+ 0.40 }) ;
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:48] plot (\x, { sin(deg(x)/ 2) /32 + 0.60 }) ;
     \node [black, right,  -latex] at (axis cs:50,1/2) {$m_{X_1}(t)$};
