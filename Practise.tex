@@ -983,8 +983,6 @@ y label style={at={(axis description cs:0.55,1)},rotate=0},
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=13:18] plot (\x, { ((pow(2.17, (\x - 13)/2) * (pow(2.17, (\x - 13)/2  ) )* pow(2.17, pow(pow(2.17, (\x - 13)/2), 2) * (-1) )) }) ;
    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-23:-15] plot (\x, { (pow(2.17, (-\x - 15)/4) * (pow(2.17, (-\x - 15)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 15)/4), 2) * (-1) ) }) ;
  \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-15:3] plot (\x, {( (pow(2.17, (-\x - 15)/4) * (pow(2.17, (-\x - 15)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 15)/4), 2) * (-1) ) ) / 2 + 0.2304145 }) ;
-
- 0.460829
  \end{axis}
 \end{tikzpicture}
 \caption{Полимодальное распределение}
@@ -2951,7 +2949,7 @@ y label style={at={(axis description cs:0,1)},rotate=0},
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)*16 - 1.7) /4 + 1/2 }) ;
      \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:12] plot (\x, { sin(deg(x)*32) /8 + 1/2 }) ;  
      \draw[dashed] (axis cs:0, 1/2) -- (axis cs:12, 1/2);	
-\node [black, right,  -latex] at (axis cs:14,1/2) {$m_{X_2}(t)$};
+\node [black, right,  -latex] at (axis cs:12.5,1/2) {$m_{X_2}(t)$};
 \end{axis}
 \end{tikzpicture}
 \caption{$3$}
@@ -3173,8 +3171,8 @@ soft clip={domain=pi:2*pi},
   \node[] at (axis cs:4.5, 0){$A$};
   \node[] at (axis cs:9.2, 0.65){$y(t)$};
   \node[] at (axis cs:9.3, -0.3){$Y(t)$} ;
-  \node[] at (axis cs:-0.2, 0.35){$x(t)$};
-  \node[] at (axis cs:-0.2, -0.45){$X(t)$} ;
+  \node[] at (axis cs:-0.2, 0.35){$X(t)$};
+  \node[] at (axis cs:-0.2, -0.45){$x(t)$} ;
 \draw [->] (axis cs:1, 1) -- (axis cs:2, 1);
   \end{axis}
 % \node [black, right] at (0,-4) {$x(t),y(t)$};
