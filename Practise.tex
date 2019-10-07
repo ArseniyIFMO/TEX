@@ -980,7 +980,7 @@ y label style={at={(axis description cs:0.4,1)},rotate=0},
  x label style={at={(axis description cs:1.1,0)}},
      scale=1, restrict y to domain=0:10]
     \addplot[black, samples=100, smooth, unbounded coords=discard, domain=0:18] plot (\x, { ((pow(2.17, (\x - 13)/2) * (pow(2.17, (\x - 13)/2  ) )* pow(2.17, pow(pow(2.17, (\x - 13)/2), 2) * (-1) ) ) / 2 + 0.2304145 }) ;
-       \addplot[black, samples=100, smooth, unbounded coords=discard, domain=18:26] plot (\x, { ((pow(2.17, (\x - 26)/2) * (pow(2.17, (\x - 26)/2  ) )* pow(2.17, pow(pow(2.17, (\x - 26)/2), 2) * (-1) ) ) / 2 + 0.2304145 }) ;
+       \addplot[black, samples=100, smooth, unbounded coords=discard, domain=18:26] plot (\x, { ((pow(2.17, (\x - 26)/2) * (pow(2.17, (\x - 26)/2  ) )* pow(2.17, pow(pow(2.17, (\x - 26)/2), 2) * (-1) ) ) / 3 + 0.2304145 }) ;
   \addplot[black, samples=100, smooth, unbounded coords=discard, domain=26:30] plot (\x, { (pow(2.17, (-\x - 26)/4) * (pow(2.17, (-\x - 26)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 26)/4), 2) * (-1) ) }) ;
    \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-23:-15] plot (\x, { (pow(2.17, (-\x - 15)/4) * (pow(2.17, (-\x - 15)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 15)/4), 2) * (-1) ) }) ;
  \addplot[black, samples=100, smooth, unbounded coords=discard, domain=-15:3] plot (\x, {( (pow(2.17, (-\x - 15)/4) * (pow(2.17, (-\x - 15)/4  ) )* pow(2.17, pow(pow(2.17, (-\x - 15)/4), 2) * (-1) ) ) / 2 + 0.2304145 }) ;
@@ -3066,7 +3066,7 @@ $\hat{S}_X(\omega)  = \frac{2}{\pi} \displaystyle{\int \limits_{0}^{\infty}}k_X(
      label style={font=\normalsize},
      xlabel=$\omega$, ylabel=$\hat{S}_x (\omega)$,
  %    xtick = {-10,0,...,10}, ytick = {0,...,1},
-y label style={at={(axis description cs:0.025,1)},rotate=0},
+y label style={at={(axis description cs:0.01,1)},rotate=0},
      scale=1, restrict y to domain=0:10]
   \addplot[black, samples=100, smooth, unbounded coords=discard,domain=pi/2:3*pi/2] {sin(deg(x) + pi/2)  + 1 };
  \addplot[black, samples=100, smooth, unbounded coords=discard,domain=3*pi/2:7*pi/2] {(sin(deg(x) + pi/2) / 2 + 1/2 };
@@ -3147,8 +3147,8 @@ soft clip={domain=pi:2*pi},
 ];
 
 
- \node[label={below :{$\hat{S}_X (\omega)$}}] at (axis cs:pi,2.55) {};
-\node[label={below :{$S_X(\omega)$}}] at (axis cs:-pi, 1.55) {};
+ \node[label={below :{$\hat{S}_X (\omega)$}}] at (axis cs:pi,2.45) {};
+\node[label={below :{$S_X(\omega)$}}] at (axis cs:-pi, 1.45) {};
 \end{axis}
 \end{tikzpicture}
 \caption{Спектральная плотность в канонической форме}
