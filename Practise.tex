@@ -783,7 +783,7 @@ $F(x) = \int\limits_{-\infty}^{x}f(x)dx$\\
      axis y line=middle,
      axis x line=middle,
      y label style={at={(axis description cs:.58,0.9)},anchor=south },
- x label style={at={(axis description cs:1,0.2)},anchor=south },
+ x label style={at={(axis description cs:1.025,0.2)},anchor=south },
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$f(x)$,
@@ -823,7 +823,7 @@ f(x)=
 width=8cm,
   height=5cm,
 clip mode=individual ,
-     y label style={at={(axis description cs:.6,0.9)},anchor=south, scale = 1 },
+     y label style={at={(axis description cs:.555,0.9)},anchor=south, scale = 1 },
      x label style={at={(axis description cs:1,0)}},
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
@@ -857,7 +857,7 @@ F(x)=
 width=8cm,
   height=5cm,
 clip mode=individual ,
-     y label style={at={(axis description cs:.6,0.9)},anchor=south },
+     y label style={at={(axis description cs:.555,0.9)},anchor=south },
 %y label style={ticks=none,at={(axis description cs:0.2,10)},rotate=270,anchor=south},
      axis line style={->},
      xlabel=$x$, ylabel=$F(x)$,
@@ -1670,7 +1670,8 @@ $\textbf{Совместная плотность вероятности сист
      axis y line=middle,
      axis x line=middle,
      width=0.8\textwidth,
-     y label style={at={(axis description cs:.45,0.9)},anchor=south, font = \normalsize},
+     y label style={at={(axis description cs:0.40,0.9)},anchor=south, font = \normalsize},
+   x label style={at={(axis description cs:0.98,0.31)},anchor=south, font = \normalsize},
      axis line style={->},
      x label style = {font = \normalsize},
      xlabel=$\large x$, ylabel=$\large y$,
@@ -1691,7 +1692,7 @@ $\textbf{Совместная плотность вероятности сист
 \draw[fill=black!10!black] (500 ,540) circle (0.2ex);
 \draw[fill=black!10!black] (640,300) circle (0.2ex);
 \draw[fill=black!10!black] (740,300) circle (0.2ex);
-\node [below left] at (520,430) {$ y $};
+\node [below left] at (470,430) {$y$};
 \node [below left] at (510,693) {$ y + \Delta y$};
 \node [below left] at (630,290) {$x$};
 \node [below right] at (720,310) {$x + \Delta x$};
@@ -3070,7 +3071,8 @@ $\hat{S}_X(\omega)  = \frac{2}{\pi} \displaystyle{\int \limits_{0}^{\infty}}k_X(
      label style={font=\normalsize},
      xlabel=$\omega$, ylabel=$\hat{S}_x (\omega)$,
  %    xtick = {-10,0,...,10}, ytick = {0,...,1},
-y label style={at={(axis description cs:0.01,1)},rotate=0},
+y label style={at={(axis description cs:0.0012,1.01)},rotate=0},
+x label style={at={(axis description cs:1,0.01)}},
      scale=1, restrict y to domain=0:10]
   \addplot[black, samples=100, smooth, unbounded coords=discard,domain=pi/2:3*pi/2] {sin(deg(x) + pi/2)  + 1 };
  \addplot[black, samples=100, smooth, unbounded coords=discard,domain=3*pi/2:7*pi/2] {(sin(deg(x) + pi/2) / 2 + 1/2 };
